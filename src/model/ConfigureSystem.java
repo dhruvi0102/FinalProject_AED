@@ -12,7 +12,7 @@ public class ConfigureSystem {
     
     public static EcoSystem configure(){
         
-        EcoSystem ecosystem = new EcoSystem();///= EcoSystem.getInstance();
+        EcoSystem ecosystem = EcoSystem.getInstance();
         Worker employee = ecosystem.getWorkerDirectory().createEmployee("RRH");        
         UserAccount ua = ecosystem.getUserAccountDirectory().addUserAccount("admin" ,"sysadmin", "sysadmin", employee, new SystemAdmin());
         
