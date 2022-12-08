@@ -13,9 +13,10 @@ import model.UserAccount.UserAccount;
  *
  * @author dhruv
  */
-public class PoliceDepartmentAdmin extends Role {
-   @Override
+public class AdminRole extends Role {
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         return new SystemAdminWorkAreaJPanel(userProcessContainer, account, business);
-    } 
+    }
+
 }

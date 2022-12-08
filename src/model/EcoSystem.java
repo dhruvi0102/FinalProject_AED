@@ -10,6 +10,9 @@ import model.PoliceDepartment.PoliceDepartmentDirectory;
 import model.Requests.RequestDirectory;
 import model.Role.Role;
 import model.Role.SystemAdmin;
+import model.UserAccount.UserAccountDirectory;
+import model.UserAdmin.AdminDirectory;
+import model.UserAdmin.UserDirectory;
 
 
 /**
@@ -21,12 +24,16 @@ public class EcoSystem extends Organization{
     private RequestDirectory requestDirectory;
     private ControlUnitDirectory controlUnitDirectory;
     private PoliceDepartmentDirectory policeDeptDirectory;
+    private UserDirectory userAdminDirectory;
+    private AdminDirectory adminDirectory;
 
-    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory) {
+    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory) {
         super(null);
         this.policeDeptDirectory = policeDeptDirectory;
         this.controlUnitDirectory = controlUnitDirectory;
         this.requestDirectory = requestDirectory;
+        this.userAdminDirectory = userAdminDirectory;
+        this.adminDirectory = adminDirectory;
     }
     
     private EcoSystem() {
@@ -79,6 +86,29 @@ public class EcoSystem extends Organization{
     public void setRequestDirectory(RequestDirectory requestDirectory) {
         this.requestDirectory = requestDirectory;
     }
+    
+    public UserDirectory getUserAdminDirectory() {
+         if(userAdminDirectory == null){
+             userAdminDirectory = new UserDirectory();
+         }
+        return userAdminDirectory;
+    }
+
+    public void setUserAdminDirectory(UserDirectory userAdminDirectory) {
+        this.userAdminDirectory = userAdminDirectory;
+    }
+    
+    public AdminDirectory getAdminDirectory() {
+         if(adminDirectory == null){
+             adminDirectory = new AdminDirectory();
+         }
+        return adminDirectory;
+    }
+
+    public void setAdminDirectory(AdminDirectory adminDirectory) {
+        this.adminDirectory = adminDirectory;
+    }
+    
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();

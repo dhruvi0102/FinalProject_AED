@@ -11,15 +11,15 @@ import java.util.ArrayList;
  * @author dhruv
  */
 public class ControlUnitDirectory {
-    private ArrayList<ControlUnit> controlunit = new ArrayList<>();
+    private ArrayList<ControlUnit> controlUnit = new ArrayList<>();
     private ControlUnit cntrlunit;
 
-    public ArrayList<ControlUnit> getCcunits() {
-        return controlunit;
+    public ArrayList<ControlUnit> getControlUnit() {
+        return controlUnit;
     }
 
-    public void setCcunits(ArrayList<ControlUnit> controlunit) {
-        this.controlunit = controlunit;
+    public void setControlUnit(ArrayList<ControlUnit> controlunit) {
+        this.controlUnit = controlunit;
     }
 
     public ControlUnit getCntrlunit() {
@@ -30,9 +30,9 @@ public class ControlUnitDirectory {
         this.cntrlunit = cntrlunit;
     }
 
-    public ControlUnit createCCUDirectory(String controlUnitNum) {
-        cntrlunit = new ControlUnit(controlUnitNum);
-        controlunit.add(cntrlunit);
+    public ControlUnit createCUDirectory(String criticalControlUnitNum, String trafficControlUnit) {
+        cntrlunit = new ControlUnit(criticalControlUnitNum,trafficControlUnit);
+        controlUnit.add(cntrlunit);
         return cntrlunit;
     }
 }

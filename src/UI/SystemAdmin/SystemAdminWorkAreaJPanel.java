@@ -1,8 +1,19 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package UI.SystemAdmin;
+
+import model.EcoSystem;
+
+import model.Organization;
+import model.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -13,9 +24,31 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkAreaJPanel() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount userAccount;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+//        populateTree();
     }
+    
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem){
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
+        lblRequestTitle.setVisible(false);
+        btnManageRequests.setVisible(false);
+    }
+
+//    public void populateTree() {
+//        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+//        // Add the code for draw your system structure shown by JTree
+//
+//        model.reload();
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,19 +59,231 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jSplitPane = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        btnManageFire = new javax.swing.JButton();
+        btnManageHospital = new javax.swing.JButton();
+        btnManageShelter = new javax.swing.JButton();
+        btnManageRequests = new javax.swing.JButton();
+        btnManagePolice = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        lblEnterpriseTitle = new javax.swing.JLabel();
+        lblRequestTitle = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnManageUser = new javax.swing.JButton();
+        btnManageAdmin = new javax.swing.JButton();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnManageFire.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageFire.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManageFire.setText("Manage Fire");
+        btnManageFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageFireActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 190, 60));
+
+        btnManageHospital.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageHospital.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManageHospital.setText("Manage Hospitals");
+        btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageHospitalActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 190, 60));
+
+        btnManageShelter.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageShelter.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManageShelter.setText("Manage Shelter");
+        btnManageShelter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageShelterActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 190, 60));
+
+        btnManageRequests.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageRequests.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        btnManageRequests.setText("Manage Requests");
+        btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestsActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 280, 80));
+
+        btnManagePolice.setBackground(new java.awt.Color(241, 104, 116));
+        btnManagePolice.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManagePolice.setText("Manage Police");
+        btnManagePolice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePoliceActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManagePolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 190, 60));
+
+        lblTitle.setBackground(new java.awt.Color(153, 0, 51));
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 16)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(119, 10, 40));
+        lblTitle.setText("Welcome to Emergency Response!");
+        jPanel3.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        lblEnterpriseTitle.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        lblEnterpriseTitle.setText("Please create Enterprises to Proceed ->");
+        jPanel3.add(lblEnterpriseTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, 20));
+
+        lblRequestTitle.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        lblRequestTitle.setText("Please enter Control room to register a Complaint");
+        jPanel3.add(lblRequestTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnManageUser.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageUser.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManageUser.setText("Manage User");
+        btnManageUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageUserActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 190, 60));
+
+        btnManageAdmin.setBackground(new java.awt.Color(241, 104, 116));
+        btnManageAdmin.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        btnManageAdmin.setText("Manage Admin");
+        btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageAdminActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnManageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 190, 60));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(486, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE)
+                .addGap(76, 76, 76))
         );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jSplitPane.setLeftComponent(jPanel1);
+
+        add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
+       
+    }//GEN-LAST:event_jTreeValueChanged
+
+    private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
+        // TODO add your handling code here:
+        System.out.println("ManageUser" + ecosystem);
+        ManageAdminJPanel manageAdmin = new ManageAdminJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageAdmin);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageAdminActionPerformed
+
+    private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
+        // TODO add your handling code here:
+        System.out.println("ManageUser" + ecosystem);
+        ManageUserJPanel manageUser = new ManageUserJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageUserJPanel", manageUser);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageUserActionPerformed
+
+    private void btnManagePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePoliceActionPerformed
+        System.out.println("ManagePolice" + ecosystem);
+        ManagePoliceDepartmentJPanel managePolice = new ManagePoliceDepartmentJPanel(userProcessContainer, ecosystem);
+        //ManageUserJPanel managePolice = new ManageUserJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageRestaurantsJPanel", managePolice);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManagePoliceActionPerformed
+
+    private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
+        /*System.out.println("ecococo" + ecosystem);
+        ManageRequests manageReqs = new ManageRequests(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageReqs", manageReqs);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);*/
+    }//GEN-LAST:event_btnManageRequestsActionPerformed
+
+    private void btnManageShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageShelterActionPerformed
+       /* System.out.println("ManageShelters" + ecosystem);
+        ManageShelters manageShelters = new ManageShelters(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageRestaurantsJPanel", manageShelters);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);*/
+    }//GEN-LAST:event_btnManageShelterActionPerformed
+
+    private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
+       /* ManageHospital manageResPanel=new ManageHospital(userProcessContainer, ecosystem);
+        userProcessContainer.add("Manage ManageHospital",manageResPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);*/
+    }//GEN-LAST:event_btnManageHospitalActionPerformed
+
+    private void btnManageFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFireActionPerformed
+        /*System.out.println("ManageFireDept" + ecosystem);
+        ManageFireDept manageFire = new ManageFireDept(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageRestaurantsJPanel", manageFire);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);*/
+    }//GEN-LAST:event_btnManageFireActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageAdmin;
+    private javax.swing.JButton btnManageFire;
+    private javax.swing.JButton btnManageHospital;
+    private javax.swing.JButton btnManagePolice;
+    private javax.swing.JButton btnManageRequests;
+    private javax.swing.JButton btnManageShelter;
+    private javax.swing.JButton btnManageUser;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSplitPane jSplitPane;
+    private javax.swing.JLabel lblEnterpriseTitle;
+    private javax.swing.JLabel lblRequestTitle;
+    private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

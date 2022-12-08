@@ -49,6 +49,8 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
         lblCUNum = new javax.swing.JLabel();
         txtCUNum = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
+        lblTCNum = new javax.swing.JLabel();
+        txtTCNum = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,7 +77,11 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+
+        lblTCNum.setText("Traffic Control Unit:");
+        add(lblTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        add(txtTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -89,14 +95,15 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
      String ccuNum = txtCUNum.getText();
+     String tcuNum = txtTCNum.getText();
      
      ControlUnitDirectory ccuDir = system.getControlUnitDirectory();
-     ControlUnit ccu = null;
+     ControlUnit cu = null;
      if (system.getControlUnitDirectory() == null){
-         ccu = new ControlUnit(ccuNum);
-         ccuDir.getCcunits().add(ccu);
+         cu = new ControlUnit(ccuNum,tcuNum);
+         ccuDir.getControlUnit().add(cu);
      } else {
-         ccu = system.getControlUnitDirectory().createCCUDirectory(ccuNum);
+         cu = system.getControlUnitDirectory().createCUDirectory(ccuNum,tcuNum);
      }
 
         // TODO add your handling code here:
@@ -108,8 +115,10 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCUNum;
+    private javax.swing.JLabel lblTCNum;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtCUNum;
+    private javax.swing.JTextField txtTCNum;
     // End of variables declaration//GEN-END:variables
 
 //    private void populatePD() {

@@ -47,7 +47,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnRegister = new javax.swing.JButton();
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         lblUserName = new javax.swing.JLabel();
@@ -61,15 +60,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(245, 205, 144));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnRegister.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 100, -1));
         jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 170, 124, -1));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 242, 120, -1));
 
@@ -111,10 +101,6 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // Get user name      
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         btnLogout.setEnabled(false);
         txtUserName.setEnabled(true);
@@ -130,13 +116,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         
+       // Get user name
         String userName = txtUserName.getText();
         char[] passwordArray = txtPassword.getPassword();
         String passwordValue = String.valueOf(passwordArray);
         //Check if the user exists
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
 
-        userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
+        //userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
 
         if (userAccount == null) {
             JOptionPane.showMessageDialog(this, "Username or password is incorrect!");
@@ -191,7 +178,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JPanel container;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
