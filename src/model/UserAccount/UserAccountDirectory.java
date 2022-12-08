@@ -12,10 +12,10 @@ import model.Role.Role;
  *
  * @author dhruv
  */
-public class UserDirectory {
+public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
 
-    public UserDirectory() {
+    public UserAccountDirectory() {
         userAccountList = new ArrayList();
     }
 

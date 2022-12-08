@@ -22,7 +22,8 @@ public abstract class Role {
         SystemAdmin("SystemAdmin"),
         CityAdmin("CityAdmin"),
         LawyerAdmin("LawyerAdmin"),
-        Admin("Admin");
+        UserRole("UserRole"),
+        AdminRole("AdminRole");
        
         
         private String value;

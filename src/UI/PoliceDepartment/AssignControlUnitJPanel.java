@@ -31,7 +31,8 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         lblReqID.setText(reqID);
-        getControlUnit();
+        getCriticalControlUnit();
+        getTrafficControlUnit();
     }
 
     /**
@@ -52,10 +53,13 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         lblRequestID = new javax.swing.JLabel();
         lblFinalCU = new javax.swing.JLabel();
         txtFinalCU = new javax.swing.JTextField();
+        lblTControlUnit = new javax.swing.JLabel();
+        cmbTControlUnit = new javax.swing.JComboBox<>();
+        lblFinalTU = new javax.swing.JLabel();
+        txtFinalTU = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblControlUnit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblControlUnit.setText("Select Critical Control unit to Dispatch");
         add(lblControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
@@ -66,13 +70,13 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         });
         add(cmbControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 210, 20));
 
-        btnContinue.setText("Continue");
+        btnContinue.setText("Complete");
         btnContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinueActionPerformed(evt);
             }
         });
-        add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         lblTitle.setText("Assign Control Unit");
@@ -99,6 +103,20 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
             }
         });
         add(txtFinalCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 160, -1));
+
+        lblTControlUnit.setText("Select Traffic Control unit to Dispatch");
+        add(lblTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+
+        cmbTControlUnit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTControlUnitActionPerformed(evt);
+            }
+        });
+        add(cmbTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 210, -1));
+
+        lblFinalTU.setText("Selected Traffic Unit");
+        add(lblFinalTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        add(txtFinalTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
@@ -135,25 +153,44 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String CCUDiv = cmbControlUnit.getSelectedItem().toString();
         txtFinalCU.setText(CCUDiv);
+        cmbTControlUnit.setEditable(false);
+        txtFinalTU.setEditable(false);
     }//GEN-LAST:event_cmbControlUnitActionPerformed
+
+    private void cmbTControlUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTControlUnitActionPerformed
+        // TODO add your handling code here:
+        String TCUDiv = cmbTControlUnit.getSelectedItem().toString();
+        txtFinalTU.setText(TCUDiv);
+        cmbControlUnit.setEditable(false);
+        txtFinalCU.setEditable(false);
+    }//GEN-LAST:event_cmbTControlUnitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnContinue;
     private javax.swing.JComboBox<String> cmbControlUnit;
+    private javax.swing.JComboBox<String> cmbTControlUnit;
     private javax.swing.JLabel lblControlUnit;
     private javax.swing.JLabel lblFinalCU;
+    private javax.swing.JLabel lblFinalTU;
     private javax.swing.JLabel lblReqID;
     private javax.swing.JLabel lblRequestID;
+    private javax.swing.JLabel lblTControlUnit;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtFinalCU;
+    private javax.swing.JTextField txtFinalTU;
     // End of variables declaration//GEN-END:variables
 
-    private void getControlUnit() {
-        for (ControlUnit b : ecosystem.getControlUnitDirectory().getCcunits()) {
-            cmbControlUnit.addItem(b.getControlUnit());
+    private void getCriticalControlUnit() {
+        for (ControlUnit b : ecosystem.getControlUnitDirectory().getControlUnit()) {
+            cmbControlUnit.addItem(b.getCriticalcontrolUnit());
         }
     }
 
+    private void getTrafficControlUnit() {
+        for (ControlUnit b : ecosystem.getControlUnitDirectory().getControlUnit()) {
+            cmbControlUnit.addItem(b.getTrafficcontrolUnit());
+        }
+    }
 }
