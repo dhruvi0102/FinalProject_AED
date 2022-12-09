@@ -38,12 +38,10 @@ public class EcoSystem extends Organization{
     
     private EcoSystem() {
         super(null);
-        // networkList=new ArrayList<Network>();
     }
 
     public boolean checkIfUserIsUnique(String userName) {
-        //
-      
+        //     
         return false;
     }
     public static EcoSystem getInstance() {
