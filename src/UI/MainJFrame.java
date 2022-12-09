@@ -122,9 +122,6 @@ public class MainJFrame extends javax.swing.JFrame {
         String passwordValue = String.valueOf(passwordArray);
         //Check if the user exists
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
-
-        //userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
-
         if (userAccount == null) {
             JOptionPane.showMessageDialog(this, "Username or password is incorrect!");
             txtUserName.setText("");
