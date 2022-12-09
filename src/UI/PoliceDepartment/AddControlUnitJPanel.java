@@ -121,7 +121,4 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtTCNum;
     // End of variables declaration//GEN-END:variables
 
-//    private void populatePD() {
-//       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 }

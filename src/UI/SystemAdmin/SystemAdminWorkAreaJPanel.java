@@ -33,7 +33,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
-        /*if(userAccount.getRole().equals("CityAdmin")){
+        System.out.println(userAccount.getRole());
+        if ("model.Role.AdminRole".equals(userAccount.getRole().getClass().getName())) {
         lblRequestTitle.setVisible(false);
         btnManageRequests.setVisible(false);  
         lblEnterpriseTitle.setVisible(false);
@@ -41,13 +42,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManagePolice.setVisible(false);
         btnManageFire.setVisible(false);
         btnManageShelter.setVisible(false);
-        //lblUserAdminTitle.setVisible(false);
+        lblUserAdminTitle.setVisible(false);
         btnUsers.setVisible(false);
         btnAdmins.setVisible(false);
-        }else{*/
-        lblRequestTitle.setVisible(false);
-        btnManageRequests.setVisible(false);
-        //}
+        btnAreaAdmins.setVisible(false);
+        lblRequestTitle.setVisible(true);
+        btnManageRequests.setVisible(true);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.

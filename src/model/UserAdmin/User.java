@@ -15,7 +15,9 @@ public class User {
     private String fullName;
     private String userName;
     private String category;
-    
+    private String Address;
+    private String Contact;
+
     private ArrayList<Request> requests = new ArrayList<>();
     
     public User() {
@@ -56,6 +58,22 @@ public class User {
 
     public void setRequests(ArrayList<Request> requests) {
         this.requests = requests;
+    }
+    
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+
+    public String getContact() {
+        return Contact;
+    }
+
+    public void setContact(String Contact) {
+        this.Contact = Contact;
     }
     
     @Override

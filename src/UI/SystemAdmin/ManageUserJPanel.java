@@ -5,6 +5,8 @@
 package UI.SystemAdmin;
 
 import model.EcoSystem;
+import model.Role.UserRole;
+import model.UserAccount.UserAccount;
 import model.UserAdmin.User;
 import model.UserAdmin.UserDirectory;
 import java.awt.CardLayout;
@@ -15,9 +17,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import model.Role.UserRole;
-import model.UserAccount.UserAccount;
-import model.UserAccount.UserAccountDirectory;
 
 /**
  *
@@ -180,9 +179,9 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(38, 38, 38)
+                .addGap(60, 60, 60)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnConfirmUpdate)
@@ -201,18 +200,18 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         
         UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new UserRole());
        //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
-        UserDirectory userdir = ecoSystem.getUserAdminDirectory();
+        UserDirectory useradmdir = ecoSystem.getUserAdminDirectory();
 
-        User u = null;
+        User userAdmin = null;
 
         if (ecoSystem.getUserAdminDirectory()==null)
         {
-            u = new User(name, uname);
-            userdir.getUserAdmin().add(u);
+            userAdmin = new User(name, uname);
+            useradmdir.getUserAdmin().add(userAdmin);
         }
         else {
-            u = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
-            System.out.println("name :::" + u.getUserName());
+            userAdmin = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
+            System.out.println("name :::" + userAdmin.getUserName());
         }
 
         populateTable();
@@ -373,9 +372,9 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         JTableHeader th = tblUser.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
-	//System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
+	
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            //System.err.println("userrrr: " + user.getRole().getClass().getName());
+        
             if ("model.Role.UserRole".equals(user.getRole().getClass().getName())) {
                 
                 Object[] row = new Object[4];
@@ -385,7 +384,7 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                 row[2] = user.getPassword();
                
                 model.addRow(row);
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
             }
         }
     }

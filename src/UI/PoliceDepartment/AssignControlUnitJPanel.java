@@ -121,8 +121,6 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         // TODO add your handling code here:
-        //String CCUDiv = cmbControlUnit.getSelectedItem().toString();
-        //txtFinalCU.setText(CCUDiv);
         System.out.println("reqID" + lblReqID.getText());
           for (Request j : ecosystem.getRequestDirectory().getRequests()) {
             if (j.getRequestId() == lblReqID.getText()) {                

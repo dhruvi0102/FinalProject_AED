@@ -187,8 +187,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         System.out.print("chbStatus"+chbStatus.isSelected());
 
        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new PoliceDepartmentAdmin());
-       //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
-        PoliceDepartmentDirectory policedeptdir = ecoSystem.getPoliceDeptDirectory();
+       PoliceDepartmentDirectory policedeptdir = ecoSystem.getPoliceDeptDirectory();
 
         PoliceDepartment policeDept = null;
 
@@ -339,8 +338,6 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        //        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        //        sysAdminwjp.populateTree();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_BackbtnActionPerformed
@@ -372,10 +369,8 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
   DefaultTableModel model = (DefaultTableModel) entityTable.getModel();
         JTableHeader th = entityTable.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
-        model.setRowCount(0);
-	System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
+        model.setRowCount(0);	
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            System.err.println("userrrr: " + user.getRole().getClass().getName());
             if ("model.Role.PoliceDepartmentAdmin".equals(user.getRole().getClass().getName())) {
                 
                 Object[] row = new Object[3];
@@ -385,7 +380,6 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
                 row[2] = user.getPassword();
 
                 model.addRow(row);
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         }
     }
