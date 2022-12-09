@@ -33,8 +33,21 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
+        /*if(userAccount.getRole().equals("CityAdmin")){
+        lblRequestTitle.setVisible(false);
+        btnManageRequests.setVisible(false);  
+        lblEnterpriseTitle.setVisible(false);
+        btnManageHospital.setVisible(false);
+        btnManagePolice.setVisible(false);
+        btnManageFire.setVisible(false);
+        btnManageShelter.setVisible(false);
+        //lblUserAdminTitle.setVisible(false);
+        btnUsers.setVisible(false);
+        btnAdmins.setVisible(false);
+        }else{*/
         lblRequestTitle.setVisible(false);
         btnManageRequests.setVisible(false);
+        //}
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,7 +123,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnAreaAdmins.setText("Community Admin");
+        btnAreaAdmins.setText("Area Admin");
+        btnAreaAdmins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAreaAdminsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -170,9 +188,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAreaAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                        .addComponent(btnUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(btnUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -212,6 +229,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAdminsActionPerformed
+
+    private void btnAreaAdminsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaAdminsActionPerformed
+        // TODO add your handling code here:
+        ManageAreaJPanel manageArea = new ManageAreaJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageArea);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAreaAdminsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

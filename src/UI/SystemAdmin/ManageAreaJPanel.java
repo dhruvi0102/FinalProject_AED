@@ -7,6 +7,8 @@ package UI.SystemAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Font;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -99,10 +101,25 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblAreaAdmin);
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnConfirmUpdate.setText("Confirm Update");
+        btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -204,6 +221,129 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        int selectRow = tblAreaAdmin.getSelectedRow();
+
+        if(selectRow>=0){
+            String username= (String) tblAreaAdmin.getValueAt(selectRow, 1);
+            String pwd= (String) tblAreaAdmin.getValueAt(selectRow, 2);
+            userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
+
+            txtName.setText(userAccount.getName()+"");
+            txtUsername.setText(userAccount.getUsername()+"");
+            txtPassword.setText(userAccount.getPassword()+"");
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Please select a row");
+        }
+        btnSave.setEnabled(false);
+        btnDelete.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnConfirmUpdate.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmUpdateActionPerformed
+        // TODO add your handling code here:
+        String name = txtName.getText();
+        String uname=txtUsername.getText();
+        String password=txtPassword.getText();
+       
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            populateTable();
+            btnSave.setEnabled(true);
+            btnDelete.setEnabled(true);
+            btnUpdate.setEnabled(true);
+            btnConfirmUpdate.setEnabled(false);
+            txtName.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        }
+    }//GEN-LAST:event_btnConfirmUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = tblAreaAdmin.getSelectedRow();
+        if (selectedRow >= 0) {
+            String name = (String) tblAreaAdmin.getValueAt(selectedRow, 0);
+            String uname = (String) tblAreaAdmin.getValueAt(selectedRow, 1);
+            String password = (String) tblAreaAdmin.getValueAt(selectedRow, 2);            
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            String warningMessage = "Are you sure you want to delete the user - " + name.toUpperCase() + " ?";
+            int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
+                ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
+                //ecoSystem.getPoliceDeptDirectory().deleteShelter(user.getUsername());
+                ecoSystem.getUserAdminDirectory().deleteUser(uname);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -228,7 +368,7 @@ private void populateTable() {
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            if ("model.Role.AdminRole".equals(user.getRole().getClass().getName())) {               
+            if ("model.Role.CityAdmin".equals(user.getRole().getClass().getName())) {               
                 Object[] row = new Object[4];
 
                 row[0] = user.getName();
