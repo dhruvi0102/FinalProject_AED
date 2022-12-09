@@ -180,9 +180,9 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(60, 60, 60)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnConfirmUpdate)
@@ -376,7 +376,7 @@ public class ManageUserJPanel extends javax.swing.JPanel {
 	//System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             //System.err.println("userrrr: " + user.getRole().getClass().getName());
-            if ("Business.Role.UserRole".equals(user.getRole().getClass().getName())) {
+            if ("model.Role.UserRole".equals(user.getRole().getClass().getName())) {
                 
                 Object[] row = new Object[4];
 

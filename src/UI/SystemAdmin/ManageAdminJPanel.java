@@ -392,7 +392,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
 	//System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             //System.err.println("userrrr: " + user.getRole().getClass().getName());
-            if ("Business.Role.AdminRole".equals(user.getRole().getClass().getName())) {
+            if ("model.Role.AdminRole".equals(user.getRole().getClass().getName())) {
                 
                 Object[] row = new Object[4];
 
