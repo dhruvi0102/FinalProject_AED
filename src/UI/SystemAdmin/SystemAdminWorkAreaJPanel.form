@@ -84,10 +84,8 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAreaAdmins" pref="51" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnAdmins" pref="51" max="32767" attributes="0"/>
-                      <Component id="btnUsers" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="btnAdmins" pref="51" max="32767" attributes="0"/>
+                  <Component id="btnUsers" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -170,8 +168,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAreaAdmins">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Community Admin"/>
+        <Property name="text" type="java.lang.String" value="Area Admin"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAreaAdminsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
