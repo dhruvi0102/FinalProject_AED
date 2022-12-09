@@ -5,6 +5,9 @@
  */
 package model;
 import java.util.ArrayList;
+import model.FireDepartment.FactoryFireDispatchUnitDirectory;
+import model.FireDepartment.FireDepartmentDirectory;
+import model.FireDepartment.HousingFireDispatchUnitDirectory;
 import model.PoliceDepartment.ControlUnitDirectory;
 import model.PoliceDepartment.PoliceDepartmentDirectory;
 import model.Requests.RequestDirectory;
@@ -26,14 +29,20 @@ public class EcoSystem extends Organization{
     private PoliceDepartmentDirectory policeDeptDirectory;
     private UserDirectory userAdminDirectory;
     private AdminDirectory adminDirectory;
+     private FireDepartmentDirectory FireDepartmentDirectory;
+     private HousingFireDispatchUnitDirectory HousingFireDispatchUnitDirectory;
+    private FactoryFireDispatchUnitDirectory FactoryFireDispatchUnitDirectory;
 
-    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory) {
+    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory, FireDepartmentDirectory fireDeptDirectory, FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory,HousingFireDispatchUnitDirectory residentialFireDispatchUnitDirectory) {
         super(null);
         this.policeDeptDirectory = policeDeptDirectory;
         this.controlUnitDirectory = controlUnitDirectory;
         this.requestDirectory = requestDirectory;
         this.userAdminDirectory = userAdminDirectory;
         this.adminDirectory = adminDirectory;
+         this.FireDepartmentDirectory = fireDeptDirectory;
+         this.HousingFireDispatchUnitDirectory = HousingFireDispatchUnitDirectory;
+        this.FactoryFireDispatchUnitDirectory = industrialFireDispatchUnitDirectory;
     }
     
     private EcoSystem() {
@@ -105,6 +114,39 @@ public class EcoSystem extends Organization{
 
     public void setAdminDirectory(AdminDirectory adminDirectory) {
         this.adminDirectory = adminDirectory;
+    }
+    
+    public HousingFireDispatchUnitDirectory getFireDispatchUnitDirectory() {
+         if (HousingFireDispatchUnitDirectory == null) {
+            HousingFireDispatchUnitDirectory = new HousingFireDispatchUnitDirectory();
+        }
+        return HousingFireDispatchUnitDirectory;
+    }
+
+    public void setResidentialFireDispatchUnitDirectory(HousingFireDispatchUnitDirectory residentialFireDispatchUnitDirectory) {
+        this.HousingFireDispatchUnitDirectory = residentialFireDispatchUnitDirectory;
+    }
+
+    public FactoryFireDispatchUnitDirectory getFactoryFireDispatchUnitDirectory() {
+         if (FactoryFireDispatchUnitDirectory == null) {
+            FactoryFireDispatchUnitDirectory = new FactoryFireDispatchUnitDirectory();
+        }
+        return FactoryFireDispatchUnitDirectory;
+    }
+
+    public void setFactoryFireDispatchUnitDirectory(FactoryFireDispatchUnitDirectory factoryFireDispatchUnitDirectory) {
+        this.FactoryFireDispatchUnitDirectory = factoryFireDispatchUnitDirectory;
+    }
+     public FireDepartmentDirectory getFireDepartmentDirectory() {
+        if (FireDepartmentDirectory == null) {
+            FireDepartmentDirectory = new FireDepartmentDirectory();
+        }
+        
+        return FireDepartmentDirectory;
+    }
+
+    public void setFireDepartmentDirectory(FireDepartmentDirectory FireDepartmentDirectory) {
+        this.FireDepartmentDirectory = FireDepartmentDirectory;
     }
     
     @Override
