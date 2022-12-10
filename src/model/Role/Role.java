@@ -15,16 +15,14 @@ import model.EcoSystem;
 public abstract class Role {
     
     public enum RoleType{
-        FireDeptDAdmin("FireDeptAdmin"),
-        PoliceDeptAdmin("PoliceDeptAdmin"),
+        FireDepartmentAdmin("FireDepartmentAdmin"),
+        PoliceDepartmentAdmin("PoliceDepartmentAdmin"),
         HospitalAdmin("HospitalAdmin"),
-        NGOAdmin("NGOAdmin"),
+        ShelterAdmin("ShelterAdmin"),
         SystemAdmin("SystemAdmin"),
         CityAdmin("CityAdmin"),
-        LawyerAdmin("LawyerAdmin"),
         UserRole("UserRole"),
         AdminRole("AdminRole");
-       
         
         private String value;
         private RoleType(String value){
