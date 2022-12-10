@@ -1,6 +1,5 @@
 package model.UserAccount;
 
-import model.Worker.Worker;
 import model.Role.Role;
 import model.WorkRequest.WorkRequestDirectory;
 
@@ -24,7 +23,7 @@ public class UserAccount {
     private Boolean status;
 
    
-    private Worker worker;
+    //private Worker worker;
     private Role role;
     private WorkRequestDirectory workRequestDir;
     
@@ -97,13 +96,13 @@ public class UserAccount {
         this.email = email;
     }
 
-    public Worker getWorker() {
+   /* public Worker getWorker() {
         return worker;
     }
 
     public void setWorker(Worker worker) {
         this.worker = worker;
-    }
+    }*/
 
     public WorkRequestDirectory getWorkRequestDir() {
         return workRequestDir;

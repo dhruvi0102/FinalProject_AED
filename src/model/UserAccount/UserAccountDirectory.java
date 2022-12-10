@@ -4,7 +4,6 @@
  */
 package model.UserAccount;
 
-import model.Worker.Worker;
 import java.util.ArrayList;
 import model.Role.Role;
 
@@ -31,14 +30,14 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public UserAccount addUserAccount(String name, String username, String password,String address,Boolean status, Worker worker, Role role){
+    public UserAccount addUserAccount(String name, String username, String password,String address,Boolean status,Role role){
         UserAccount userAccount = new UserAccount();
         userAccount.setFullName(name);
         userAccount.setUserName(username);
         userAccount.setPassword(password);
         userAccount.setAddress(address);
         userAccount.setStatus(status);
-        userAccount.setWorker(worker);
+        //userAccount.setWorker(worker);
         userAccount.setRole(role);
         userAccountList.add(userAccount);
         return userAccount;
