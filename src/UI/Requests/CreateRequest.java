@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Requests;
+package UI.Requests;
 
-import Business.Areas.Area;
-import Business.EcoSystem;
-import Business.Request.Request;
+import model.Areas.Area;
+import model.EcoSystem;
+import model.Requests.Request;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.sql.Timestamp;
@@ -187,7 +187,8 @@ public class CreateRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGetUnitsActionPerformed
 
     private void listServicesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listServicesValueChanged
-        String selectedEnterprises = "";
+  // TODO add your handling code here:
+  String selectedEnterprises = "";
         List<String> SelectedFruits = listServices.getSelectedValuesList();
 
         for (String Fruit : SelectedFruits) {
@@ -202,7 +203,6 @@ public class CreateRequest extends javax.swing.JPanel {
             entityTypeOfEmergency.setText(x);
         }
 
-
     }//GEN-LAST:event_listServicesValueChanged
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -210,7 +210,8 @@ public class CreateRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
+          // TODO add your handling code here:
+         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -242,19 +243,18 @@ public class CreateRequest extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JLabel txtSelectedService;
     // End of variables declaration//GEN-END:variables
-
-    private void currentTime() {
+private void currentTime() {
         Date date = new Date();
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
         String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
         lblTimeStamp.setText(s.toString());
     }
-
-    private void getAreas() {
-        for (Area a : ecoSystem.getAreaDirectory().getAreas()) {
-            entityAreaField.addItem(a.getAreaName() + " " + a.getAreaZipCode());
-        }
+   private void currentTime() {
+        Date date = new Date();
+        long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+        String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
+        lblTimeStamp.setText(s.toString());
     }
-
 }
