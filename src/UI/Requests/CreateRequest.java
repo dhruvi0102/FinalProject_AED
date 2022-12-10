@@ -188,6 +188,21 @@ public class CreateRequest extends javax.swing.JPanel {
 
     private void listServicesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listServicesValueChanged
   // TODO add your handling code here:
+  String selectedEnterprises = "";
+        List<String> SelectedFruits = listServices.getSelectedValuesList();
+
+        for (String Fruit : SelectedFruits) {
+            selectedEnterprises = selectedEnterprises + Fruit;
+            a.add(selectedEnterprises);
+        }
+
+        Set<String> uniqueArr = new HashSet<String>(a);
+        String x = "";
+        for (String y : uniqueArr) {
+            x = x + y + ",";
+            entityTypeOfEmergency.setText(x);
+        }
+
     }//GEN-LAST:event_listServicesValueChanged
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -235,7 +250,7 @@ private void currentTime() {
         String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
         lblTimeStamp.setText(s.toString());
     }
-private void currentTime() {
+   private void currentTime() {
         Date date = new Date();
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
