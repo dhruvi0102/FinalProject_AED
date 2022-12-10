@@ -186,7 +186,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         Boolean status = chbStatus.isSelected();
         System.out.print("chbStatus"+chbStatus.isSelected());
 
-       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new PoliceDepartmentAdmin());
+       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new PoliceDepartmentAdmin());
        PoliceDepartmentDirectory policedeptdir = ecoSystem.getPoliceDeptDirectory();
 
         PoliceDepartment policeDept = null;
@@ -239,8 +239,8 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             String pwd= (String) entityTable.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(userAccount.getName()+"");
-            txtUname.setText(userAccount.getUsername()+"");
+            txtName.setText(userAccount.getFullName()+"");
+            txtUname.setText(userAccount.getUserName()+"");
             txtPass.setText(userAccount.getPassword()+"");
             // system.getUserAccountDirectory().deleteUserAccount(user);
 
@@ -260,7 +260,8 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname=txtUname.getText();
         String password=txtPass.getText();
-
+        String address = txtAddress.getText();
+        Boolean status = chbStatus.isSelected();
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
@@ -321,7 +322,8 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
+            ecoSystem.getPoliceDeptDirectory().updatePoliceDepartment(name,uname,address,status);
             populateEntityTable();
             btn_submit.setEnabled(true);
             btnDel.setEnabled(true);
@@ -373,11 +375,12 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             if ("model.Role.PoliceDepartmentAdmin".equals(user.getRole().getClass().getName())) {
                 
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
 
                 model.addRow(row);
             }

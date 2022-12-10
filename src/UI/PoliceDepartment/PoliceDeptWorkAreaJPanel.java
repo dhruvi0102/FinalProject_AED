@@ -154,7 +154,7 @@ public class PoliceDeptWorkAreaJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblPoliceDept.getModel();
         model.setRowCount(0);
         for ( PoliceDepartment pd : ecoSystem.getPoliceDeptDirectory().getPoliceDepartment()) {
-            if (pd.getUserName().equals(account.getUsername())) {
+            if (pd.getUserName().equals(account.getUserName())) {
                 for (Request req : pd.getRequests()) {
                    
                     Object[] row = new Object[12];
