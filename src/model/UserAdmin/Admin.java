@@ -14,16 +14,17 @@ import model.Requests.Request;
 public class Admin {
     private String fullName;
     private String userName;
-    private String category;
+    private String address;
     
     private ArrayList<Request> requests = new ArrayList<>();
     
     public Admin() {
     }
 
-    public Admin(String fullName, String uname) {
+    public Admin(String fullName, String uname, String address) {
         this.fullName = fullName;
         this.userName = uname;
+        this.address = address;
     }
 
     public String getFullName() {
@@ -42,12 +43,12 @@ public class Admin {
         this.userName = userName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public ArrayList<Request> getRequests() {

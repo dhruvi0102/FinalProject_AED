@@ -180,12 +180,12 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnConfirmUpdate)
                     .addComponent(btnDelete))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,7 +204,7 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
         
-        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new CityAdmin());
+        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null,null, new CityAdmin());
         AreaAdminDirectory admdir = ecoSystem.getAreaAdminDirectory();
 
         AreaAdmin aadmin = null;
@@ -231,8 +231,8 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
             String pwd= (String) tblAreaAdmin.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(userAccount.getName()+"");
-            txtUsername.setText(userAccount.getUsername()+"");
+            txtName.setText(userAccount.getFullName()+"");
+            txtUsername.setText(userAccount.getUserName()+"");
             txtPassword.setText(userAccount.getPassword()+"");
         }
         else {
@@ -310,7 +310,8 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,null,null);
+            ecoSystem.getAreaAdminDirectory().updateAdmin(name,uname);
             populateTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -371,8 +372,8 @@ private void populateTable() {
             if ("model.Role.CityAdmin".equals(user.getRole().getClass().getName())) {               
                 Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
                
                 model.addRow(row);

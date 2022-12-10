@@ -33,6 +33,11 @@ public class UserDirectory {
         return userAdm;
     }
 
+    public void updateUser(String name, String uname) {
+        userAdm.setFullName(name);
+        userAdm.setUserName(uname);
+    }
+    
     public void deleteUser(String uname) {
         User currUser = null;
         for (User p : userAdmin) {
