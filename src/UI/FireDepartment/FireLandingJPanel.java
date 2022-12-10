@@ -130,7 +130,7 @@ public class FireLandingJPanel extends javax.swing.JPanel {
         for ( FireDepartment fdept : system.getFireDepartmentDirectory().getfireSquad()){
           
             
-            if (fdept.getEmail().equals(account.getUsername())) {
+            if (fdept.getEmail().equals(account.getUserName())) {
               
                 for (Request req : fdept.getRequests()) {
                 
