@@ -4,11 +4,6 @@
  */
 package UI.SystemAdmin;
 
-import model.EcoSystem;
-import model.Role.UserRole;
-import model.UserAccount.UserAccount;
-import model.UserAdmin.User;
-import model.UserAdmin.UserDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Font;
@@ -17,22 +12,29 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import model.Areas.AreaAdmin;
+import model.Areas.AreaAdminDirectory;
+import model.EcoSystem;
+import model.Role.AdminRole;
+import model.Role.CityAdmin;
+import model.UserAccount.UserAccount;
+import model.UserAdmin.Admin;
+import model.UserAdmin.AdminDirectory;
 
 /**
  *
  * @author dhruv
  */
-public class ManageUserJPanel extends javax.swing.JPanel {
+public class ManageAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageUserJPanel
+     * Creates new form ManageAreaJPanel
      */
-    
     JPanel userProcessContainer;
     UserAccount userAccount;
     EcoSystem ecoSystem;
-    
-    public ManageUserJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
+    public ManageAreaJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
+        initComponents();
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
@@ -48,25 +50,29 @@ public class ManageUserJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblUser = new javax.swing.JTable();
+        tblAreaAdmin = new javax.swing.JTable();
         btnUpdate = new javax.swing.JButton();
         btnConfirmUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
-        lblTitle.setText("Manage Users");
+        lblTitle.setText("Add New Area Admin");
 
         lblName.setText("Name");
 
@@ -81,7 +87,7 @@ public class ManageUserJPanel extends javax.swing.JPanel {
             }
         });
 
-        tblUser.setModel(new javax.swing.table.DefaultTableModel(
+        tblAreaAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -89,10 +95,10 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name", "Username", "Password"
+                "Name", "UserName", "Password"
             }
         ));
-        jScrollPane1.setViewportView(tblUser);
+        jScrollPane1.setViewportView(tblAreaAdmin);
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -115,82 +121,82 @@ public class ManageUserJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnUpdate)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnConfirmUpdate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnDelete))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPassword)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblUsername)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTitle)
+                            .addComponent(btnBack)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSave)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblPassword)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtPassword))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblUsername)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblName)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(btnBack)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnConfirmUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete)))))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(btnBack)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnConfirmUpdate)
                     .addComponent(btnDelete))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
@@ -198,20 +204,18 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
         
-        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new UserRole());
-       //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
-        UserDirectory useradmdir = ecoSystem.getUserAdminDirectory();
+        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new CityAdmin());
+        AreaAdminDirectory admdir = ecoSystem.getAreaAdminDirectory();
 
-        User userAdmin = null;
+        AreaAdmin aadmin = null;
 
-        if (ecoSystem.getUserAdminDirectory()==null)
+        if (ecoSystem.getAdminDirectory()==null)
         {
-            userAdmin = new User(name, uname);
-            useradmdir.getUserAdmin().add(userAdmin);
+            aadmin = new AreaAdmin(name, uname);
+            admdir.getAdmins().add(aadmin);
         }
         else {
-            userAdmin = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
-            System.out.println("name :::" + userAdmin.getUserName());
+            aadmin = ecoSystem.getAreaAdminDirectory().createAdmin(name, uname);
         }
 
         populateTable();
@@ -219,11 +223,12 @@ public class ManageUserJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectRow = tblUser.getSelectedRow();
+        // TODO add your handling code here:
+        int selectRow = tblAreaAdmin.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) tblUser.getValueAt(selectRow, 1);
-            String pwd= (String) tblUser.getValueAt(selectRow, 2);
+            String username= (String) tblAreaAdmin.getValueAt(selectRow, 1);
+            String pwd= (String) tblAreaAdmin.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
             txtName.setText(userAccount.getName()+"");
@@ -317,22 +322,13 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblUser.getSelectedRow();
+         int selectedRow = tblAreaAdmin.getSelectedRow();
         if (selectedRow >= 0) {
-            String name = (String) tblUser.getValueAt(selectedRow, 0);
-            String uname = (String) tblUser.getValueAt(selectedRow, 1);
-            String password = (String) tblUser.getValueAt(selectedRow, 2);            
+            String name = (String) tblAreaAdmin.getValueAt(selectedRow, 0);
+            String uname = (String) tblAreaAdmin.getValueAt(selectedRow, 1);
+            String password = (String) tblAreaAdmin.getValueAt(selectedRow, 2);            
             int selectionButton = JOptionPane.YES_NO_OPTION;
             String warningMessage = "Are you sure you want to delete the user - " + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
@@ -355,28 +351,24 @@ public class ManageUserJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTable tblUser;
+    private javax.swing.JTable tblAreaAdmin;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-    private void populateTable() {
+private void populateTable() {
         
-    DefaultTableModel model = (DefaultTableModel) tblUser.getModel();
-        JTableHeader th = tblUser.getTableHeader();
+    DefaultTableModel model = (DefaultTableModel) tblAreaAdmin.getModel();
+        JTableHeader th = tblAreaAdmin.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
-	
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-        
-            if ("model.Role.UserRole".equals(user.getRole().getClass().getName())) {
-                
+            if ("model.Role.CityAdmin".equals(user.getRole().getClass().getName())) {               
                 Object[] row = new Object[4];
 
                 row[0] = user.getName();
@@ -384,7 +376,6 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                 row[2] = user.getPassword();
                
                 model.addRow(row);
-
             }
         }
     }

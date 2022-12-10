@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import model.FireDepartment.FactoryFireDispatchUnitDirectory;
 import model.FireDepartment.FireDepartmentDirectory;
 import model.FireDepartment.HousingFireDispatchUnitDirectory;
+import model.Areas.AreaAdminDirectory;
+import model.Areas.AreaDirectory;
 import model.PoliceDepartment.ControlUnitDirectory;
 import model.PoliceDepartment.PoliceDepartmentDirectory;
 import model.Requests.RequestDirectory;
@@ -34,6 +36,10 @@ public class EcoSystem extends Organization{
     private FactoryFireDispatchUnitDirectory FactoryFireDispatchUnitDirectory;
 
     public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory, FireDepartmentDirectory fireDeptDirectory, FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory,HousingFireDispatchUnitDirectory residentialFireDispatchUnitDirectory) {
+    private AreaAdminDirectory areaAdminDirectory;
+    private AreaDirectory areaDirectory;
+    
+    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory) {
         super(null);
         this.policeDeptDirectory = policeDeptDirectory;
         this.controlUnitDirectory = controlUnitDirectory;
@@ -43,6 +49,8 @@ public class EcoSystem extends Organization{
          this.FireDepartmentDirectory = fireDeptDirectory;
          this.HousingFireDispatchUnitDirectory = HousingFireDispatchUnitDirectory;
         this.FactoryFireDispatchUnitDirectory = industrialFireDispatchUnitDirectory;
+        this.areaAdminDirectory = areaAdminDirectory;
+        this.areaDirectory = areaDirectory;
     }
     
     private EcoSystem() {
@@ -149,6 +157,28 @@ public class EcoSystem extends Organization{
         this.FireDepartmentDirectory = FireDepartmentDirectory;
     }
     
+     public AreaAdminDirectory getAreaAdminDirectory() {
+         if(areaAdminDirectory == null){
+             areaAdminDirectory = new AreaAdminDirectory();
+         }
+        return areaAdminDirectory;
+    }
+
+    public void setAreaAdminDirectory(AreaAdminDirectory areaAdminDirectory) {
+        this.areaAdminDirectory = areaAdminDirectory;
+    }
+    
+    public AreaDirectory getAreaDirectory() {
+        if (areaDirectory == null) {
+            areaDirectory = new AreaDirectory();
+        }
+
+        return areaDirectory;
+    }
+
+    public void setAreaDirectory(AreaDirectory areaDirectory) {
+        this.areaDirectory = areaDirectory;
+    }
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();

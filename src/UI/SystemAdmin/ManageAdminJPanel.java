@@ -143,7 +143,6 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         
 
         UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new AdminRole());
-        //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
         AdminDirectory admdir = ecoSystem.getAdminDirectory();
 
         Admin admin = null;
@@ -274,7 +273,6 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
                 ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
-                //ecoSystem.getPoliceDeptDirectory().deleteShelter(user.getUsername());
                 ecoSystem.getAdminDirectory().deleteAdmin(uname);
             }
         } else {
@@ -315,11 +313,8 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         JTableHeader th = tblAdmin.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
-	//System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            //System.err.println("userrrr: " + user.getRole().getClass().getName());
-            if ("model.Role.AdminRole".equals(user.getRole().getClass().getName())) {
-                
+            if ("model.Role.AdminRole".equals(user.getRole().getClass().getName())) {               
                 Object[] row = new Object[4];
 
                 row[0] = user.getName();
@@ -327,7 +322,6 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 row[2] = user.getPassword();
                
                 model.addRow(row);
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         }
     }
