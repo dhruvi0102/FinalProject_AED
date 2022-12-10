@@ -61,6 +61,9 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnConfirmUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        lblAddress = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAddress = new javax.swing.JTextArea();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -93,7 +96,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,7 +111,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAdmin);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 583, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 583, 150));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +119,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         btnConfirmUpdate.setText("Confirm Update");
         btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +127,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +135,16 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
+
+        lblAddress.setText("Address");
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        jScrollPane2.setViewportView(txtAddress);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 210, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -140,23 +152,26 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
-        
+        String address = txtAddress.getText();
+       
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+            UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, address,null, new AdminRole());
+            AdminDirectory admdir = ecoSystem.getAdminDirectory();
 
-        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new AdminRole());
-        AdminDirectory admdir = ecoSystem.getAdminDirectory();
+            Admin admin = null;
 
-        Admin admin = null;
-
-        if (ecoSystem.getAdminDirectory()==null)
-        {
-            admin = new Admin(name, uname);
-            admdir.getAdmins().add(admin);
+            if (ecoSystem.getAdminDirectory()==null)
+            {
+                admin = new Admin(name, uname,address);
+                admdir.getAdmins().add(admin);
+            }
+            else {
+                admin = ecoSystem.getAdminDirectory().createAdmin(name, uname,address);
+                System.out.println("name :::" + admin.getUserName());
+            }
         }
-        else {
-            admin = ecoSystem.getAdminDirectory().createAdmin(name, uname);
-            System.out.println("name :::" + admin.getUserName());
-        }
-
         populateTable();
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -169,9 +184,10 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
             String pwd= (String) tblAdmin.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(userAccount.getName()+"");
-            txtUsername.setText(userAccount.getUsername()+"");
+            txtName.setText(userAccount.getFullName()+"");
+            txtUsername.setText(userAccount.getUserName()+"");
             txtPassword.setText(userAccount.getPassword()+"");
+            txtAddress.setText(userAccount.getAddress() + "");
         }
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
@@ -187,7 +203,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname=txtUsername.getText();
         String password=txtPassword.getText();
-   
+        String address = txtAddress.getText();
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
@@ -248,7 +264,8 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address, null);
+            ecoSystem.getAdminDirectory().updateAdmin(name, uname, address);
             populateTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -298,11 +315,14 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JTable tblAdmin;
+    private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
@@ -317,9 +337,10 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
             if ("model.Role.AdminRole".equals(user.getRole().getClass().getName())) {               
                 Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
                
                 model.addRow(row);
             }
