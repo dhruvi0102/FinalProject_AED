@@ -24,7 +24,11 @@
                           <Component id="lblEnterpriseTitle" min="-2" max="-2" attributes="0"/>
                           <Component id="lblRequestTitle" min="-2" max="-2" attributes="0"/>
                           <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageRequests" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnCreateRequest" min="-2" pref="166" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnManageRequest" min="-2" pref="166" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -69,7 +73,10 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="lblRequestTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnManageRequests" min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCreateRequest" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnManageRequest" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="lblEnterpriseTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -103,12 +110,12 @@
         <Property name="text" type="java.lang.String" value="Click below button to Create and manage Requests:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnManageRequests">
+    <Component class="javax.swing.JButton" name="btnCreateRequest">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Manage Requests"/>
+        <Property name="text" type="java.lang.String" value="Create Requests"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRequestsActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateRequestActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEnterpriseTitle">
@@ -172,6 +179,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAreaAdminsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnManageRequest">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Requests"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRequestActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
