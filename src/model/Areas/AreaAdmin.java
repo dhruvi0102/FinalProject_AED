@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.UserAdmin;
+package model.Areas;
 
 import java.util.ArrayList;
 import model.Requests.Request;
@@ -11,19 +11,17 @@ import model.Requests.Request;
  *
  * @author dhruv
  */
-public class User {
+public class AreaAdmin {
     private String fullName;
     private String userName;
     private String category;
-    private String Address;
-    private String Contact;
-
+    
     private ArrayList<Request> requests = new ArrayList<>();
     
-    public User() {
+    public AreaAdmin() {
     }
 
-    public User(String fullName, String uname) {
+    public AreaAdmin(String fullName, String uname) {
         this.fullName = fullName;
         this.userName = uname;
     }
@@ -58,22 +56,6 @@ public class User {
 
     public void setRequests(ArrayList<Request> requests) {
         this.requests = requests;
-    }
-    
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-    public String getContact() {
-        return Contact;
-    }
-
-    public void setContact(String Contact) {
-        this.Contact = Contact;
     }
     
     @Override
