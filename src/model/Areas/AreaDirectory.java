@@ -33,7 +33,7 @@ public class AreaDirectory {
         this.area = area;
     }
     
-        public Area createArea(String areaName, String areaZipCode) {
+    public Area createArea(String areaName, String areaZipCode) {
         area = new Area(areaName, areaZipCode);
         areasList.add(area);
         return area;

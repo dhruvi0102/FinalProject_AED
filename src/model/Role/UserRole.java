@@ -4,16 +4,17 @@
  */
 package model.Role;
 
-import model.UserAccount.UserAccount;
+import UI.SystemAdmin.SystemAdminWorkAreaJPanel;
 import javax.swing.JPanel;
 import model.EcoSystem;
-import UI.SystemAdmin.SystemAdminWorkAreaJPanel;
+import model.UserAccount.UserAccount;
 
 /**
  *
  * @author dhruv
  */
-public class SystemAdmin extends Role{
+public class UserRole extends Role {
+    
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         return new SystemAdminWorkAreaJPanel(userProcessContainer, system);

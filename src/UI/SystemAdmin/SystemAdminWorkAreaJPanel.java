@@ -4,6 +4,11 @@
  */
 package UI.SystemAdmin;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.EcoSystem;
+import model.UserAccount.UserAccount;
+
 /**
  *
  * @author dhruv
@@ -11,12 +16,40 @@ package UI.SystemAdmin;
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SystemAdminWorkAreaJPanel
+     * Creates new form SystemAdminworkArea
      */
-    public SystemAdminWorkAreaJPanel() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount userAccount;
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+//        populateTree();
     }
-
+    
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem){
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
+        System.out.println(userAccount.getRole());
+        if ("model.Role.AdminRole".equals(userAccount.getRole().getClass().getName())) {
+        lblRequestTitle.setVisible(false);
+        btnManageRequests.setVisible(false);  
+        lblEnterpriseTitle.setVisible(false);
+        btnManageHospital.setVisible(false);
+        btnManagePolice.setVisible(false);
+        btnManageFire.setVisible(false);
+        btnManageShelter.setVisible(false);
+        lblUserAdminTitle.setVisible(false);
+        btnUsers.setVisible(false);
+        btnAdmins.setVisible(false);
+        btnAreaAdmins.setVisible(false);
+        lblRequestTitle.setVisible(true);
+        btnManageRequests.setVisible(true);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +59,199 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblWelcome = new javax.swing.JLabel();
+        lblRequestTitle = new javax.swing.JLabel();
+        btnManageRequests = new javax.swing.JButton();
+        lblEnterpriseTitle = new javax.swing.JLabel();
+        btnManageShelter = new javax.swing.JButton();
+        btnManagePolice = new javax.swing.JButton();
+        btnManageHospital = new javax.swing.JButton();
+        btnManageFire = new javax.swing.JButton();
+        lblUserAdminTitle = new javax.swing.JLabel();
+        btnUsers = new javax.swing.JButton();
+        btnAdmins = new javax.swing.JButton();
+        btnAreaAdmins = new javax.swing.JButton();
+
+        lblWelcome.setText("Welcome to the System");
+
+        lblRequestTitle.setText("Click below button to Create and manage Requests:");
+
+        btnManageRequests.setText("Manage Requests");
+        btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestsActionPerformed(evt);
+            }
+        });
+
+        lblEnterpriseTitle.setText("Create Enterprises with use of below Buttons:");
+
+        btnManageShelter.setText("Shelter Department");
+        btnManageShelter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageShelterActionPerformed(evt);
+            }
+        });
+
+        btnManagePolice.setText("Police Department");
+        btnManagePolice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePoliceActionPerformed(evt);
+            }
+        });
+
+        btnManageHospital.setText("Hospital Department");
+
+        btnManageFire.setText("Fire Department");
+        btnManageFire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageFireActionPerformed(evt);
+            }
+        });
+
+        lblUserAdminTitle.setText("Create user and admins with use of below buttons:");
+
+        btnUsers.setText("Users");
+        btnUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsersActionPerformed(evt);
+            }
+        });
+
+        btnAdmins.setText("Admin");
+        btnAdmins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminsActionPerformed(evt);
+            }
+        });
+
+        btnAreaAdmins.setText("Area Admin");
+        btnAreaAdmins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAreaAdminsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEnterpriseTitle)
+                            .addComponent(lblRequestTitle)
+                            .addComponent(lblWelcome)
+                            .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUserAdminTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btnUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnManageHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnManagePolice, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnManageShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnManageFire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnAreaAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblWelcome)
+                .addGap(26, 26, 26)
+                .addComponent(lblRequestTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(lblEnterpriseTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManagePolice, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageFire, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(lblUserAdminTitle)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAreaAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(btnUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageRequestsActionPerformed
+
+    private void btnManageShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageShelterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageShelterActionPerformed
+
+    private void btnManageFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageFireActionPerformed
+
+    private void btnManagePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePoliceActionPerformed
+        // TODO add your handling code here:
+        ManagePoliceDepartmentJPanel managePolice = new ManagePoliceDepartmentJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("managePoliceDepartmentJPanel", managePolice);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManagePoliceActionPerformed
+
+    private void btnUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsersActionPerformed
+        // TODO add your handling code here:
+        ManageUserJPanel manageUser = new ManageUserJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageUserJPanel", manageUser);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnUsersActionPerformed
+
+    private void btnAdminsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminsActionPerformed
+        // TODO add your handling code here:
+        ManageAdminJPanel manageAdmin = new ManageAdminJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageAdmin);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAdminsActionPerformed
+
+    private void btnAreaAdminsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaAdminsActionPerformed
+        // TODO add your handling code here:
+        ManageAreaJPanel manageArea = new ManageAreaJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageArea);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAreaAdminsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdmins;
+    private javax.swing.JButton btnAreaAdmins;
+    private javax.swing.JButton btnManageFire;
+    private javax.swing.JButton btnManageHospital;
+    private javax.swing.JButton btnManagePolice;
+    private javax.swing.JButton btnManageRequests;
+    private javax.swing.JButton btnManageShelter;
+    private javax.swing.JButton btnUsers;
+    private javax.swing.JLabel lblEnterpriseTitle;
+    private javax.swing.JLabel lblRequestTitle;
+    private javax.swing.JLabel lblUserAdminTitle;
+    private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

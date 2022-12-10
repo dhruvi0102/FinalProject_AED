@@ -4,6 +4,8 @@
  */
 package UI;
 
+import UI.SystemAdmin.ManageUserJPanel;
+import UI.SystemAdmin.ManageUserRegisterJPanel;
 import model.UserAccount.UserAccount;
 import model.EcoSystem;
 import model.DB4OUtil.DB4OUtil;
@@ -29,10 +31,20 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem ecoSystem;
     private DB4OUtil dB4Outil = DB4OUtil.getInstance();
-
-    public MainJFrame() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    
+    public MainJFrame(){
         initComponents();
         ecoSystem = dB4Outil.retrieveSystem();
+        setSize(1680, 1200);
+    }
+    
+    public MainJFrame(JPanel userProcessContainer,EcoSystem ecosystem) {
+        initComponents();
+        ecoSystem = dB4Outil.retrieveSystem();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
         setSize(1680, 1200);
     }
 
@@ -47,7 +59,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnRegister = new javax.swing.JButton();
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         lblUserName = new javax.swing.JLabel();
@@ -55,21 +66,14 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJLabel = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(245, 205, 144));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnRegister.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 100, -1));
         jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 170, 124, -1));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 242, 120, -1));
 
@@ -92,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 364, 92, -1));
 
-        btnLogin.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +104,19 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 306, 100, -1));
+
+        btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 110, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("If you are new user:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -110,10 +127,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // Get user name      
-    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         btnLogout.setEnabled(false);
@@ -130,14 +143,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         
+       // Get user name
         String userName = txtUserName.getText();
         char[] passwordArray = txtPassword.getPassword();
         String passwordValue = String.valueOf(passwordArray);
         //Check if the user exists
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
-
-        userAccount = ecoSystem.getUserAccountDirectory().authenticateUser(userName, passwordValue);
-
         if (userAccount == null) {
             JOptionPane.showMessageDialog(this, "Username or password is incorrect!");
             txtUserName.setText("");
@@ -153,6 +164,14 @@ public class MainJFrame extends javax.swing.JFrame {
             txtPassword.setEnabled(false);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        ManageUserRegisterJPanel acjp = new ManageUserRegisterJPanel(userProcessContainer, ecoSystem);
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add("workArea", acjp);
+        layout.next(container);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +212,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegister;
     private javax.swing.JPanel container;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblPassword;

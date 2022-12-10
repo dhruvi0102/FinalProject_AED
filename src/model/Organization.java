@@ -5,7 +5,7 @@
 package model;
 
 
-import model.UserAccount.UserDirectory;
+import model.UserAccount.UserAccountDirectory;
 import model.Worker.WorkerDirectory;
 import java.util.ArrayList;
 import model.Role.Role;
@@ -20,7 +20,7 @@ public abstract class Organization {
     private String fullName;
     private WorkRequestDirectory workRequestDir;
     private WorkerDirectory workerDirectory;
-    private UserDirectory userAccountDir;
+    private UserAccountDirectory userAccountDir;
     private int organizationID;
     private static int counter=0;
     
@@ -47,7 +47,7 @@ public abstract class Organization {
         this.fullName = fullName;
         workRequestDir = new WorkRequestDirectory();
         workerDirectory = new WorkerDirectory();
-        userAccountDir = new UserDirectory();
+        userAccountDir = new UserAccountDirectory();
         organizationID = counter;
         ++counter;
     }
@@ -72,7 +72,7 @@ public abstract class Organization {
         this.workRequestDir = workRequestDir;
     }
     
-    public UserDirectory getUserAccountDirectory() {
+    public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDir;
     }
 

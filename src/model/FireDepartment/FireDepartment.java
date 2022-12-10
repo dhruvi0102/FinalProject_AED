@@ -7,6 +7,7 @@ package model.FireDepartment;
 
 
 import java.util.ArrayList;
+import model.Requests.Request;
 
 /**
  *
@@ -18,6 +19,7 @@ public class FireDepartment {
     private String email;
     private String location;
     Boolean availability;
+    private ArrayList<Request> requests = new ArrayList<>();
     
     
 
@@ -62,8 +64,14 @@ public class FireDepartment {
     public void setAdress(String address) {
         this.location = address;
     }
+    
+    public ArrayList<Request> getRequests() {
+        return requests;
+    }
 
-
+    public void setRequests(ArrayList<Request> requests) {
+        this.requests = requests;
+    }
 
     @Override
     public String toString() {

@@ -9,17 +9,29 @@ package model.PoliceDepartment;
  * @author dhruv
  */
 public class ControlUnit {
-    private String controlUnit;
+    private String criticalcontrolUnit;
+    private String trafficcontrolUnit;
     
-    public ControlUnit(String controlUnit){
-        this.controlUnit = controlUnit;
+    public ControlUnit(String criticalcontrolUnit,String trafficcontrolUnit ){
+        this.criticalcontrolUnit = criticalcontrolUnit;
+        this.trafficcontrolUnit = trafficcontrolUnit;
     }
 
-    public String getControlUnit() {
-        return controlUnit;
+    public String getCriticalcontrolUnit() {
+        return criticalcontrolUnit;
     }
 
-    public void setControlUnit(String controlUnit) {
-        this.controlUnit = controlUnit;
+    public void setCriticalcontrolUnit(String criticalcontrolUnit) {
+        this.criticalcontrolUnit = criticalcontrolUnit;
     }
+
+    public String getTrafficcontrolUnit() {
+        return trafficcontrolUnit;
+    }
+
+    public void setTrafficcontrolUnit(String trafficcontrolUnit) {
+        this.trafficcontrolUnit = trafficcontrolUnit;
+    }
+
+    
 }
