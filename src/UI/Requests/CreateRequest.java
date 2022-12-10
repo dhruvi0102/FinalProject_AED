@@ -228,5 +228,18 @@ public class CreateRequest extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JLabel txtSelectedService;
     // End of variables declaration//GEN-END:variables
-
+private void currentTime() {
+        Date date = new Date();
+        long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+        String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
+        lblTimeStamp.setText(s.toString());
+    }
+private void currentTime() {
+        Date date = new Date();
+        long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+        String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
+        lblTimeStamp.setText(s.toString());
+    }
 }
