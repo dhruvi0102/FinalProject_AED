@@ -26,11 +26,17 @@ public class AdminDirectory {
         this.admins = policeDepts;
     }
 
-    public Admin createAdmin(String name, String uname) {
+    public Admin createAdmin(String name, String uname, String address) {
 //        System.out.println("uname:::" + policeDepts.size());
-        admin = new Admin(name, uname);
+        admin = new Admin(name, uname,address);
         admins.add(admin);
         return admin;
+    }
+    
+    public void updateAdmin(String name, String uname,String address) {
+        admin.setFullName(name);
+        admin.setUserName(uname);
+        admin.setAddress(address);    
     }
 
     public void deleteAdmin(String uname) {

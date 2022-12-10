@@ -31,6 +31,11 @@ public class AreaAdminDirectory {
         areaAdmin.add(area);
         return area;
     }
+    
+    public void updateAdmin(String name, String uname) {
+        area.setFullName(name);
+        area.setUserName(uname);          
+    }
 
     public void deleteAdmin(String uname) {
         AreaAdmin currUser = null;

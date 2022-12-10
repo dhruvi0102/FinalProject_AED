@@ -33,6 +33,13 @@ public class PoliceDepartmentDirectory {
         policeDepartment.add(policeDept);
         return policeDept;
     }
+    
+    public void updatePoliceDepartment(String name, String uname,String address, Boolean status) {
+        policeDept.setFullName(name);
+        policeDept.setUserName(uname);   
+        policeDept.setAddress(address);
+        policeDept.setAvailability(status);
+    }
 
     public void deleteDeptartment(String uname) {
         System.out.println("size insed del:::" + policeDepartment.size());
