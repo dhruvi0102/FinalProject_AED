@@ -21,6 +21,9 @@ public class UserAccount {
     private String address;
     private String contact;
     private String email;
+    private Boolean status;
+
+   
     private Worker worker;
     private Role role;
     private WorkRequestDirectory workRequestDir;
@@ -38,20 +41,28 @@ public class UserAccount {
     }
    
 
-    public String getName() {
+     public String getFullName() {
         return fullName;
     }
 
-    public void setName(String name) {
-        this.fullName = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
-    
-    public String getUsername() {
+
+    public String getUserName() {
         return userName;
     }
 
-    public void setUsername(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public String getPassword() {

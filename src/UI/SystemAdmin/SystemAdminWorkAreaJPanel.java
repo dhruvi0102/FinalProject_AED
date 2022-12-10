@@ -205,6 +205,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFireActionPerformed
         // TODO add your handling code here:
+        ManagePoliceDepartmentJPanel managePolice = new ManagePoliceDepartmentJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("managePoliceDepartmentJPanel", managePolice);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageFireActionPerformed
 
     private void btnManagePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePoliceActionPerformed

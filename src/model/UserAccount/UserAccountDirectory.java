@@ -25,36 +25,39 @@ public class UserAccountDirectory {
     
     public UserAccount authenticateUser(String username, String password){
         for (UserAccount ua : userAccountList)
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
+            if (ua.getUserName().equals(username) && ua.getPassword().equals(password)){
                 return ua;
             }
         return null;
     }
     
-    public UserAccount addUserAccount(String name, String username, String password, Worker worker, Role role){
+    public UserAccount addUserAccount(String name, String username, String password,String address,Boolean status, Worker worker, Role role){
         UserAccount userAccount = new UserAccount();
-        userAccount.setName(name);
-        userAccount.setUsername(username);
+        userAccount.setFullName(name);
+        userAccount.setUserName(username);
         userAccount.setPassword(password);
+        userAccount.setAddress(address);
+        userAccount.setStatus(status);
         userAccount.setWorker(worker);
         userAccount.setRole(role);
         userAccountList.add(userAccount);
         return userAccount;
     }
     
-    public void updateUserAccount(UserAccount account, String name, String uname, String password) {
-        account.setName(name);
-        account.setUsername(uname);
-        account.setPassword(password);    
+    public void updateUserAccount(UserAccount account, String name, String uname, String password, String address,Boolean status) {
+        account.setFullName(name);
+        account.setUserName(uname);
+        account.setPassword(password); 
+        account.setAddress(address);
+        account.setStatus(status);
     }
-    
     public void deleteUserAccount(UserAccount user) {
         userAccountList.remove(user);
     }
     
     public boolean IsUsernameUnique(String username){
         for (UserAccount ua : userAccountList){
-            if (ua.getUsername().equals(username))
+            if (ua.getUserName().equals(username))
                 return false;
         }
         return true;
