@@ -31,23 +31,21 @@ public class EcoSystem extends Organization{
     private PoliceDepartmentDirectory policeDeptDirectory;
     private UserDirectory userAdminDirectory;
     private AdminDirectory adminDirectory;
-     private FireDepartmentDirectory FireDepartmentDirectory;
-     private HousingFireDispatchUnitDirectory HousingFireDispatchUnitDirectory;
+    private FireDepartmentDirectory FireDepartmentDirectory;
+    private HousingFireDispatchUnitDirectory HousingFireDispatchUnitDirectory;
     private FactoryFireDispatchUnitDirectory FactoryFireDispatchUnitDirectory;
-
-    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory, FireDepartmentDirectory fireDeptDirectory, FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory,HousingFireDispatchUnitDirectory residentialFireDispatchUnitDirectory) {
     private AreaAdminDirectory areaAdminDirectory;
     private AreaDirectory areaDirectory;
     
-    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory) {
+    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory,FireDepartmentDirectory fireDeptDirectory,FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory) {
         super(null);
         this.policeDeptDirectory = policeDeptDirectory;
         this.controlUnitDirectory = controlUnitDirectory;
         this.requestDirectory = requestDirectory;
         this.userAdminDirectory = userAdminDirectory;
         this.adminDirectory = adminDirectory;
-         this.FireDepartmentDirectory = fireDeptDirectory;
-         this.HousingFireDispatchUnitDirectory = HousingFireDispatchUnitDirectory;
+        this.FireDepartmentDirectory = fireDeptDirectory;
+        this.HousingFireDispatchUnitDirectory = HousingFireDispatchUnitDirectory;
         this.FactoryFireDispatchUnitDirectory = industrialFireDispatchUnitDirectory;
         this.areaAdminDirectory = areaAdminDirectory;
         this.areaDirectory = areaDirectory;
