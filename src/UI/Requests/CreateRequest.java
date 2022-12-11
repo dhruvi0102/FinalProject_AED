@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Requests;
+package UI.Requests;
 
-import Business.Areas.Area;
-import Business.EcoSystem;
-import Business.Request.Request;
+import model.Areas.Area;
+import model.EcoSystem;
+import model.Requests.Request;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.sql.Timestamp;
@@ -67,7 +67,7 @@ public class CreateRequest extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtLocation = new javax.swing.JTextField();
         txtEmergency = new javax.swing.JLabel();
         entityTypeOfEmergency = new javax.swing.JLabel();
         btnGetUnits = new javax.swing.JButton();
@@ -83,30 +83,32 @@ public class CreateRequest extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         cmbStatus = new javax.swing.JComboBox<>();
         lblStatus = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        lblEmail1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHead.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblHead.setText("Create Request");
-        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 31, 140, -1));
+        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, -1));
 
         lblName.setText("Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 277, -1));
 
-        lblEmail.setText("Email");
-        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 40, -1));
+        lblEmail.setText("Location");
+        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 60, -1));
 
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+        txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
+                txtLocationActionPerformed(evt);
             }
         });
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 277, -1));
+        add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 277, -1));
 
         txtEmergency.setText("Type of Emergency");
-        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
-        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 277, 17));
+        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 277, 17));
 
         btnGetUnits.setBackground(new java.awt.Color(102, 255, 102));
         btnGetUnits.setText("Get Units");
@@ -115,7 +117,7 @@ public class CreateRequest extends javax.swing.JPanel {
                 btnGetUnitsActionPerformed(evt);
             }
         });
-        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 277, 38));
+        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 277, 38));
 
         listServices.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Request Healthcare Services", "Request Police Services", "Request Fire Services", "Request Shelter Services" };
@@ -129,30 +131,29 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(listServices);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 277, 80));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 277, 80));
 
         txtSelectedService.setText("Selected Service");
-        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
 
         txtComments.setColumns(20);
         txtComments.setRows(5);
         jScrollPane2.setViewportView(txtComments);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 277, -1));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 277, -1));
 
         lblComments.setText("comments");
-        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, -1, -1));
+        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
 
         lblTimeStamp.setText("jLabel8");
         add(lblTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 277, -1));
+        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 277, -1));
 
         lblArea.setText("Area");
-        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
+        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
 
         btnBack.setText(" Back ");
-        btnBack.setActionCommand(" Back ");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -165,10 +166,20 @@ public class CreateRequest extends javax.swing.JPanel {
                 cmbStatusActionPerformed(evt);
             }
         });
-        add(cmbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 277, -1));
+        add(cmbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 277, -1));
 
         lblStatus.setText("Status");
-        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, -1, -1));
+        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, -1, -1));
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 277, -1));
+
+        lblEmail1.setText("Email");
+        add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 40, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGetUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetUnitsActionPerformed
@@ -187,7 +198,8 @@ public class CreateRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnGetUnitsActionPerformed
 
     private void listServicesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listServicesValueChanged
-        String selectedEnterprises = "";
+  // TODO add your handling code here:
+  String selectedEnterprises = "";
         List<String> SelectedFruits = listServices.getSelectedValuesList();
 
         for (String Fruit : SelectedFruits) {
@@ -202,15 +214,15 @@ public class CreateRequest extends javax.swing.JPanel {
             entityTypeOfEmergency.setText(x);
         }
 
-
     }//GEN-LAST:event_listServicesValueChanged
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
+    }//GEN-LAST:event_txtLocationActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
+          // TODO add your handling code here:
+         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -218,6 +230,10 @@ public class CreateRequest extends javax.swing.JPanel {
     private void cmbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbStatusActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -231,6 +247,7 @@ public class CreateRequest extends javax.swing.JPanel {
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblComments;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblEmail1;
     private javax.swing.JLabel lblHead;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblStatus;
@@ -239,22 +256,20 @@ public class CreateRequest extends javax.swing.JPanel {
     private javax.swing.JTextArea txtComments;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JLabel txtEmergency;
+    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtName;
     private javax.swing.JLabel txtSelectedService;
     // End of variables declaration//GEN-END:variables
-
-    private void currentTime() {
+private void currentTime() {
         Date date = new Date();
         long time = date.getTime();
         Timestamp ts = new Timestamp(time);
         String s = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(ts);
         lblTimeStamp.setText(s.toString());
     }
-
     private void getAreas() {
-        for (Area a : ecoSystem.getAreaDirectory().getAreas()) {
+        for (Area a : ecoSystem.getAreaDirectory().getAreasList()) {
             entityAreaField.addItem(a.getAreaName() + " " + a.getAreaZipCode());
         }
     }
-
 }
