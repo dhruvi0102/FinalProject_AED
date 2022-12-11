@@ -124,9 +124,9 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         System.out.println(system.getHospitalDirectory().getHospitalDirectoryList() + "pppppp");
         DefaultTableModel model = (DefaultTableModel) tblRequests.getModel();
         model.setRowCount(0);
-        for (Shelter shelter : system.getShelterDirectory().getShelters()) {
-            System.out.println("cuttt " + shelter.getUserName() + "sjsjsj " + account.getUsername());
-            if (shelter.getName().equals(account.getUsername())) {
+        for (Shelter shelter : system.getShelterDirectory().getShelterList()) {
+            System.out.println("cuttt " + shelter.getUserName() + "sjsjsj " + account.getUserName());
+            if (shelter.getShelterName().equals(account.getUserName())) {
                 for (Request req : shelter.getRequests()) {
                     Object[] row = new Object[12];
 

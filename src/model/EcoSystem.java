@@ -21,6 +21,7 @@ import model.UserAdmin.AdminDirectory;
 import model.UserAdmin.UserDirectory;
 import model.Hospital.DoctorDirectory;
 import model.Hospital.AmbulanceServiceDirectory;
+import model.ShelterHome.ShelterDirectory;
 
 
 /**
@@ -42,6 +43,7 @@ public class EcoSystem extends Organization{
     private HospitalDirectory hospitalDirectory;
     private DoctorDirectory doctorDirectory;
     private AmbulanceServiceDirectory ambulanceServiceDirectory;
+    private ShelterDirectory shelterDirectory;
     
     
     public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory,FireDepartmentDirectory fireDeptDirectory,FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory) {
@@ -59,7 +61,21 @@ public class EcoSystem extends Organization{
         this.hospitalDirectory = hospitalDirectory;
         this.doctorDirectory = doctorDirectory;
         this.ambulanceServiceDirectory =ambulanceServiceDirectory;
+        this.shelterDirectory = shelterDirectory;
     }
+
+    public ShelterDirectory getShelterDirectory() {
+        if(shelterDirectory == null){
+            shelterDirectory = new ShelterDirectory();
+        }
+        return shelterDirectory;
+    }
+
+    public void setShelterDirectory(ShelterDirectory shelterDirectory) {
+        this.shelterDirectory = shelterDirectory;
+    }
+    
+    
 
     public AmbulanceServiceDirectory getAmbulanceServiceDirectory() {
         
