@@ -105,7 +105,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         });
         add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 230, 50));
 
-        btnSubmit.setText("Create");
+        btnSubmit.setText("Save");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
@@ -252,54 +252,24 @@ public class ManageFireDept extends javax.swing.JPanel {
             return;
         }
 
-        System.out.println("weuhfuwef" + availability);
-        String FromEmail = "emergencysystemaed@gmail.com";
-        String FromEmailPassword = "jrxe svst jqjn nraj";
-        String Subjects = "welcome to the team";
-        
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth","true");
-        properties.put("mail.smtp.starttls.enable","true");
-        properties.put("mail.smtp.host","smtp.gmail.com");
-        properties.put("mail.smtp.port","587");
-        properties.put("mail.smtp.starttls.required", "true");
-        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
-        
-        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(userName)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            }else{
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password,location,availability, new FireDepartmentAdmin());
+                FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
+
+                FireDepartment fireDept = null;
+
+                if (ecoSystem.getFireDepartmentDirectory()==null)
+                    {
+                    fireDept = new FireDepartment(fullName,userName,location,availability);
+                    firedeptdir.getfireSquad().add(fireDept);
+                    }
+                else {
+                    fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName,userName,location,availability);
+                }
             }
-        });
-        
-        try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(FromEmail));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(userName));
-            message.setSubject(Subjects);
-            message.setText("welcome");
-            Transport.send(message);
-        }catch(Exception ex){
-            System.out.println(""+ex);
-        }
-    
-
-       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password,location,availability, new FireDepartmentAdmin());
-       //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new PDAdmin());
-        FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
-
-        FireDepartment fireDept = null;
-
-        if (ecoSystem.getFireDepartmentDirectory()==null)
-        {
-            fireDept = new FireDepartment(fullName, userName, location, availability);
-            firedeptdir.getfireSquad().add(fireDept);
-        }
-        else {
-            fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName, userName, location, availability);
-            System.out.println("name" + fireDept.getEmail());
-        }
-
-        populateTable();
+        JOptionPane.showMessageDialog(null, "Fire Department is added!");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -342,8 +312,8 @@ public class ManageFireDept extends javax.swing.JPanel {
             String pwd= (String) tblFireEnterprise.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtFullName.setText(userAccount.getName()+"");
-            txtUname.setText(userAccount.getUsername()+"");
+            txtFullName.setText(userAccount.getFullName()+"");
+            txtUname.setText(userAccount.getEmail()+"");
             txtPassword.setText(userAccount.getPassword()+"");
             // system.getUserAccountDirectory().deleteUserAccount(user);
 
@@ -363,6 +333,8 @@ public class ManageFireDept extends javax.swing.JPanel {
         String name = txtFullName.getText();
         String uname=txtUname.getText();
         String password=txtPassword.getText();
+        String address = txtLocation.getText();
+        Boolean status = chbStatus.isSelected();
 
         try {
             if(name==null || name.isEmpty()){
@@ -420,11 +392,10 @@ public class ManageFireDept extends javax.swing.JPanel {
             return;
         }
 
-        if (ecoSystem.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
+        
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
+            ecoSystem.getFireDepartmentDirectory().updatefireDepartment(name, uname, uname, Boolean.TRUE);
             populateTable();
             btnSubmit.setEnabled(true);
             btnDel.setEnabled(true);
@@ -433,7 +404,7 @@ public class ManageFireDept extends javax.swing.JPanel {
             txtFullName.setText("");
             txtUname.setText("");
             txtPassword.setText("");
-        }
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
@@ -477,11 +448,12 @@ public class ManageFireDept extends javax.swing.JPanel {
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             if ("Business.Role.FDAdminRole".equals(user.getRole().getClass().getName())) {
                 
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
 
                 model.addRow(row);
 
