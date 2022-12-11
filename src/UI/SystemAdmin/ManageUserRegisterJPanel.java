@@ -37,7 +37,6 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-       // populateTable();
     }
 
     /**
@@ -161,7 +160,7 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
         String address = (String) cmbGender.getSelectedItem();
         String Contact = txtContact.getText();
         
-        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new UserRole());
+        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, address, null, new UserRole());
       
         UserDirectory userdir = ecoSystem.getUserAdminDirectory();
 
@@ -213,22 +212,5 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-   /* private void populateTable() {
-        
-    DefaultTableModel model = (DefaultTableModel) tblUser.getModel();
-        JTableHeader th = tblUser.getTableHeader();
-        th.setFont(new Font("Serif", Font.BOLD, 15));
-        model.setRowCount(0);	
-        for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {           
-            if ("model.Role.UserRole".equals(user.getRole().getClass().getName())) {                
-                Object[] row = new Object[4];
-
-                row[0] = user.getName();
-                row[1] = user.getUsername();
-                row[2] = user.getPassword();
-               
-                model.addRow(row);
-            }
-        }
-    }*/
+ 
 }

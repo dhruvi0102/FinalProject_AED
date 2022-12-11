@@ -48,30 +48,30 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_policedept = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lbluname = new javax.swing.JLabel();
         txtUname = new javax.swing.JTextField();
-        lblPass = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         lblAvailability = new javax.swing.JLabel();
         chbStatus = new javax.swing.JCheckBox();
-        btn_submit = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        entityTable = new javax.swing.JTable();
-        updateInfobtn = new javax.swing.JButton();
-        btnDel = new javax.swing.JButton();
-        confirmUpdateBtn = new javax.swing.JButton();
-        Backbtn = new javax.swing.JButton();
+        tblPoliceDepartment = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnConfirmUpdate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_policedept.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_policedept.setText("Add new Police Department");
-        add(lbl_policedept, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, -1));
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setText("Add new Police Department");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, -1));
 
         lblName.setText("Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 67, -1));
@@ -87,185 +87,239 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         });
         add(txtUname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 240, -1));
 
-        lblPass.setText("Password");
-        add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 81, -1));
+        lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 81, -1));
 
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 240, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 240, -1));
 
         lblAddress.setText("Address");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 81, 19));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 238, 48));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 238, 48));
 
         lblAvailability.setText("Availability");
-        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         chbStatus.setText("Yes");
-        chbStatus.addActionListener(new java.awt.event.ActionListener() {
+        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbStatusActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
-        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 90, 30));
 
-        btn_submit.setText("Create");
-        btn_submit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_submitActionPerformed(evt);
-            }
-        });
-        add(btn_submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 120, 20));
-
-        entityTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblPoliceDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Station/ Precint Name", "Username", "Password"
+                "Department Name", "Username", "Password", "Address"
             }
         ));
-        jScrollPane1.setViewportView(entityTable);
+        jScrollPane1.setViewportView(tblPoliceDepartment);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 789, 107));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 700, 130));
 
-        updateInfobtn.setText("Update");
-        updateInfobtn.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateInfobtnActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        add(updateInfobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
 
-        btnDel.setText("Delete");
-        btnDel.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 110, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 110, -1));
 
-        confirmUpdateBtn.setText("Confirm Update");
-        confirmUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirmUpdate.setText("Confirm Update");
+        btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmUpdateBtnActionPerformed(evt);
+                btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(confirmUpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
 
-        Backbtn.setText("<--Back");
-        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackbtnActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtUnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUnameActionPerformed
 
-    private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String name = txtName.getText();
         String uname = txtUname.getText();
-        String password = txtPass.getText();
+        String password = txtPassword.getText();
         String address = txtAddress.getText();
         Boolean status = chbStatus.isSelected();
-        System.out.print("chbStatus"+chbStatus.isSelected());
+        
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
 
-       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null, new PoliceDepartmentAdmin());
-       PoliceDepartmentDirectory policedeptdir = ecoSystem.getPoliceDeptDirectory();
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
+                throw new Exception("Please enter valid  Name");
 
-        PoliceDepartment policeDept = null;
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
 
-        if (ecoSystem.getPoliceDeptDirectory()==null)
-        {
-            policeDept = new PoliceDepartment(name, uname, address, status);
-            policedeptdir.getPoliceDepartment().add(policeDept);
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
         }
-        else {
-            policeDept = ecoSystem.getPoliceDeptDirectory().createPoliceDeptartment(name, uname, address, status);
-            System.out.println("name :::" + policeDept.getUserName());
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
         }
 
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            }else{
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new PoliceDepartmentAdmin());
+                PoliceDepartmentDirectory policedeptdir = ecoSystem.getPoliceDeptDirectory();
+
+                PoliceDepartment policeDept = null;
+
+                if (ecoSystem.getPoliceDeptDirectory()==null)
+                    {
+                    policeDept = new PoliceDepartment(name, uname, address, status);
+                    policedeptdir.getPoliceDepartment().add(policeDept);
+                    }
+                else {
+                    policeDept = ecoSystem.getPoliceDeptDirectory().createPoliceDeptartment(name, uname, address, status);
+                }
+            }
+        JOptionPane.showMessageDialog(null, "Police Department is added!");
         populateEntityTable();
-    }//GEN-LAST:event_btn_submitActionPerformed
+        txtName.setText("");
+        txtUname.setText("");
+        txtPassword.setText("");
+        txtAddress.setText("");
+        chbStatus.setSelected(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = entityTable.getSelectedRow();
+        int selectedRow = tblPoliceDepartment.getSelectedRow();
         if (selectedRow >= 0) {
-            String name = (String) entityTable.getValueAt(selectedRow, 0);
-            String uname = (String) entityTable.getValueAt(selectedRow, 1);
-            String password = (String) entityTable.getValueAt(selectedRow, 2);
+            String name = (String) tblPoliceDepartment.getValueAt(selectedRow, 0);
+            String uname = (String) tblPoliceDepartment.getValueAt(selectedRow, 1);
+            String password = (String) tblPoliceDepartment.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            String warningMessage = "Are you sure you want to delete the user [PoliceDept] - " + name.toUpperCase() + " ?";
+            String warningMessage = "Are you sure you want to delete the user" + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
                 ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
-                //ecoSystem.getPoliceDeptDirectory().deleteShelter(user.getUsername());
                 ecoSystem.getPoliceDeptDirectory().deleteDeptartment(uname);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
         populateEntityTable();
-    }//GEN-LAST:event_btnDelActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void chbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbStatusActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbStatusActionPerformed
-
-    private void updateInfobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInfobtnActionPerformed
-        // TODO add your handling code here:
-        int selectRow = entityTable.getSelectedRow();
+        int selectRow = tblPoliceDepartment.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) entityTable.getValueAt(selectRow, 1);
-            String pwd= (String) entityTable.getValueAt(selectRow, 2);
+            String username= (String) tblPoliceDepartment.getValueAt(selectRow, 1);
+            String pwd= (String) tblPoliceDepartment.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(userAccount.getName()+"");
-            txtUname.setText(userAccount.getUsername()+"");
-            txtPass.setText(userAccount.getPassword()+"");
-            // system.getUserAccountDirectory().deleteUserAccount(user);
+            txtName.setText(userAccount.getFullName()+"");
+            txtUname.setText(userAccount.getUserName()+"");
+            txtPassword.setText(userAccount.getPassword()+"");
+            txtAddress.setText(userAccount.getAddress()+"");
+            chbStatus.setSelected(true);
 
         }
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
         }
-        btn_submit.setEnabled(false);
-        btnDel.setEnabled(false);
-        updateInfobtn.setEnabled(false);
-        confirmUpdateBtn.setEnabled(true);
-    }//GEN-LAST:event_updateInfobtnActionPerformed
+        btnSave.setEnabled(false);
+        btnDelete.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnConfirmUpdate.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void confirmUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmUpdateBtnActionPerformed
+    private void btnConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmUpdateActionPerformed
         // TODO add your handling code here:
 
         String name = txtName.getText();
         String uname=txtUname.getText();
-        String password=txtPass.getText();
-
+        String password=txtPassword.getText();
+        String address = txtAddress.getText();
+        Boolean status = chbStatus.isSelected();
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -317,67 +371,68 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             return;
         }
 
-        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
+        
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
+            ecoSystem.getPoliceDeptDirectory().updatePoliceDepartment(name,uname,address,status);
             populateEntityTable();
-            btn_submit.setEnabled(true);
-            btnDel.setEnabled(true);
-            updateInfobtn.setEnabled(true);
-            confirmUpdateBtn.setEnabled(false);
+            btnSave.setEnabled(true);
+            btnDelete.setEnabled(true);
+            btnUpdate.setEnabled(true);
+            btnConfirmUpdate.setEnabled(false);
             txtName.setText("");
             txtUname.setText("");
-            txtPass.setText("");
-        }
-    }//GEN-LAST:event_confirmUpdateBtnActionPerformed
+            txtPassword.setText("");
+            txtAddress.setText("");
+            chbStatus.setSelected(false);
+    }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
-    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_BackbtnActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Backbtn;
-    private javax.swing.JButton btnDel;
-    private javax.swing.JButton btn_submit;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConfirmUpdate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JCheckBox chbStatus;
-    private javax.swing.JButton confirmUpdateBtn;
-    private javax.swing.JTable entityTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPass;
-    private javax.swing.JLabel lbl_policedept;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lbluname;
+    private javax.swing.JTable tblPoliceDepartment;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUname;
-    private javax.swing.JButton updateInfobtn;
     // End of variables declaration//GEN-END:variables
 
     private void populateEntityTable() {
         
-  DefaultTableModel model = (DefaultTableModel) entityTable.getModel();
-        JTableHeader th = entityTable.getTableHeader();
+  DefaultTableModel model = (DefaultTableModel) tblPoliceDepartment.getModel();
+        JTableHeader th = tblPoliceDepartment.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);	
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             if ("model.Role.PoliceDepartmentAdmin".equals(user.getRole().getClass().getName())) {
                 
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
 
                 model.addRow(row);
             }

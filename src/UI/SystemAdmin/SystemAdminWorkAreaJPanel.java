@@ -36,7 +36,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         System.out.println(userAccount.getRole());
         if ("model.Role.AdminRole".equals(userAccount.getRole().getClass().getName())) {
         lblRequestTitle.setVisible(false);
-        btnManageRequests.setVisible(false);  
+        btnCreateRequest.setVisible(false);  
         lblEnterpriseTitle.setVisible(false);
         btnManageHospital.setVisible(false);
         btnManagePolice.setVisible(false);
@@ -47,7 +47,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAdmins.setVisible(false);
         btnAreaAdmins.setVisible(false);
         lblRequestTitle.setVisible(true);
-        btnManageRequests.setVisible(true);
+        btnCreateRequest.setVisible(true);
         }
     }
     /**
@@ -61,7 +61,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         lblWelcome = new javax.swing.JLabel();
         lblRequestTitle = new javax.swing.JLabel();
-        btnManageRequests = new javax.swing.JButton();
+        btnCreateRequest = new javax.swing.JButton();
         lblEnterpriseTitle = new javax.swing.JLabel();
         btnManageShelter = new javax.swing.JButton();
         btnManagePolice = new javax.swing.JButton();
@@ -71,15 +71,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnUsers = new javax.swing.JButton();
         btnAdmins = new javax.swing.JButton();
         btnAreaAdmins = new javax.swing.JButton();
+        btnManageRequest = new javax.swing.JButton();
 
         lblWelcome.setText("Welcome to the System");
 
         lblRequestTitle.setText("Click below button to Create and manage Requests:");
 
-        btnManageRequests.setText("Manage Requests");
-        btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateRequest.setText("Create Requests");
+        btnCreateRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageRequestsActionPerformed(evt);
+                btnCreateRequestActionPerformed(evt);
             }
         });
 
@@ -131,6 +132,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageRequest.setText("Manage Requests");
+        btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageRequestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +151,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(lblEnterpriseTitle)
                             .addComponent(lblRequestTitle)
                             .addComponent(lblWelcome)
-                            .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCreateRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +186,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(lblRequestTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreateRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(lblEnterpriseTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,9 +208,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
+    private void btnCreateRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRequestActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageRequestsActionPerformed
+    }//GEN-LAST:event_btnCreateRequestActionPerformed
 
     private void btnManageShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageShelterActionPerformed
         // TODO add your handling code here:
@@ -243,14 +256,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAreaAdminsActionPerformed
 
+    private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageRequestActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmins;
     private javax.swing.JButton btnAreaAdmins;
+    private javax.swing.JButton btnCreateRequest;
     private javax.swing.JButton btnManageFire;
     private javax.swing.JButton btnManageHospital;
     private javax.swing.JButton btnManagePolice;
-    private javax.swing.JButton btnManageRequests;
+    private javax.swing.JButton btnManageRequest;
     private javax.swing.JButton btnManageShelter;
     private javax.swing.JButton btnUsers;
     private javax.swing.JLabel lblEnterpriseTitle;
