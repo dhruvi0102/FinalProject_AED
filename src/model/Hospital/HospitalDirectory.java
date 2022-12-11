@@ -18,31 +18,40 @@ public class HospitalDirectory {
     public HospitalDirectory() {
     }
     
-    
-    public Hospital createHospital(String hospitalName, String userName, String password, boolean hospitalStatus) {
-
-
-        System.out.println("createHospital:::" + hospitalName + userName + password);
-        hospital = new Hospital(hospitalName, userName, password, hospitalStatus);
-        hospitalList.add(hospital);
-        System.out.println("uname:::" + hospitalList.size());
-        return hospital;
-    }
-
     public ArrayList<Hospital> getHospitalDirectoryList() {
         return hospitalList;
     }
 
-    public void setHospitalDirectoryDirectoryList(ArrayList<Hospital> HospitalDirectoryList) {
+    public void setHospitalDirectoryList(ArrayList<Hospital> HospitalDirectoryList) {
         this.hospitalList = HospitalDirectoryList;
     }
+    
+    public Hospital createHospital(String name, String uname, String address, boolean status) {
+        hospital = new Hospital(name, uname, address, status);
+        hospitalList.add(hospital);
+        return hospital;
+    }
+    
+    public void updateHospital(String name, String uname,String address, Boolean status){
+        hospital.setHospitalName(name);
+        hospital.setUserName(uname);
+        hospital.setHospitalAddress(address);
+        hospital.setHospitalStatus(status);
+    }
+
+  
 
     public void deleteHospitalDirectory(String username) {
-        for (int i = 0; i < hospitalList.size(); i++) {
-            if (hospitalList.get(i).getUserName().equals(username)) {
-                hospitalList.remove(i);
+        System.out.println("size insed del:::" + hospitalList.size());
+        Hospital currentDeptartment = null;
+        for (Hospital h : hospitalList) {
+            System.out.println("totiong" + h.toString());
+            if (h.getHospitalName().equals(username)) {
+                currentDeptartment = h;
+                break;
             }
         }
+        hospitalList.remove(currentDeptartment);
     }
     
 }
