@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import model.PoliceDepartment.PoliceDepartment;
+import model.ShelterHome.Shelter;
 
 /**
  *
@@ -61,10 +62,10 @@ public class UnitsJpanel extends javax.swing.JPanel {
         tblHospitalService = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPoliceService = new javax.swing.JTable();
-        btnAssignShelter = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblFireService = new javax.swing.JTable();
+        btnAssignShelter = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
         btnAssignHospital = new javax.swing.JButton();
         btnAssignPolice = new javax.swing.JButton();
         btnAssignFire = new javax.swing.JButton();
@@ -79,7 +80,6 @@ public class UnitsJpanel extends javax.swing.JPanel {
         btnViewRequest = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jToolBar1 = new javax.swing.JToolBar();
         lblName = new javax.swing.JLabel();
         lblTypeOfEmergency = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
@@ -142,6 +142,21 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 597, 566, 135));
 
+        tblFireService.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "UserName", "Name", "Location"
+            }
+        ));
+        jScrollPane4.setViewportView(tblFireService);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 772, 566, 154));
+
         btnAssignShelter.setText("Assign ");
         btnAssignShelter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,21 +172,6 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1023, 21, -1, -1));
-
-        tblFireService.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "UserName", "Name", "Location"
-            }
-        ));
-        jScrollPane4.setViewportView(tblFireService);
-
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 772, 566, 154));
 
         btnAssignHospital.setText("Assign ");
         btnAssignHospital.addActionListener(new java.awt.event.ActionListener() {
@@ -226,10 +226,6 @@ public class UnitsJpanel extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 23, -1, -1));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setRollover(true);
-        jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1140, 410));
-
         lblName.setText("jLabel1");
         jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 17));
 
@@ -257,7 +253,48 @@ public class UnitsJpanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignShelterActionPerformed
-        
+        String userName = "";
+        int selectedRow = tblShelterService.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            userName = (String) tblShelterService.getValueAt(selectedRow, 0);
+            System.out.println("item" + userName);
+
+        }
+
+        String personName = lblName.getText();
+        String personLocation = lblLocation.getText();
+        String area = lblArea.getText();
+        String typeOfEmergency = lblTypeOfEmergency.getText();
+        String comments = lblComments.getText();
+        String date = lblDateTimeStamp.getText();
+        String selectedHospital = "Not Assigned";
+        String selectedFireDept = userName;
+        String selectedPoliceDept = "Not Assigned";
+        String selectedShelter = "Not Assigned";
+        String status = "Assigned";
+        RequestDirectory reqDir = ecoSystem.getRequestDirectory();
+
+        Request req = null;
+        if (ecoSystem.getRequestDirectory() == null) {
+            req = new Request(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+            reqDir.getRequests().add(req);
+        } else {
+            req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+        }
+
+        for (Shelter fd : ecoSystem.getShelterDirectory().getShelterList()) {
+            ArrayList<Request> fdReq = fd.getRequests();
+            if (userName.equalsIgnoreCase(fd.getUserName())) {
+                if (fdReq == null) {
+                    fdReq = new ArrayList<>();
+                }
+                fdReq.add(req);
+            }
+            fd.setRequests(fdReq);
+        }
+        JOptionPane.showMessageDialog(null, "Police Department is assigned!");        
     }//GEN-LAST:event_btnAssignShelterActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -267,7 +304,48 @@ public class UnitsJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void btnAssignHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignHospitalActionPerformed
-   
+        String userName = "";
+        int selectedRow = tblHospitalService.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row from the table to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            userName = (String) tblHospitalService.getValueAt(selectedRow, 0);
+            System.out.println("item" + userName);
+
+        }
+
+        String personName = lblName.getText();
+        String personLocation = lblLocation.getText();
+        String area = lblArea.getText();
+        String typeOfEmergency = lblTypeOfEmergency.getText();
+        String comments = lblComments.getText();
+        String date = lblDateTimeStamp.getText();
+        String selectedHospital = "Not Assigned";
+        String selectedFireDept = userName;
+        String selectedPoliceDept = "Not Assigned";
+        String selectedShelter = "Not Assigned";
+        String status = "Assigned";
+        RequestDirectory reqDir = ecoSystem.getRequestDirectory();
+
+        Request req = null;
+        if (ecoSystem.getRequestDirectory() == null) {
+            req = new Request(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+            reqDir.getRequests().add(req);
+        } else {
+            req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+        }
+
+        for (Hospital fd : ecoSystem.getHospitalDirectory().getHospitalDirectoryList()) {
+            ArrayList<Request> fdReq = fd.getRequests();
+            if (userName.equalsIgnoreCase(fd.getUserName())) {
+                if (fdReq == null) {
+                    fdReq = new ArrayList<>();
+                }
+                fdReq.add(req);
+            }
+            fd.setRequests(fdReq);
+        }
+        JOptionPane.showMessageDialog(null, "Hospital Department is assigned!");
     }//GEN-LAST:event_btnAssignHospitalActionPerformed
 
     private void btnAssignPoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignPoliceActionPerformed
@@ -312,6 +390,8 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
             pd.setRequests(pdReq);
         }
+        
+        JOptionPane.showMessageDialog(null, "Police Department is assigned!");
     }//GEN-LAST:event_btnAssignPoliceActionPerformed
 
     private void btnAssignFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignFireActionPerformed
@@ -356,6 +436,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
             fd.setRequests(fdReq);
         }
+        JOptionPane.showMessageDialog(null, "Fire Department is assigned!");
     }//GEN-LAST:event_btnAssignFireActionPerformed
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
@@ -382,7 +463,6 @@ public class UnitsJpanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblComments;
     private javax.swing.JLabel lblDateTimeStamp;
@@ -424,17 +504,20 @@ public class UnitsJpanel extends javax.swing.JPanel {
             tblPoliceService.setVisible(false);
         } else {
             for (String s : emergencyList) {
-                if (s.equalsIgnoreCase("Public Healthcare Sector")) {
+                if (s.equalsIgnoreCase("Request Healthcare Services")) {
                     fetchHealthCareUnits();
-                } else if (s.equalsIgnoreCase("Law Enforcement Sector")) {
+                } else if (s.equalsIgnoreCase("Request Police Services")) {
                     fetchLawEnforceMentUnits();
-                } else if (s.equalsIgnoreCase("Fire Alert Services")) {
+                } else if (s.equalsIgnoreCase("Request Fire Services")) {
                     fetchFireServices();
-                }  else {
+                }  else if (s.equalsIgnoreCase("Request Shelter Services")) {
+                    fetchShelterServices();
+                }
+                else {
                     fetchHealthCareUnits();
                     fetchLawEnforceMentUnits();
                     fetchFireServices();
-                   
+                    fetchShelterServices();
                 }
             }
         }
@@ -442,20 +525,20 @@ public class UnitsJpanel extends javax.swing.JPanel {
     }
 
     private void fetchHealthCareUnits() {
-        DefaultTableModel model = (DefaultTableModel) tblPoliceService.getModel();
-        JTableHeader th = tblPoliceService.getTableHeader();
+        DefaultTableModel model = (DefaultTableModel) tblHospitalService.getModel();
+        JTableHeader th = tblHospitalService.getTableHeader();
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
-        int availUnitSize = (int) ecoSystem.getPoliceDeptDirectory().getpoliceDepts().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
-        lblPoliceAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getPoliceDeptDirectory().getpoliceDepts().size());
+        int availUnitSize = (int) ecoSystem.getHospitalDirectory().getHospitalDirectoryList().stream().filter(l -> Boolean.TRUE.equals(l.isHospitalStatus())).count();
+        lblHospAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getHospitalDirectory().getHospitalDirectoryList().size());
 
-        for (PoliceDept pd : ecoSystem.getPoliceDeptDirectory().getpoliceDepts()) {
-            if (Boolean.TRUE.equals(pd.getStatus())) {
+        for (Hospital hd : ecoSystem.getHospitalDirectory().getHospitalDirectoryList()) {
+            if (Boolean.TRUE.equals(hd.isHospitalStatus())) {
                 Object[] row = new Object[3];
 
-                row[0] = pd.getUserName();
-                row[1] = pd.getName();
-                row[2] = pd.getAddress();
+                row[0] = hd.getUserName();
+                row[1] = hd.getHospitalName();
+                row[2] = hd.getHospitalAddress();
 
                 model.addRow(row);
             }
@@ -515,15 +598,15 @@ public class UnitsJpanel extends javax.swing.JPanel {
         th.setFont(new Font("Serif", Font.BOLD, 15));
         model.setRowCount(0);
 
-        int availUnitSize = (int) ecoSystem.getShelterDirectory().getShelters().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
-        lblShelterAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getShelterDirectory().getShelters().size());
+        int availUnitSize = (int) ecoSystem.getShelterDirectory().getShelterList().stream().filter(l -> Boolean.TRUE.equals(l.getAvailability())).count();
+        lblShelterAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getShelterDirectory().getShelterList().size());
 
-        for (Shelter shel : ecoSystem.getShelterDirectory().getShelters()) {
-            if (Boolean.TRUE.equals(shel.getStatus())) {
+        for (Shelter shel : ecoSystem.getShelterDirectory().getShelterList()) {
+            if (Boolean.TRUE.equals(shel.getAvailability())) {
                 Object[] row = new Object[4];
                 row[0] = shel.getUserName();
-                row[1] = shel.getName();
-                row[2] = shel.getLocation();
+                row[1] = shel.getShelterName();
+                row[2] = shel.getAddress();
                 model.addRow(row);
             }
 
