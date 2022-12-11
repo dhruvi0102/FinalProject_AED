@@ -197,12 +197,7 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         String typeOfEmergency = entityTypeOfEmergency.getText();
         String comments = commentsField.getText();
         String status = statusDD.getSelectedItem().toString();
-        System.out.println("eco" + ecoSystem.getShelterDirectory());
-        Units unitsPanel = new Units(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
-
-        userProcessContainer.add("manageDelJPanel", unitsPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        System.out.println("eco" + ecoSystem.getShelterDirectory());        
     }//GEN-LAST:event_btnProceedActionPerformed
 
 
