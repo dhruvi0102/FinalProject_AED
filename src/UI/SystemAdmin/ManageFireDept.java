@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.SystemAdminWorkArea;
+package UI.SystemAdmin;
 
-import Business.EcoSystem;
-import Business.FireDept.FireDepartment;
-import Business.FireDept.FireDepartmentDirectory;
-import Business.Role.FDAdminRole;
-import Business.UserAccount.UserAccount;
+import model.EcoSystem;
+import model.FireDepartment.FireDepartment;
+import model.FireDepartment.FireDepartmentDirectory;
+import model.Role.FireDepartmentAdmin;
+import model.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Font;
@@ -283,7 +283,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         }
     
 
-       UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new FDAdminRole());
+       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password,location,availability, new FireDepartmentAdmin());
        //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new PDAdmin());
         FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
 
