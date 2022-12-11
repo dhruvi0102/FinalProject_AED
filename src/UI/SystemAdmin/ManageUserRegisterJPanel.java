@@ -4,6 +4,7 @@
  */
 package UI.SystemAdmin;
 
+import UI.TitleJPanel;
 import model.EcoSystem;
 import model.UserAdmin.User;
 import model.UserAdmin.UserDirectory;
@@ -159,7 +160,64 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
         String password = String.valueOf(passwordArray);
         String address = (String) cmbGender.getSelectedItem();
         String Contact = txtContact.getText();
-        
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            }else{
         UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, address, null, new UserRole());
       
         UserDirectory userdir = ecoSystem.getUserAdminDirectory();
@@ -175,13 +233,14 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
             u = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
             System.out.println("name :::" + u.getUserName());
         }
+        }
         JOptionPane.showMessageDialog(null, "You are successfully registered");
         
         txtName.setText("");
         txtUsername.setText("");
         txtPassword.setText("");
         txtContact.setText("");
-        
+  
        lblTitle.setVisible(false);
        lblName.setVisible(false);
        txtName.setVisible(false);

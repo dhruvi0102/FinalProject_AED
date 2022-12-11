@@ -11,6 +11,7 @@ import model.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
+import model.PoliceDepartment.TrafficControlUnit;
 
 /**
  *
@@ -63,9 +64,9 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         lblControlUnit.setText("Select Critical Control unit to Dispatch");
         add(lblControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
-        cmbControlUnit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbControlUnitActionPerformed(evt);
+        cmbControlUnit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbControlUnitMouseClicked(evt);
             }
         });
         add(cmbControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 210, 20));
@@ -107,9 +108,9 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         lblTControlUnit.setText("Select Traffic Control unit to Dispatch");
         add(lblTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
-        cmbTControlUnit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTControlUnitActionPerformed(evt);
+        cmbTControlUnit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbTControlUnitMouseClicked(evt);
             }
         });
         add(cmbTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 210, -1));
@@ -147,21 +148,21 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFinalCUActionPerformed
 
-    private void cmbControlUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbControlUnitActionPerformed
+    private void cmbControlUnitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbControlUnitMouseClicked
         // TODO add your handling code here:
-        String CCUDiv = cmbControlUnit.getSelectedItem().toString();
-        txtFinalCU.setText(CCUDiv);
         cmbTControlUnit.setEditable(false);
         txtFinalTU.setEditable(false);
-    }//GEN-LAST:event_cmbControlUnitActionPerformed
+        String CCUDiv = cmbControlUnit.getSelectedItem().toString();
+        txtFinalCU.setText(CCUDiv);      
+    }//GEN-LAST:event_cmbControlUnitMouseClicked
 
-    private void cmbTControlUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTControlUnitActionPerformed
+    private void cmbTControlUnitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbTControlUnitMouseClicked
         // TODO add your handling code here:
-        String TCUDiv = cmbTControlUnit.getSelectedItem().toString();
-        txtFinalTU.setText(TCUDiv);
         cmbControlUnit.setEditable(false);
         txtFinalCU.setEditable(false);
-    }//GEN-LAST:event_cmbTControlUnitActionPerformed
+        String TCUDiv = cmbTControlUnit.getSelectedItem().toString();
+        txtFinalTU.setText(TCUDiv);        
+    }//GEN-LAST:event_cmbTControlUnitMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -187,8 +188,8 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
     }
 
     private void getTrafficControlUnit() {
-        for (ControlUnit b : ecosystem.getControlUnitDirectory().getControlUnit()) {
-            cmbControlUnit.addItem(b.getTrafficcontrolUnit());
+        for (TrafficControlUnit b : ecosystem.getTrafficControlUnitDirectory().getTrafficControlUnit()) {
+            cmbTControlUnit.addItem(b.getTrafficcontrolUnit());
         }
     }
 }

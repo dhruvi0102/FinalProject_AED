@@ -10,12 +10,16 @@ import model.FireDepartment.FireDepartmentDirectory;
 import model.FireDepartment.HousingFireDispatchUnitDirectory;
 import model.Areas.AreaAdminDirectory;
 import model.Areas.AreaDirectory;
+import model.Hospital.AmbulanceServiceDirectory;
+import model.Hospital.DoctorDirectory;
 import model.Hospital.HospitalDirectory;
 import model.PoliceDepartment.ControlUnitDirectory;
 import model.PoliceDepartment.PoliceDepartmentDirectory;
+import model.PoliceDepartment.TrafficControlUnitDirectory;
 import model.Requests.RequestDirectory;
 import model.Role.Role;
 import model.Role.SystemAdmin;
+import model.ShelterHome.ShelterDirectory;
 import model.UserAccount.UserAccountDirectory;
 import model.UserAdmin.AdminDirectory;
 import model.UserAdmin.UserDirectory;
@@ -32,6 +36,7 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private RequestDirectory requestDirectory;
     private ControlUnitDirectory controlUnitDirectory;
+    private TrafficControlUnitDirectory tcontrolUnitDirectory;
     private PoliceDepartmentDirectory policeDeptDirectory;
     private UserDirectory userAdminDirectory;
     private AdminDirectory adminDirectory;
@@ -44,9 +49,9 @@ public class EcoSystem extends Organization{
     private DoctorDirectory doctorDirectory;
     private AmbulanceServiceDirectory ambulanceServiceDirectory;
     private ShelterDirectory shelterDirectory;
+
     
-    
-    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory,FireDepartmentDirectory fireDeptDirectory,FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory) {
+    public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,HospitalDirectory hospitalDirectory,DoctorDirectory doctorDirectory,AmbulanceServiceDirectory ambulanceDirectory,ControlUnitDirectory controlUnitDirectory,TrafficControlUnitDirectory tcontrolUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory,FireDepartmentDirectory fireDeptDirectory,HousingFireDispatchUnitDirectory HousingFireDispatchUnitDirectory,FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory,ShelterDirectory shelterDirectory) {
         super(null);
         this.policeDeptDirectory = policeDeptDirectory;
         this.controlUnitDirectory = controlUnitDirectory;
@@ -142,7 +147,7 @@ public class EcoSystem extends Organization{
     public void setPoliceDeptDirectory(PoliceDepartmentDirectory policeDeptDirectory) {
         this.policeDeptDirectory = policeDeptDirectory;
     }
-    
+        
     public ControlUnitDirectory getControlUnitDirectory() {
          if (controlUnitDirectory == null){
              controlUnitDirectory = new ControlUnitDirectory();
@@ -152,6 +157,17 @@ public class EcoSystem extends Organization{
 
     public void setControlUnitDirectory(ControlUnitDirectory controlUnitDirectory) {
         this.controlUnitDirectory = controlUnitDirectory;
+    }
+    
+     public TrafficControlUnitDirectory getTrafficControlUnitDirectory() {
+         if (tcontrolUnitDirectory == null){
+             tcontrolUnitDirectory = new TrafficControlUnitDirectory();
+         }
+        return tcontrolUnitDirectory;
+    }
+
+    public void setTrafficControlUnitDirectory(TrafficControlUnitDirectory tcontrolUnitDirectory) {
+        this.tcontrolUnitDirectory = tcontrolUnitDirectory;
     }
 
     public RequestDirectory getRequestDirectory() {
@@ -242,6 +258,7 @@ public class EcoSystem extends Organization{
     public void setAreaDirectory(AreaDirectory areaDirectory) {
         this.areaDirectory = areaDirectory;
     }
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();

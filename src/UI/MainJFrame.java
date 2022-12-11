@@ -37,6 +37,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame(){
         initComponents();
         ecoSystem = dB4Outil.retrieveSystem();
+        TitleJPanel panel = new TitleJPanel();
+        container.add(panel);
         setSize(1680, 1200);
     }
     
@@ -134,10 +136,15 @@ public class MainJFrame extends javax.swing.JFrame {
         txtPassword.setEnabled(true);
         btnLogin.setEnabled(true);
         container.removeAll();
+        TitleJPanel panel = new TitleJPanel();
+        container.add(panel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
 
         dB4Outil.storeSystem(ecoSystem);
+        
+        txtUserName.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -162,6 +169,8 @@ public class MainJFrame extends javax.swing.JFrame {
             btnLogout.setEnabled(true);
             txtUserName.setEnabled(false);
             txtPassword.setEnabled(false);
+            txtUserName.setText("");
+            txtPassword.setText("");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

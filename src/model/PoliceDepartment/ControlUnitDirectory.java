@@ -17,7 +17,7 @@ public class ControlUnitDirectory {
     public ArrayList<ControlUnit> getControlUnit() {
         return controlUnit;
     }
-
+    
     public void setControlUnit(ArrayList<ControlUnit> controlunit) {
         this.controlUnit = controlunit;
     }
@@ -30,8 +30,8 @@ public class ControlUnitDirectory {
         this.cntrlunit = cntrlunit;
     }
 
-    public ControlUnit createCUDirectory(String criticalControlUnitNum, String trafficControlUnit) {
-        cntrlunit = new ControlUnit(criticalControlUnitNum,trafficControlUnit);
+    public ControlUnit createCUDirectory(String criticalControlUnitNum) {
+        cntrlunit = new ControlUnit(criticalControlUnitNum);
         controlUnit.add(cntrlunit);
         return cntrlunit;
     }

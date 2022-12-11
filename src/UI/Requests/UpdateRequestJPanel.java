@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JPanel;
 
+
 /**
  *
  * @author dhruv
@@ -78,6 +79,7 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         btnProceed = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        lbltimestamp = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -90,73 +92,73 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
-        add(entityNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 191, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        add(entityNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 191, -1));
 
         jLabel3.setText("Location");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         entityLocationField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entityLocationFieldActionPerformed(evt);
             }
         });
-        add(entityLocationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 191, -1));
+        add(entityLocationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 191, -1));
 
         jLabel8.setText("Area");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 191, -1));
+        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 191, -1));
 
         jLabel6.setText("Selected Item");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
-        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 277, 17));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 277, 17));
 
         jLabel7.setText("Comments for Dispatched Units");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         commentsField.setColumns(20);
         commentsField.setRows(5);
         jScrollPane2.setViewportView(commentsField);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 277, -1));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 277, -1));
 
         jLabel5.setText("Status");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
 
         statusDD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusDDActionPerformed(evt);
             }
         });
-        add(statusDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 277, -1));
+        add(statusDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 277, -1));
 
         lblReqID.setText("jLabel9");
-        add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
+        add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jLabel9.setText("Selected Hospital");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
 
         lblSelectedHos.setText("jLabel10");
-        add(lblSelectedHos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 274, -1));
+        add(lblSelectedHos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 274, -1));
 
         lblSelectedPD.setText("jLabel10");
-        add(lblSelectedPD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 274, -1));
+        add(lblSelectedPD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 274, -1));
 
         jLabel10.setText("Selected Police Department");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
 
         lblSelectedFD.setText("jLabel10");
-        add(lblSelectedFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 274, -1));
+        add(lblSelectedFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 274, -1));
 
         jLabel11.setText("Selected Fire Department");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, -1));
 
         lblSelectedShel.setText("jLabel10");
-        add(lblSelectedShel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, 274, -1));
+        add(lblSelectedShel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 274, -1));
 
         jLabel12.setText("Selected Shelter ");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, -1, -1));
 
         btnProceed.setText("Proceed");
         btnProceed.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +166,7 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
                 btnProceedActionPerformed(evt);
             }
         });
-        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, -1, -1));
+        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 3, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(119, 10, 40));
@@ -172,7 +174,10 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 170, 30));
 
         jLabel14.setText("RequestID:");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        lbltimestamp.setText("jLabel1");
+        add(lbltimestamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -197,7 +202,12 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         String typeOfEmergency = entityTypeOfEmergency.getText();
         String comments = commentsField.getText();
         String status = statusDD.getSelectedItem().toString();
-        System.out.println("eco" + ecoSystem.getShelterDirectory());        
+        String timeStamp = lbltimestamp.getText();
+        UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments,timeStamp, status);
+        userProcessContainer.add("manageDelJPanel", unitsPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_btnProceedActionPerformed
 
 
@@ -227,6 +237,7 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblSelectedHos;
     private javax.swing.JLabel lblSelectedPD;
     private javax.swing.JLabel lblSelectedShel;
+    private javax.swing.JLabel lbltimestamp;
     private javax.swing.JComboBox<String> statusDD;
     // End of variables declaration//GEN-END:variables
 
