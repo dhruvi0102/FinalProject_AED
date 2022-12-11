@@ -279,6 +279,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        JOptionPane.showMessageDialog(null, "Department is deleted!");
         populateEntityTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -301,6 +302,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
         }
+        
         btnSave.setEnabled(false);
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
@@ -373,7 +375,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
             ecoSystem.getPoliceDeptDirectory().updatePoliceDepartment(name,uname,address,status);
-            JOptionPane.showMessageDialog(null, "Changes are updated!");
+            JOptionPane.showMessageDialog(null, "User Changes are updated!");
             populateEntityTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);

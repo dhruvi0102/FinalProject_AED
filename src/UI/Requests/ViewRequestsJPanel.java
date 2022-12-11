@@ -56,13 +56,13 @@ public class ViewRequestsJPanel extends javax.swing.JPanel {
 
         reqTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Request ID", "Name", "Location", "Area", "Type Of Emergency", "Comments", "Date", "Hospital", "FD", "PD", "Shelter", "Status", "Entity Desc"
+                "Request ID", "Name", "Location", "Area", "Type Of Emergency", "Comments", "Date", "Hospital", "FD", "PD", "Shelter", "Status"
             }
         ));
         reqTable.setRowHeight(60);
@@ -185,7 +185,6 @@ public class ViewRequestsJPanel extends javax.swing.JPanel {
             row[9] = req.getSelectedPoliceDept();
             row[10] = req.getSelectedShelter();
             row[11] = req.getStatus();
-            row[12] = req.getEntityDesc();
 
             model.addRow(row);
 
