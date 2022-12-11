@@ -362,7 +362,7 @@ public class ManageUserJPanel extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,null,null);
             ecoSystem.getUserAdminDirectory().updateUser(name,uname);
-            JOptionPane.showMessageDialog(null, "Changes are updated!");
+            JOptionPane.showMessageDialog(null, "User Changes are updated!");
             populateTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -402,6 +402,7 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        JOptionPane.showMessageDialog(null, "User is deleted!");
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 

@@ -18,12 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.util.Properties;
-import javax.mail.Session;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Message;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 /**
  *
  * @author siddh
