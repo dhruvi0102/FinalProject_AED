@@ -190,7 +190,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         Doctor doc = null;
         if (system.getDoctorDirectory() == null) {
             doc = new Doctor(doctorName, npiNum);
-            docDir.getDoctors().add(doc);
+            docDir.getDoctorList().add(doc);
             JOptionPane.showMessageDialog(null, "Doctor Entry added");
         } else {
             doc = system.getDoctorDirectory().createDoctor(doctorName, npiNum);
@@ -202,17 +202,17 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String ambulanceNum = txtAmbNum.getText();
         
-        AmbulanceServiceDirectory ambulanceDir = system.getAmbulanceDirectory();
+        AmbulanceServiceDirectory ambulanceDir = system.getAmbulanceServiceDirectory();
         AmbulanceService ambulance = null;
         
-        if(system.getAmbulanceDirectory() == null) {
+        if(system.getAmbulanceServiceDirectory() == null) {
             ambulance = new AmbulanceService(ambulanceNum);
-            ambulanceDir.getAmbulances().add(ambulance);
+            ambulanceDir.getAmbulanceList().add(ambulance);
             JOptionPane.showMessageDialog(null, "Doctor Entry added");
 
         }
         else {
-            ambulance = system.getAmbulanceDirectory().createAmbulance(ambulanceNum);
+            ambulance = system.getAmbulanceServiceDirectory().createAmbulance(ambulanceNum);
         }
     }//GEN-LAST:event_btnAddAmbulanceActionPerformed
 

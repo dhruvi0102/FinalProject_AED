@@ -172,7 +172,7 @@ public class GeneralCaseManagementJPanel extends javax.swing.JPanel {
         lblDisplayAmbNum.setText(ambNum);
         lblDisplayNPINum.setText(npiNum);
         for (Hospital custom : system.getHospitalDirectory().getHospitalDirectoryList()) {
-            if (custom.getUserName().equals(account.getUsername())) {
+            if (custom.getUserName().equals(account.getUserName())) {
                 for (Request req : custom.getRequests()) {
 
                     if (req.getRequestId() == reqID) {

@@ -130,8 +130,8 @@ public class HospitalRequestManagementJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblAssignedRequests.getModel();
         model.setRowCount(0);
         for (Hospital custom : system.getHospitalDirectory().getHospitalDirectoryList()) {
-            System.out.println("cuttt " + custom.getUserName() + "sjsjsj " + account.getUsername() );
-            if (custom.getUserName().equals(account.getUsername())) {
+            System.out.println("cuttt " + custom.getUserName() + "sjsjsj " + account.getUserName() );
+            if (custom.getUserName().equals(account.getUserName())) {
                 for (Request req : custom.getRequests()) {
                     Object[] row = new Object[12];
 

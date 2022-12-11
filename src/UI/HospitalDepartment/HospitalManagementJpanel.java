@@ -247,14 +247,14 @@ public class HospitalManagementJpanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void getDoctorList() {
-        for (Doctor a : system.getDoctorDirectory().getDoctors()) {
-            cmbSelectEMT.addItem(a.getDoctorName() + " " + a.getNpiCode());
+        for (Doctor a : system.getDoctorDirectory().getDoctorList()) {
+            cmbSelectEMT.addItem(a.getDoctor_FullName() + " " + a.getNpi_Code());
     }
     }
 
     private void getAmbulance() {
-        for (Ambulance b : system.getAmbulanceDirectory().getAmbulances()) {
-            cmbSelectAmbNum.addItem(b.getAmulanceNum());
+        for (AmbulanceService b : system.getAmbulanceServiceDirectory().getAmbulanceList()) {
+            cmbSelectAmbNum.addItem(b.getAmbulanceNumber());
     }    }
 
     private void setData(String patientName, String area, String status, String reqID, String docName, String npiNum, String ambNum) {
