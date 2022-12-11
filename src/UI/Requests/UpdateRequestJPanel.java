@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -38,7 +40,7 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         statusDD.addItem("Active");
         statusDD.addItem("Assigned");
         statusDD.addItem("Completed");
-
+        statusDD.addItem("Inactive");
         setData(reqId, personName, location, area, typeOfEmergency, comments, dateTimeStamp, hosp, fireDept, policeDept, shelter, status);
 
         getAreas(area);
@@ -203,6 +205,43 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         String comments = commentsField.getText();
         String status = statusDD.getSelectedItem().toString();
         String timeStamp = lbltimestamp.getText();
+        try {
+            if(entityName==null || entityName.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(Pattern.matches("^[A-Za-z ]*$", entityName)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+        try {
+            if(entityLocation==null || entityLocation.isEmpty()){
+                throw new NullPointerException(" Location field is Empty");
+
+            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", entityLocation)==false){
+                throw new Exception("Please enter valid  Location");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Person Location is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Person Location is invalid");
+
+            return;
+        }
+       
         UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments,timeStamp, status);
         userProcessContainer.add("manageDelJPanel", unitsPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -258,6 +297,9 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
                 break;
             case "Completed":
                 currIndex = 2;
+                break;
+            case "Inactive":
+                currIndex = 3;
                 break;
             default:
                 currIndex = 0;
