@@ -26,12 +26,19 @@ public class ShelterDirectory {
         this.shelterList = shelterList;
     }
 
-    public Shelter createShelter(String userName, String shelterName, String location, Boolean availability) {
-        System.out.println("uname:::" + shelterList.size());
-        shelter = new Shelter(userName, shelterName, location, availability);
+    public Shelter createShelter(String name, String uname, String address, Boolean status) {
+        shelter = new Shelter(name, uname, address, status);
         shelterList.add(shelter);
         return shelter;
     }
+    
+    public void updateShelter(String name, String uname, String address, Boolean status){
+        shelter.setShelterName(name);
+        shelter.setUserName(uname);   
+        shelter.setAddress(address);
+        shelter.setAvailability(status);
+    }
+    
 
     public void deleteShelter(String userName) {
         System.out.println("size insed del:::" + shelterList.size());
@@ -39,7 +46,6 @@ public class ShelterDirectory {
         for (Shelter s : shelterList) {
             System.out.println("totiong" + s.toString());
             if (s.getShelterName().equals(userName)) {
-//                shelters.remove(s);
                 currentShelter = s;
                 break;
             }
