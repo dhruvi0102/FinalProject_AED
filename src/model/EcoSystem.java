@@ -10,6 +10,7 @@ import model.FireDepartment.FireDepartmentDirectory;
 import model.FireDepartment.HousingFireDispatchUnitDirectory;
 import model.Areas.AreaAdminDirectory;
 import model.Areas.AreaDirectory;
+import model.Hospital.HospitalDirectory;
 import model.PoliceDepartment.ControlUnitDirectory;
 import model.PoliceDepartment.PoliceDepartmentDirectory;
 import model.Requests.RequestDirectory;
@@ -18,6 +19,8 @@ import model.Role.SystemAdmin;
 import model.UserAccount.UserAccountDirectory;
 import model.UserAdmin.AdminDirectory;
 import model.UserAdmin.UserDirectory;
+import model.Hospital.DoctorDirectory;
+import model.Hospital.AmbulanceServiceDirectory;
 
 
 /**
@@ -36,6 +39,10 @@ public class EcoSystem extends Organization{
     private FactoryFireDispatchUnitDirectory FactoryFireDispatchUnitDirectory;
     private AreaAdminDirectory areaAdminDirectory;
     private AreaDirectory areaDirectory;
+    private HospitalDirectory hospitalDirectory;
+    private DoctorDirectory doctorDirectory;
+    private AmbulanceServiceDirectory ambulanceServiceDirectory;
+    
     
     public EcoSystem(PoliceDepartmentDirectory policeDeptDirectory,ControlUnitDirectory controlUnitDirectory, RequestDirectory requestDirectory,UserDirectory userAdminDirectory,AdminDirectory adminDirectory,AreaAdminDirectory areaAdminDirectory,AreaDirectory areaDirectory,FireDepartmentDirectory fireDeptDirectory,FactoryFireDispatchUnitDirectory industrialFireDispatchUnitDirectory) {
         super(null);
@@ -49,6 +56,48 @@ public class EcoSystem extends Organization{
         this.FactoryFireDispatchUnitDirectory = industrialFireDispatchUnitDirectory;
         this.areaAdminDirectory = areaAdminDirectory;
         this.areaDirectory = areaDirectory;
+        this.hospitalDirectory = hospitalDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.ambulanceServiceDirectory =ambulanceServiceDirectory;
+    }
+
+    public AmbulanceServiceDirectory getAmbulanceServiceDirectory() {
+        
+        if(ambulanceServiceDirectory == null){
+            ambulanceServiceDirectory = new AmbulanceServiceDirectory();
+        }
+        return ambulanceServiceDirectory;
+    }
+
+    public void setAmbulanceServiceDirectory(AmbulanceServiceDirectory ambulanceServiceDirectory) {
+        this.ambulanceServiceDirectory = ambulanceServiceDirectory;
+    }
+    
+    
+
+    public DoctorDirectory getDoctorDirectory() {
+        if (doctorDirectory == null) {
+            doctorDirectory = new DoctorDirectory();
+        }
+        return doctorDirectory;
+    }
+
+    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
+        this.doctorDirectory = doctorDirectory;
+    }
+    
+ 
+
+    public HospitalDirectory getHospitalDirectory() {
+        
+        if (hospitalDirectory == null) {
+            hospitalDirectory = new HospitalDirectory();
+        }
+        return hospitalDirectory;
+    }
+
+    public void setHospitalDirectory(HospitalDirectory hospitalDirectory) {
+        this.hospitalDirectory = hospitalDirectory;
     }
     
     private EcoSystem() {
