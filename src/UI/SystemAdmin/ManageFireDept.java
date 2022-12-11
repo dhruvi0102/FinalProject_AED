@@ -72,42 +72,49 @@ public class ManageFireDept extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 39, -1));
-        add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 230, -1));
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblName.setText("Name :");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 60, -1));
+        add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 230, -1));
 
-        lbluname.setText("Username");
-        add(lbluname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
-        add(txtUname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 230, -1));
+        lbluname.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbluname.setText("Username :");
+        add(lbluname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        add(txtUname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 230, -1));
 
-        lblPass.setText("Password");
-        add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        lblPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPass.setText("Password :");
+        add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 230, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 230, -1));
 
-        lblAddress.setText("Address");
-        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        lblAddress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAddress.setText("Address :");
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocationActionPerformed(evt);
             }
         });
-        add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 230, 50));
+        add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 230, 50));
 
+        btnSubmit.setBackground(new java.awt.Color(0, 153, 153));
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Save");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
+        tblFireEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblFireEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -122,57 +129,68 @@ public class ManageFireDept extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblFireEnterprise);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 690, 112));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 690, 112));
 
+        btnDel.setBackground(new java.awt.Color(0, 153, 153));
+        btnDel.setForeground(new java.awt.Color(255, 255, 255));
         btnDel.setText("Delete");
         btnDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDelActionPerformed(evt);
             }
         });
-        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
+        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
 
         lbl_fireDept.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_fireDept.setText("Fire Department");
-        add(lbl_fireDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 220, 30));
+        add(lbl_fireDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 220, 30));
 
-        lblAvailability.setText("Availability");
-        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        lblAvailability.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAvailability.setText("Availability :");
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
+        chbStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         chbStatus.setText("Yes");
         chbStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbStatusActionPerformed(evt);
             }
         });
-        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
+        btnUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
 
+        btnConfirm.setBackground(new java.awt.Color(0, 153, 153));
+        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Confirm Update");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
-        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, -1));
 
+        Backbtn.setBackground(new java.awt.Color(0, 153, 153));
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-        add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 100, -1));
+        add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
 
-        jLabel7.setText("Please add Fire Unit details to add to list of Enterprises:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("Add Fire Unit details :");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jLabel1.setText("  ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, -1));

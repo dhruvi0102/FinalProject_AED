@@ -65,11 +65,16 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAddress = new javax.swing.JTextArea();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitle.setText("Manage Admin");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,26 +83,33 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
-        lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 177, -1));
+        lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblName.setText("Name :");
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 180, -1));
 
-        lblUsername.setText("Username");
+        lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsername.setText("Username :");
         add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 178, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, -1));
 
-        lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 182, -1));
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword.setText("Password :");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 180, -1));
 
+        btnSave.setBackground(new java.awt.Color(0, 153, 153));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
+        tblAdmin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -111,40 +123,50 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAdmin);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 583, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 583, 150));
 
+        btnUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
 
+        btnConfirmUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnConfirmUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfirmUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmUpdate.setText("Confirm Update");
         btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, -1, -1));
 
+        btnDelete.setBackground(new java.awt.Color(0, 153, 153));
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, -1, -1));
 
-        lblAddress.setText("Address");
-        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        lblAddress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAddress.setText("Address :");
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
         jScrollPane2.setViewportView(txtAddress);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 210, 70));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 210, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
