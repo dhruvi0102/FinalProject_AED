@@ -99,13 +99,13 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         tblShelterService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "UserName", "Name", "Location", "Area"
+                "UserName", "Name", "Location"
             }
         ));
         jScrollPane1.setViewportView(tblShelterService);
@@ -114,13 +114,13 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         tblHospitalService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "UserName", "Name", "Location", "Area"
+                "UserName", "Name", "Location"
             }
         ));
         jScrollPane2.setViewportView(tblHospitalService);
@@ -129,13 +129,13 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         tblPoliceService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "UserName", "Name", "Location", "Area"
+                "UserName", "Name", "Location"
             }
         ));
         jScrollPane3.setViewportView(tblPoliceService);
@@ -160,13 +160,13 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         tblFireService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "UserName", "Name", "Location", "Area"
+                "UserName", "Name", "Location"
             }
         ));
         jScrollPane4.setViewportView(tblFireService);
@@ -219,7 +219,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
                 btnViewRequestActionPerformed(evt);
             }
         });
-        jPanel1.add(btnViewRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, -1, 23));
+        jPanel1.add(btnViewRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, 23));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel5.setText("UNITS");
@@ -231,25 +231,25 @@ public class UnitsJpanel extends javax.swing.JPanel {
         jPanel1.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 1140, 410));
 
         lblName.setText("jLabel1");
-        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, 17));
+        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 17));
 
         lblTypeOfEmergency.setText("jLabel4");
-        jPanel1.add(lblTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
+        jPanel1.add(lblTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
 
         lblLocation.setText("jLabel2");
-        jPanel1.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        jPanel1.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         lblComments.setText("jLabel5");
-        jPanel1.add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
+        jPanel1.add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         lblArea.setText("jLabel3");
-        jPanel1.add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
+        jPanel1.add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
         lblStatus.setText("jLabel1");
-        jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 34));
+        jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, 34));
 
         lblDateTimeStamp.setText("jLabel1");
-        jPanel1.add(lblDateTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jPanel1.add(lblDateTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         jScrollPane5.setViewportView(jPanel1);
 
@@ -360,7 +360,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        ViewAllRequests manageViewReqs = new ViewAllRequests(userProcessContainer, ecoSystem);
+        ViewRequestsJPanel manageViewReqs = new ViewRequestsJPanel(userProcessContainer, ecoSystem);
         userProcessContainer.add("manageViewReqs", manageViewReqs);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -442,6 +442,26 @@ public class UnitsJpanel extends javax.swing.JPanel {
     }
 
     private void fetchHealthCareUnits() {
+        DefaultTableModel model = (DefaultTableModel) tblPoliceService.getModel();
+        JTableHeader th = tblPoliceService.getTableHeader();
+        th.setFont(new Font("Serif", Font.BOLD, 15));
+        model.setRowCount(0);
+        int availUnitSize = (int) ecoSystem.getPoliceDeptDirectory().getpoliceDepts().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
+        lblPoliceAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getPoliceDeptDirectory().getpoliceDepts().size());
+
+        for (PoliceDept pd : ecoSystem.getPoliceDeptDirectory().getpoliceDepts()) {
+            if (Boolean.TRUE.equals(pd.getStatus())) {
+                Object[] row = new Object[3];
+
+                row[0] = pd.getUserName();
+                row[1] = pd.getName();
+                row[2] = pd.getAddress();
+
+                model.addRow(row);
+            }
+
+        }
+
            }
 
     private void fetchLawEnforceMentUnits() {
@@ -488,6 +508,27 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
 
         }
+    }
+        private void fetchShelterServices() {
+        DefaultTableModel model = (DefaultTableModel) tblShelterService.getModel();
+        JTableHeader th = tblShelterService.getTableHeader();
+        th.setFont(new Font("Serif", Font.BOLD, 15));
+        model.setRowCount(0);
+
+        int availUnitSize = (int) ecoSystem.getShelterDirectory().getShelters().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
+        lblShelterAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getShelterDirectory().getShelters().size());
+
+        for (Shelter shel : ecoSystem.getShelterDirectory().getShelters()) {
+            if (Boolean.TRUE.equals(shel.getStatus())) {
+                Object[] row = new Object[4];
+                row[0] = shel.getUserName();
+                row[1] = shel.getName();
+                row[2] = shel.getLocation();
+                model.addRow(row);
+            }
+
+        }
+
     }
 
  

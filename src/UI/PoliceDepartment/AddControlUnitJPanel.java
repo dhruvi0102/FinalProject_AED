@@ -10,7 +10,10 @@ import model.PoliceDepartment.ControlUnit;
 import model.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.PoliceDepartment.TrafficControlUnit;
+import model.PoliceDepartment.TrafficControlUnitDirectory;
 
 /**
  *
@@ -51,6 +54,7 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         lblTCNum = new javax.swing.JLabel();
         txtTCNum = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,17 +75,25 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
         add(lblCUNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
         add(txtCUNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
 
-        btnAdd.setText("Create");
+        btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
         lblTCNum.setText("Traffic Control Unit:");
         add(lblTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
         add(txtTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 160, -1));
+
+        jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -95,24 +107,43 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
      String ccuNum = txtCUNum.getText();
-     String tcuNum = txtTCNum.getText();
      
      ControlUnitDirectory ccuDir = system.getControlUnitDirectory();
      ControlUnit cu = null;
+
      if (system.getControlUnitDirectory() == null){
-         cu = new ControlUnit(ccuNum,tcuNum);
+         cu = new ControlUnit(ccuNum);
          ccuDir.getControlUnit().add(cu);
      } else {
-         cu = system.getControlUnitDirectory().createCUDirectory(ccuNum,tcuNum);
+         cu = system.getControlUnitDirectory().createCUDirectory(ccuNum);
      }
-
+     JOptionPane.showMessageDialog(null, "Critical control unit added");
+    txtCUNum.setText("");   
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String tcuNum = txtTCNum.getText();
+     
+        TrafficControlUnitDirectory ccuDir = system.getTrafficControlUnitDirectory();
+        TrafficControlUnit tu = null;
+
+        if (system.getTrafficControlUnitDirectory() == null){
+            tu = new TrafficControlUnit(tcuNum);
+            ccuDir.getTrafficControlUnit().add(tu);
+        } else {
+            tu = system.getTrafficControlUnitDirectory().createTUDirectory(tcuNum);
+        }
+         JOptionPane.showMessageDialog(null, "Traffic Control unit added!");
+         txtTCNum.setText("");  
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCUNum;
     private javax.swing.JLabel lblTCNum;

@@ -34,6 +34,13 @@ public class FireDepartmentDirectory {
         return fired;
     }
 
+    public void updateFireSquad(String name, String uname,String address, Boolean status) {
+        fired.setFullName(name);
+        fired.setEmail(uname);   
+        fired.setAdress(address);
+        fired.setAvailability(status);
+    }
+    
     public void deleteDepartment(String uname) {
         FireDepartment currentDepartment = null;
         for (FireDepartment fd : fireSquad) {

@@ -203,7 +203,64 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
-        
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
         UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password, null,null, new CityAdmin());
         AreaAdminDirectory admdir = ecoSystem.getAreaAdminDirectory();
 
@@ -217,12 +274,15 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         else {
             aadmin = ecoSystem.getAreaAdminDirectory().createAdmin(name, uname);
         }
-
+        }
+        JOptionPane.showMessageDialog(null, "Police Department is added!");
         populateTable();
+        txtName.setText("");                
+        txtUsername.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
         // TODO add your handling code here:
         int selectRow = tblAreaAdmin.getSelectedRow();
 
@@ -305,11 +365,6 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
 
             return;
         }
-
-        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
-
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,null,null);
             ecoSystem.getAreaAdminDirectory().updateAdmin(name,uname);
             populateTable();
@@ -320,7 +375,7 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
             txtName.setText("");
             txtUsername.setText("");
             txtPassword.setText("");
-        }
+        
     }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
