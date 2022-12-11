@@ -254,7 +254,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             }
         JOptionPane.showMessageDialog(null, "Police Department is added!");
         populateEntityTable();
-        txtName.setText("");
+        txtName.setText("");                
         txtUname.setText("");
         txtPassword.setText("");
         txtAddress.setText("");
@@ -371,10 +371,9 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             return;
         }
 
-        
-
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
             ecoSystem.getPoliceDeptDirectory().updatePoliceDepartment(name,uname,address,status);
+            JOptionPane.showMessageDialog(null, "Changes are updated!");
             populateEntityTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);

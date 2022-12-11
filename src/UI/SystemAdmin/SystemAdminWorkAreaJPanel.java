@@ -4,6 +4,8 @@
  */
 package UI.SystemAdmin;
 
+import UI.Requests.CreateRequest;
+import UI.Requests.ViewRequestsJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.EcoSystem;
@@ -210,6 +212,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnCreateRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRequestActionPerformed
         // TODO add your handling code here:
+        CreateRequest createRequest = new CreateRequest(userProcessContainer, ecosystem);
+        userProcessContainer.add("createRequest", createRequest);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateRequestActionPerformed
 
     private void btnManageShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageShelterActionPerformed
@@ -218,10 +224,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFireActionPerformed
         // TODO add your handling code here:
-        ManagePoliceDepartmentJPanel managePolice = new ManagePoliceDepartmentJPanel(userProcessContainer, ecosystem);
-        userProcessContainer.add("managePoliceDepartmentJPanel", managePolice);
+      /*  ManageFireDept manageFire = new ManageFireDept(userProcessContainer, ecosystem);
+        userProcessContainer.add("managePoliceDepartmentJPanel", manageFire);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        layout.next(userProcessContainer);*/
     }//GEN-LAST:event_btnManageFireActionPerformed
 
     private void btnManagePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePoliceActionPerformed
@@ -258,6 +264,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
         // TODO add your handling code here:
+        ViewRequestsJPanel manageArea = new ViewRequestsJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageArea);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageRequestActionPerformed
 
 

@@ -10,4 +10,7 @@ package model.Role;
  */
 public class HospitalDepartmentAdmin {
     
+    
+    
+    
 }

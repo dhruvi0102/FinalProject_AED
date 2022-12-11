@@ -15,7 +15,7 @@ public class Shelter {
     
     private String shelterName;
     private String userName;
-    private String location;
+    private String address;
     private Boolean availability;
     
     private ArrayList<Request> requests = new ArrayList<>();
@@ -35,14 +35,16 @@ public class Shelter {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
-    public String getLocation() {
-        return location;
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAddress(String address) {
+        this.address = address;
     }
+    
+   
 
     public Boolean getAvailability() {
         return availability;
@@ -62,10 +64,10 @@ public class Shelter {
     }
     
     
-    public Shelter(String userName, String shelterName, String location, Boolean availability) {
+    public Shelter(String userName, String shelterName, String address, Boolean availability) {
         this.shelterName = shelterName;
         this.userName = userName;
-        this.location = location;
+        this.address = address;
         this.availability = availability;
     }
     
