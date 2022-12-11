@@ -442,6 +442,26 @@ public class UnitsJpanel extends javax.swing.JPanel {
     }
 
     private void fetchHealthCareUnits() {
+        DefaultTableModel model = (DefaultTableModel) tblPoliceService.getModel();
+        JTableHeader th = tblPoliceService.getTableHeader();
+        th.setFont(new Font("Serif", Font.BOLD, 15));
+        model.setRowCount(0);
+        int availUnitSize = (int) ecoSystem.getPoliceDeptDirectory().getpoliceDepts().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
+        lblPoliceAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getPoliceDeptDirectory().getpoliceDepts().size());
+
+        for (PoliceDept pd : ecoSystem.getPoliceDeptDirectory().getpoliceDepts()) {
+            if (Boolean.TRUE.equals(pd.getStatus())) {
+                Object[] row = new Object[3];
+
+                row[0] = pd.getUserName();
+                row[1] = pd.getName();
+                row[2] = pd.getAddress();
+
+                model.addRow(row);
+            }
+
+        }
+
            }
 
     private void fetchLawEnforceMentUnits() {
@@ -488,6 +508,27 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
 
         }
+    }
+        private void fetchShelterServices() {
+        DefaultTableModel model = (DefaultTableModel) tblShelterService.getModel();
+        JTableHeader th = tblShelterService.getTableHeader();
+        th.setFont(new Font("Serif", Font.BOLD, 15));
+        model.setRowCount(0);
+
+        int availUnitSize = (int) ecoSystem.getShelterDirectory().getShelters().stream().filter(l -> Boolean.TRUE.equals(l.getStatus())).count();
+        lblShelterAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getShelterDirectory().getShelters().size());
+
+        for (Shelter shel : ecoSystem.getShelterDirectory().getShelters()) {
+            if (Boolean.TRUE.equals(shel.getStatus())) {
+                Object[] row = new Object[4];
+                row[0] = shel.getUserName();
+                row[1] = shel.getName();
+                row[2] = shel.getLocation();
+                model.addRow(row);
+            }
+
+        }
+
     }
 
  
