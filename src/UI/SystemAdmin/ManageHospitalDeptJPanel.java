@@ -183,40 +183,40 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         String password = txtPassword.getText();
         String address = txtAddress.getText();
         boolean status = rdYes.isSelected();
-        System.out.print("jbox"+ rdYes.isSelected());
+        System.out.print("jbox" + rdYes.isSelected());
         try {
-            if(name==null || name.isEmpty()){
+            if (name == null || name.isEmpty()) {
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]+$", name) == false) {
                 throw new Exception("Please enter valid  Name");
 
             }
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, " Name is Empty");
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "  Name is invalid");
 
             return;
         }
 
         try {
-            if(uname==null || uname.isEmpty()){
+            if (uname == null || uname.isEmpty()) {
                 throw new NullPointerException("User Name field is Empty");
 
-            }else if(uname.length()<5){
+            } else if (uname.length() < 5) {
                 throw new Exception("Please enter valid User Name");
 
             }
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "User Name is Empty");
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, " User Name is invalid");
 
             return;
@@ -224,23 +224,23 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
         try {
 
-            if(password==null || password.isEmpty()){
+            if (password == null || password.isEmpty()) {
                 throw new NullPointerException("Password field is Empty");
-            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+            } else if (Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password) == false) {
                 throw new Exception("Invalid Password");
             }
 
-        }  catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Password is Empty");
 
             return;
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
 
             return;
         }
 
-        UserAccount useracc = system.getUserAccountDirectory().addUserAccount(name, uname, password, null, new HospitalDepartmentAdmin());
+        UserAccount useracc = system.getUserAccountDirectory().addUserAccount(name, uname, password, address, null, new HospitalDepartmentAdmin());
 
         HospitalDirectory hospDirectory = system.getHospitalDirectory();
         Hospital hospital = null;
@@ -253,9 +253,9 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             hospital = system.getHospitalDirectory().createHospital(name, uname, password, status);
             System.out.println("name :::" + hospital.getUserName());
         }
-        
+
         System.out.println("CHeck create " + name + uname + password + status);
-        System.out.println("check " + hospital.isStatus());
+        System.out.println("check " + hospital.isHospitalStatus());
 
         System.out.println("ussss" + system.getUserAccountDirectory().getUserAccountList());
         System.out.println("iwfeiow" + hospDirectory.getHospitalDirectoryList());
@@ -279,18 +279,17 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectRow = tblHospitals.getSelectedRow();
 
-        if(selectRow>=0){
-            String username= (String) tblHospitals.getValueAt(selectRow, 1);
-            String pwd= (String) tblHospitals.getValueAt(selectRow, 2);
-            account=system.getUserAccountDirectory().authenticateUser(username, pwd);
+        if (selectRow >= 0) {
+            String username = (String) tblHospitals.getValueAt(selectRow, 1);
+            String pwd = (String) tblHospitals.getValueAt(selectRow, 2);
+            account = system.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(account.getHospitalName()+"");
-            txtUsername.setText(account.getUserName()+"");
-            txtPassword.setText(account.getPassword()+"");
+            txtName.setText(account.getFullName() + "");
+            txtUsername.setText(account.getUserName() + "");
+            txtPassword.setText(account.getPassword() + "");
 
-        }
-        else {
-            JOptionPane.showMessageDialog(null,"Please select a row");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
         btnSave.setEnabled(false);
         btnDelete.setEnabled(false);
@@ -301,18 +300,18 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblHospitals.getSelectedRow();
-        if(selectedRow>=0){
+        if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
-                String username= (String) tblHospitals.getValueAt(selectedRow, 1);
-                String pwd= (String) tblHospitals.getValueAt(selectedRow, 2);
-                UserAccount user=system.getUserAccountDirectory().authenticateUser(username, pwd);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String username = (String) tblHospitals.getValueAt(selectedRow, 1);
+                String pwd = (String) tblHospitals.getValueAt(selectedRow, 2);
+                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
                 system.getUserAccountDirectory().deleteUserAccount(user);
-                system.getHospitalDirectory().deleteHospitalDirectory(user.getUsername());
+                system.getHospitalDirectory().deleteHospitalDirectory(user.getUserName());
                 populateNetworkTable();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -321,42 +320,42 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String name = txtName.getText();
-        String uname=txtUsername.getText();
-        String password=txtPassword.getText();
+        String uname = txtUsername.getText();
+        String password = txtPassword.getText();
 
         try {
-            if(name==null || name.isEmpty()){
+            if (name == null || name.isEmpty()) {
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]+$", name) == false) {
                 throw new Exception("Please enter valid  Name");
 
             }
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, " Name is Empty");
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "  Name is invalid");
 
             return;
         }
 
         try {
-            if(uname==null || uname.isEmpty()){
+            if (uname == null || uname.isEmpty()) {
                 throw new NullPointerException("User Name field is Empty");
 
-            }else if(uname.length()<5){
+            } else if (uname.length() < 5) {
                 throw new Exception("Please enter valid User Name");
 
             }
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "User Name is Empty");
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, " User Name is invalid");
 
             return;
@@ -364,27 +363,27 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
         try {
 
-            if(password==null || password.isEmpty()){
+            if (password == null || password.isEmpty()) {
                 throw new NullPointerException("Pwd field is Empty");
-            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+            } else if (Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password) == false) {
                 throw new Exception("Invalid Password");
             }
 
-        }  catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Password is Empty");
 
             return;
-        }catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
 
             return;
         }
 
-        if (system.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
+        if (system.getUserAccountDirectory().IsUsernameUnique(uname) == false) {
+            JOptionPane.showMessageDialog(null, "  User Name already exists ");
+        } else {
 
-            system.getUserAccountDirectory().updateUserAccount(account,name,uname,password);
+            system.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
             populateNetworkTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -436,19 +435,17 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             if ("Model.Role.HospitalDepartmentAdmin".equals(useracc.getRole().getClass().getName())) {
                 System.out.println("2");
 
-                    System.out.println("3");
-                        System.out.println("4");
+                System.out.println("3");
+                System.out.println("4");
 
-                        Object[] row = new Object[10];
+                Object[] row = new Object[10];
 
-                        row[0] = useracc.getHospitalName();
-                        row[1] = useracc.getUsername();
-                        row[2] = useracc.getPassword();
+                row[0] = useracc.getFullName();
+                row[1] = useracc.getUserName();
+                row[2] = useracc.getPassword();
 
-                        model.addRow(row);
-                    }
-                }
+                model.addRow(row);
             }
         }
-    
-    
+    }
+}
