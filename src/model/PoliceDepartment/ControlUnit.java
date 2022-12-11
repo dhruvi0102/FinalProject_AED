@@ -10,11 +10,10 @@ package model.PoliceDepartment;
  */
 public class ControlUnit {
     private String criticalcontrolUnit;
-    private String trafficcontrolUnit;
     
-    public ControlUnit(String criticalcontrolUnit,String trafficcontrolUnit ){
+    public ControlUnit(String criticalcontrolUnit){
         this.criticalcontrolUnit = criticalcontrolUnit;
-        this.trafficcontrolUnit = trafficcontrolUnit;
+
     }
 
     public String getCriticalcontrolUnit() {
@@ -25,13 +24,6 @@ public class ControlUnit {
         this.criticalcontrolUnit = criticalcontrolUnit;
     }
 
-    public String getTrafficcontrolUnit() {
-        return trafficcontrolUnit;
-    }
-
-    public void setTrafficcontrolUnit(String trafficcontrolUnit) {
-        this.trafficcontrolUnit = trafficcontrolUnit;
-    }
-
+    
     
 }

@@ -20,6 +20,8 @@ import java.util.Set;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
+import model.Requests.RequestDirectory;
+import model.UserAccount.UserAccount;
 
 /**
  *
@@ -32,7 +34,7 @@ public class CreateRequest extends javax.swing.JPanel {
      */
     private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
-
+    private UserAccount userAccount;
     List<String> a = new ArrayList<>();
 
     public CreateRequest(JPanel userProcessContainer, EcoSystem ecoSystem) {
@@ -54,6 +56,25 @@ public class CreateRequest extends javax.swing.JPanel {
 
     }
 
+     public CreateRequest(JPanel userProcessContainer,UserAccount account, EcoSystem ecoSystem) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.userAccount = account;
+        currentTime();
+        listServices.setSelectionMode(
+                ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        cmbStatus.addItem("Active");
+        cmbStatus.addItem("Assigned");
+        cmbStatus.addItem("Completed");
+        cmbStatus.setSelectedIndex(0);
+        btnBack.setVisible(false);
+        btnGetUnits.setVisible(false);
+        btnCreate.setVisible(true);
+        getAreas();
+
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +106,7 @@ public class CreateRequest extends javax.swing.JPanel {
         lblStatus = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblEmail1 = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,7 +130,7 @@ public class CreateRequest extends javax.swing.JPanel {
 
         txtEmergency.setText("Type of Emergency");
         add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
-        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 277, 17));
+        add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 277, 17));
 
         btnGetUnits.setBackground(new java.awt.Color(102, 255, 102));
         btnGetUnits.setText("Get Units");
@@ -180,6 +202,14 @@ public class CreateRequest extends javax.swing.JPanel {
 
         lblEmail1.setText("Email");
         add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 40, -1));
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 277, 38));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGetUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetUnitsActionPerformed
@@ -190,8 +220,7 @@ public class CreateRequest extends javax.swing.JPanel {
         String comments = txtComments.getText();
         String dateTimeStamp = lblTimeStamp.getText();
         String status = cmbStatus.getSelectedItem().toString();
-        Units unitsPanel = new Units(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
-
+       UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
         userProcessContainer.add("manageDelJPanel", unitsPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -235,9 +264,46 @@ public class CreateRequest extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        String userName = "";
+        String personName = txtName.getText();
+        String personLocation = txtLocation.getText();
+        String area = lblArea.getText();
+        String typeOfEmergency = txtEmergency.getText();
+        String comments = lblComments.getText();
+        String date = lblTimeStamp.getText();
+        String selectedHospital = "Not Assigned";
+        String selectedFireDept = "Not Assigned";
+        String selectedPoliceDept = "Not Assigned";
+        String selectedShelter = "Not Assigned";
+        String status = lblStatus.getText();
+        RequestDirectory reqDir = ecoSystem.getRequestDirectory();
+
+        Request req = null;
+        if (ecoSystem.getRequestDirectory() == null) {
+            req = new Request(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+            reqDir.getRequests().add(req);
+        } else {
+            req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
+        }
+
+       /* for (Requests pd : ecoSystem.getPoliceDeptDirectory().getpoliceDepts()) {
+            ArrayList<Request> pdReq = pd.getRequests();
+            if (userName.equalsIgnoreCase(pd.getUserName())) {
+                if (pdReq == null) {
+                    pdReq = new ArrayList<>();
+                }
+                pdReq.add(req);
+            }
+            pd.setRequests(pdReq);
+        }*/
+    }//GEN-LAST:event_btnCreateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnGetUnits;
     private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JComboBox<String> entityAreaField;
