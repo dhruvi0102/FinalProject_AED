@@ -149,17 +149,17 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtFinalCUActionPerformed
 
     private void cmbControlUnitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbControlUnitMouseClicked
-        // TODO add your handling code here:
-        cmbTControlUnit.setEditable(false);
-        txtFinalTU.setEditable(false);
+        // TODO add your handling code here:      
         String CCUDiv = cmbControlUnit.getSelectedItem().toString();
-        txtFinalCU.setText(CCUDiv);      
+        txtFinalCU.setText(CCUDiv); 
+        cmbTControlUnit.setVisible(false);
+        txtFinalTU.setVisible(false);
     }//GEN-LAST:event_cmbControlUnitMouseClicked
 
     private void cmbTControlUnitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbTControlUnitMouseClicked
         // TODO add your handling code here:
-        cmbControlUnit.setEditable(false);
-        txtFinalCU.setEditable(false);
+        cmbControlUnit.setVisible(false);
+        txtFinalCU.setVisible(false);
         String TCUDiv = cmbTControlUnit.getSelectedItem().toString();
         txtFinalTU.setText(TCUDiv);        
     }//GEN-LAST:event_cmbTControlUnitMouseClicked

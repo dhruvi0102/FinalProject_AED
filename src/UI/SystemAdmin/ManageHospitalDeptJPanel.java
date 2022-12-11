@@ -99,20 +99,20 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
         tblHospitals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Name", "User Name", "Password"
+                "Hospital Name", "User Name", "Password", "Address"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -125,7 +125,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHospitals);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 623, 91));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 623, 120));
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +152,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, -1, -1));
 
         btnConfirm.setText("Confirm Update");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +160,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, -1, -1));
 
         lblAvailability.setText("Availability :");
         add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, 20));
@@ -192,7 +192,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             if (name == null || name.isEmpty()) {
                 throw new NullPointerException(" Name field is Empty");
 
-            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]*$", name) == false) {
+            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z ]*$", name) == false) {
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -261,8 +261,9 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
                 else {
                     hosp = ecoSystem.getHospitalDirectory().createHospital(name, uname, address, status);
                 }
+                JOptionPane.showMessageDialog(null,"Hospital Department is added");
             }
-        JOptionPane.showMessageDialog(null,"Hospital Department is added");
+        
         populateNetworkTable();
         txtName.setText("");
         txtUsername.setText("");
@@ -345,7 +346,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             if (name == null || name.isEmpty()) {
                 throw new NullPointerException(" Name field is Empty");
 
-            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]+$", name) == false) {
+            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z ]*$", name) == false) {
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -397,9 +398,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             return;
         }
 
-        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname) == false) {
-            JOptionPane.showMessageDialog(null, "  User Name already exists ");
-        } else {
+        
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
             ecoSystem.getHospitalDirectory().updateHospital(name,uname,address,status);
@@ -413,7 +412,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             txtPassword.setText("");
             txtAddress.setText("");
             rdYes.setSelected(false);
-        }
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void rdYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdYesActionPerformed
@@ -453,18 +452,13 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         for (UserAccount useracc : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             System.out.println("1");
 
-            if ("Model.Role.HospitalDepartmentAdmin".equals(useracc.getRole().getClass().getName())) {
-                System.out.println("2");
-
-                System.out.println("3");
-                System.out.println("4");
-
-                Object[] row = new Object[10];
+            if ("model.Role.HospitalDepartmentAdmin".equals(useracc.getRole().getClass().getName())) {
+                Object[] row = new Object[4];
 
                 row[0] = useracc.getFullName();
                 row[1] = useracc.getUserName();
                 row[2] = useracc.getPassword();
-
+                row[3] = useracc.getAddress();
                 model.addRow(row);
             }
         }

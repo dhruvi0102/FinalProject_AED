@@ -225,8 +225,9 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 admin = ecoSystem.getAdminDirectory().createAdmin(name, uname,address);
                 System.out.println("name :::" + admin.getUserName());
             }
+            JOptionPane.showMessageDialog(null, "Admin is added!");
         }
-        JOptionPane.showMessageDialog(null, "Police Department is added!");
+        
         populateTable();
         txtName.setText("");                
         txtUsername.setText("");
@@ -251,6 +252,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
         }
+        
         btnSave.setEnabled(false);
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
@@ -322,6 +324,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address, null);
             ecoSystem.getAdminDirectory().updateAdmin(name, uname, address);
             populateTable();
+            JOptionPane.showMessageDialog(null, "Admin details are updated!");
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
             btnUpdate.setEnabled(true);
@@ -350,6 +353,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        JOptionPane.showMessageDialog(null, "Admin details are deleted!");
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 

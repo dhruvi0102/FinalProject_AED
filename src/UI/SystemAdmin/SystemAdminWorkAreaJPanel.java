@@ -103,6 +103,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageHospital.setText("Hospital Department");
+        btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageHospitalActionPerformed(evt);
+            }
+        });
 
         btnManageFire.setText("Fire Department");
         btnManageFire.addActionListener(new java.awt.event.ActionListener() {
@@ -220,14 +225,18 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageShelterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageShelterActionPerformed
         // TODO add your handling code here:
+        ManageShelterHomeJPanel manageShelter = new ManageShelterHomeJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageShelter);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageShelterActionPerformed
 
     private void btnManageFireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFireActionPerformed
         // TODO add your handling code here:
-      /*  ManageFireDept manageFire = new ManageFireDept(userProcessContainer, ecosystem);
+        ManageFireDept manageFire = new ManageFireDept(userProcessContainer, ecosystem);
         userProcessContainer.add("managePoliceDepartmentJPanel", manageFire);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);*/
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageFireActionPerformed
 
     private void btnManagePoliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePoliceActionPerformed
@@ -269,6 +278,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageRequestActionPerformed
+
+    private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
+        // TODO add your handling code here:
+        ManageHospitalDeptJPanel manageHospital = new ManageHospitalDeptJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("manageAdminJPanel", manageHospital);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageHospitalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

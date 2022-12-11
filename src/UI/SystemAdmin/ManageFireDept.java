@@ -18,12 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.util.Properties;
-import javax.mail.Session;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Message;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 /**
  *
  * @author siddh
@@ -105,29 +100,29 @@ public class ManageFireDept extends javax.swing.JPanel {
         });
         add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 230, 50));
 
-        btnSubmit.setText("Create");
+        btnSubmit.setText("Save");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         tblFireEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Station Name", "Username", "Password"
+                "Station Name", "Username", "Password", "Address"
             }
         ));
         jScrollPane1.setViewportView(tblFireEnterprise);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 690, 112));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 690, 112));
 
         btnDel.setText("Delete");
         btnDel.addActionListener(new java.awt.event.ActionListener() {
@@ -135,14 +130,14 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnDelActionPerformed(evt);
             }
         });
-        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, -1, -1));
+        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
 
         lbl_fireDept.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_fireDept.setText("Fire Department");
         add(lbl_fireDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 220, 30));
 
         lblAvailability.setText("Availability");
-        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
 
         chbStatus.setText("Yes");
         chbStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +145,7 @@ public class ManageFireDept extends javax.swing.JPanel {
                 chbStatusActionPerformed(evt);
             }
         });
-        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +153,7 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
 
         btnConfirm.setText("Confirm Update");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +161,7 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, -1));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
 
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +195,7 @@ public class ManageFireDept extends javax.swing.JPanel {
             if(fullName==null || fullName.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(fullName.length()<5 || Pattern.matches("^[A-Za-z]+$", fullName)==false){
+            }else if(fullName.length()<5 || Pattern.matches("^[A-Za-z ]*$", fullName)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -252,55 +247,31 @@ public class ManageFireDept extends javax.swing.JPanel {
             return;
         }
 
-        System.out.println("weuhfuwef" + availability);
-        String FromEmail = "emergencysystemaed@gmail.com";
-        String FromEmailPassword = "jrxe svst jqjn nraj";
-        String Subjects = "welcome to the team";
-        
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth","true");
-        properties.put("mail.smtp.starttls.enable","true");
-        properties.put("mail.smtp.host","smtp.gmail.com");
-        properties.put("mail.smtp.port","587");
-        properties.put("mail.smtp.starttls.required", "true");
-        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
-        
-        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(userName)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            }else{
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password,location,availability, new FireDepartmentAdmin());
+                FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
+
+                FireDepartment fireDept = null;
+
+                if (ecoSystem.getFireDepartmentDirectory()==null)
+                    {
+                    fireDept = new FireDepartment(fullName,userName,location,availability);
+                    firedeptdir.getfireSquad().add(fireDept);
+                    }
+                else {
+                    fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName,userName,location,availability);
+                }
+                JOptionPane.showMessageDialog(null, "Fire Department is added!");
             }
-        });
         
-        try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(FromEmail));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(userName));
-            message.setSubject(Subjects);
-            message.setText("welcome");
-            Transport.send(message);
-        }catch(Exception ex){
-            System.out.println(""+ex);
-        }
-    
-
-       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password,location,availability, new FireDepartmentAdmin());
-       //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new PDAdmin());
-        FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
-
-        FireDepartment fireDept = null;
-
-        if (ecoSystem.getFireDepartmentDirectory()==null)
-        {
-            fireDept = new FireDepartment(fullName, userName, location, availability);
-            firedeptdir.getfireSquad().add(fireDept);
-        }
-        else {
-            fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName, userName, location, availability);
-            System.out.println("name" + fireDept.getEmail());
-        }
-
         populateTable();
-
+        txtFullName.setText("");
+        txtUname.setText("");
+        txtPassword.setText("");
+        txtLocation.setText("");
+        chbStatus.setSelected(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -342,10 +313,11 @@ public class ManageFireDept extends javax.swing.JPanel {
             String pwd= (String) tblFireEnterprise.getValueAt(selectRow, 2);
             userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtFullName.setText(userAccount.getName()+"");
-            txtUname.setText(userAccount.getUsername()+"");
+            txtFullName.setText(userAccount.getFullName()+"");
+            txtUname.setText(userAccount.getUserName()+"");
             txtPassword.setText(userAccount.getPassword()+"");
-            // system.getUserAccountDirectory().deleteUserAccount(user);
+            txtLocation.setText(userAccount.getAddress()+"");
+            chbStatus.setSelected(true);
 
         }
         else {
@@ -363,12 +335,14 @@ public class ManageFireDept extends javax.swing.JPanel {
         String name = txtFullName.getText();
         String uname=txtUname.getText();
         String password=txtPassword.getText();
+        String address = txtLocation.getText();
+        Boolean status = chbStatus.isSelected();
 
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -420,11 +394,10 @@ public class ManageFireDept extends javax.swing.JPanel {
             return;
         }
 
-        if (ecoSystem.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
+        
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
+            ecoSystem.getFireDepartmentDirectory().updatefireDepartment(name, uname, uname, Boolean.TRUE);
             populateTable();
             btnSubmit.setEnabled(true);
             btnDel.setEnabled(true);
@@ -433,7 +406,8 @@ public class ManageFireDept extends javax.swing.JPanel {
             txtFullName.setText("");
             txtUname.setText("");
             txtPassword.setText("");
-        }
+            txtLocation.setText("");
+            chbStatus.setSelected(false);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
@@ -475,13 +449,14 @@ public class ManageFireDept extends javax.swing.JPanel {
         model.setRowCount(0);
 	System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getUserAccountDirectory().getUserAccountList());
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            if ("Business.Role.FDAdminRole".equals(user.getRole().getClass().getName())) {
+            if ("model.Role.FireDepartmentAdmin".equals(user.getRole().getClass().getName())) {
                 
-                Object[] row = new Object[3];
+                Object[] row = new Object[4];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
 
                 model.addRow(row);
 

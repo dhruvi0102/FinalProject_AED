@@ -53,4 +53,10 @@ public class FireDepartmentDirectory {
 
         fireSquad.remove(currentDepartment);
     }
+     public void updatefireDepartment(String name, String uname,String address, Boolean status) {
+        fired.setFullName(name);
+        fired.setEmail(uname);   
+        fired.setAdress(address);
+        fired.setAvailability(status);
+    }
 }

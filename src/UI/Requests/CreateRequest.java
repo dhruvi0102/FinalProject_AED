@@ -50,6 +50,8 @@ public class CreateRequest extends javax.swing.JPanel {
         cmbStatus.addItem("Assigned");
         cmbStatus.addItem("Completed");
         cmbStatus.setSelectedIndex(0);
+        btnGetUnits.setVisible(true);
+        btnCreate.setVisible(false);
 //        statusDD.setEnabled(false);
 
         getAreas();
@@ -139,7 +141,7 @@ public class CreateRequest extends javax.swing.JPanel {
                 btnGetUnitsActionPerformed(evt);
             }
         });
-        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 277, 38));
+        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 277, 38));
 
         listServices.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Request Healthcare Services", "Request Police Services", "Request Fire Services", "Request Shelter Services" };
@@ -209,7 +211,7 @@ public class CreateRequest extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 277, 38));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 277, 38));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGetUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetUnitsActionPerformed
@@ -228,7 +230,7 @@ public class CreateRequest extends javax.swing.JPanel {
 
     private void listServicesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listServicesValueChanged
   // TODO add your handling code here:
-  String selectedEnterprises = "";
+        String selectedEnterprises = "";
         List<String> SelectedFruits = listServices.getSelectedValuesList();
 
         for (String Fruit : SelectedFruits) {
@@ -287,17 +289,6 @@ public class CreateRequest extends javax.swing.JPanel {
         } else {
             req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
         }
-
-       /* for (Requests pd : ecoSystem.getPoliceDeptDirectory().getpoliceDepts()) {
-            ArrayList<Request> pdReq = pd.getRequests();
-            if (userName.equalsIgnoreCase(pd.getUserName())) {
-                if (pdReq == null) {
-                    pdReq = new ArrayList<>();
-                }
-                pdReq.add(req);
-            }
-            pd.setRequests(pdReq);
-        }*/
     }//GEN-LAST:event_btnCreateActionPerformed
 
 
