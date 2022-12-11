@@ -445,6 +445,25 @@ public class UnitsJpanel extends javax.swing.JPanel {
            }
 
     private void fetchLawEnforceMentUnits() {
+        DefaultTableModel model = (DefaultTableModel) tblPoliceService.getModel();
+        JTableHeader th = tblPoliceService.getTableHeader();
+        th.setFont(new Font("Serif", Font.BOLD, 15));
+        model.setRowCount(0);
+        int availUnitSize = (int) ecoSystem.getPoliceDeptDirectory().getPoliceDepartment().stream().filter(l -> Boolean.TRUE.equals(l.getAvailability())).count();
+        lblPoliceAvaUnits.setText("Available Units: " + availUnitSize + "/" + ecoSystem.getPoliceDeptDirectory().getPoliceDepartment().size());
+
+        for (PoliceDepartment pd : ecoSystem.getPoliceDeptDirectory().getPoliceDepartment()) {
+            if (Boolean.TRUE.equals(pd.getAvailability())) {
+                Object[] row = new Object[3];
+
+                row[0] = pd.getUserName();
+                row[1] = pd.getFullName();
+                row[2] = pd.getAddress();
+
+                model.addRow(row);
+            }
+
+        }
 
     }
 
