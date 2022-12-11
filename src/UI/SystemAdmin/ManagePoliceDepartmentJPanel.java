@@ -251,8 +251,8 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
                 else {
                     policeDept = ecoSystem.getPoliceDeptDirectory().createPoliceDeptartment(name, uname, address, status);
                 }
-            }
-        JOptionPane.showMessageDialog(null, "Police Department is added!");
+                 JOptionPane.showMessageDialog(null, "Police Department is added!");
+            }       
         populateEntityTable();
         txtName.setText("");                
         txtUname.setText("");

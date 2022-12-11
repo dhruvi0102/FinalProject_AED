@@ -100,15 +100,23 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
 
         tblShelter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Name", "UserName", "Password"
+                "Shelter Name", "UserName", "Password", "Address"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblShelter);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 631, 140));
@@ -143,7 +151,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, -1));
 
         btnConfirmUpdate.setText("Confirm Update");
         btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +159,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
                 btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +167,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 570, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
 
         lblSubTitle.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblSubTitle.setText("Add Shelter Service details :");
@@ -179,7 +187,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -248,9 +256,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
                 else {
                     shelter = ecoSystem.getShelterDirectory().createShelter(name, uname, address, status);
                 }
+                 JOptionPane.showMessageDialog(null,"Shelter Department is added");
             }
-        JOptionPane.showMessageDialog(null,"Shelter Department is added");
-
         populateEntityTable();
         txtName.setText("");
         txtUserName.setText("");
@@ -309,7 +316,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z ]*$", name)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -361,10 +368,6 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             return;
         }
 
-        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
-
             ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
             ecoSystem.getShelterDirectory().updateShelter(name,uname,address,status);
             populateEntityTable();
@@ -377,7 +380,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             txtPassword.setText("");
             txtAddress.setText("");
             rdYes.setSelected(false);
-        }
+        
     }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -436,12 +439,13 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         System.out.println("ecoSystemecoSystem" + ecoSystem + ecoSystem.getShelterDirectory().getShelterList().size());
         for (UserAccount user : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
-            if ("Model.Role.ShelterHomeAdmin".equals(user.getRole().getClass().getName())) {
-                Object[] row = new Object[3];
+            if ("model.Role.ShelterHomeAdmin".equals(user.getRole().getClass().getName())) {
+                Object[] row = new Object[4];
 
                 row[0] = user.getFullName();
                 row[1] = user.getUserName();
                 row[2] = user.getPassword();
+                row[3] = user.getAddress();
 
                 model.addRow(row);
             }
