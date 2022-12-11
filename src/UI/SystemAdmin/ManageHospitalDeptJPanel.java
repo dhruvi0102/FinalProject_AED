@@ -10,10 +10,12 @@ import model.Hospital.HospitalDirectory;
 import model.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Font;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import model.Role.HospitalDepartmentAdmin;
 
 /**
@@ -24,12 +26,12 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private UserAccount account;
-    private EcoSystem system;
+    private EcoSystem ecoSystem;
 
-    public ManageHospitalDeptJPanel(JPanel userProcessContainer, EcoSystem system) {
+    public ManageHospitalDeptJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.system = system;
+        this.ecoSystem = ecoSystem;
         populateNetworkTable();
     }
 
@@ -182,13 +184,15 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
         String address = txtAddress.getText();
-        boolean status = rdYes.isSelected();
+        Boolean status = rdYes.isSelected();
+        
         System.out.print("jbox" + rdYes.isSelected());
+        
         try {
             if (name == null || name.isEmpty()) {
                 throw new NullPointerException(" Name field is Empty");
 
-            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]+$", name) == false) {
+            } else if (name.length() < 5 || Pattern.matches("^[A-Za-z]*$", name) == false) {
                 throw new Exception("Please enter valid  Name");
 
             }
@@ -239,27 +243,32 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
             return;
         }
-
-        UserAccount useracc = system.getUserAccountDirectory().addUserAccount(name, uname, password, address, null, new HospitalDepartmentAdmin());
-
-        HospitalDirectory hospDirectory = system.getHospitalDirectory();
-        Hospital hospital = null;
-
-        if (system.getHospitalDirectory() == null) {
-            hospital = new Hospital(name, uname, password, status);
-            hospDirectory.getHospitalDirectoryList().add(hospital);
-
-        } else {
-            hospital = system.getHospitalDirectory().createHospital(name, uname, password, status);
-            System.out.println("name :::" + hospital.getUserName());
+        
+        if(ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false){
+            JOptionPane.showMessageDialog(null, "User name already exists");
         }
+        else{
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new HospitalDepartmentAdmin());
+                HospitalDirectory hospDirectory = ecoSystem.getHospitalDirectory();
 
-        System.out.println("CHeck create " + name + uname + password + status);
-        System.out.println("check " + hospital.isHospitalStatus());
+                Hospital hosp = null;
 
-        System.out.println("ussss" + system.getUserAccountDirectory().getUserAccountList());
-        System.out.println("iwfeiow" + hospDirectory.getHospitalDirectoryList());
+                if (ecoSystem.getHospitalDirectory()==null)
+                    {
+                    hosp = new Hospital(name, uname, address, status);
+                    hospDirectory.getHospitalDirectoryList().add(hosp);
+                    }
+                else {
+                    hosp = ecoSystem.getHospitalDirectory().createHospital(name, uname, address, status);
+                }
+            }
+        JOptionPane.showMessageDialog(null,"Hospital Department is added");
         populateNetworkTable();
+        txtName.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtAddress.setText("");
+        rdYes.setSelected(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -282,15 +291,19 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         if (selectRow >= 0) {
             String username = (String) tblHospitals.getValueAt(selectRow, 1);
             String pwd = (String) tblHospitals.getValueAt(selectRow, 2);
-            account = system.getUserAccountDirectory().authenticateUser(username, pwd);
+            account = ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
             txtName.setText(account.getFullName() + "");
             txtUsername.setText(account.getUserName() + "");
             txtPassword.setText(account.getPassword() + "");
+            txtAddress.setText(account.getAddress() + "");
+            rdYes.setSelected(true);
 
-        } else {
+        } 
+        else {
             JOptionPane.showMessageDialog(null, "Please select a row");
         }
+        
         btnSave.setEnabled(false);
         btnDelete.setEnabled(false);
         btnUpdate.setEnabled(false);
@@ -301,19 +314,22 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblHospitals.getSelectedRow();
         if (selectedRow >= 0) {
+            String name = (String) tblHospitals.getValueAt(selectedRow, 0);
+            String uname = (String) tblHospitals.getValueAt(selectedRow, 1);
+            String password = (String) tblHospitals.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            String warningMessage = "Are you sure you want to delete the user" + name.toUpperCase() + " ?";
+            int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
-                String username = (String) tblHospitals.getValueAt(selectedRow, 1);
-                String pwd = (String) tblHospitals.getValueAt(selectedRow, 2);
-                UserAccount user = system.getUserAccountDirectory().authenticateUser(username, pwd);
-                system.getUserAccountDirectory().deleteUserAccount(user);
-                system.getHospitalDirectory().deleteHospitalDirectory(user.getUserName());
+                UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
+                ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
+                ecoSystem.getHospitalDirectory().deleteHospitalDirectory(uname);
                 populateNetworkTable();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
@@ -322,6 +338,8 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname = txtUsername.getText();
         String password = txtPassword.getText();
+        String address = txtAddress.getText();
+        Boolean status = rdYes.isSelected();
 
         try {
             if (name == null || name.isEmpty()) {
@@ -379,11 +397,12 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             return;
         }
 
-        if (system.getUserAccountDirectory().IsUsernameUnique(uname) == false) {
+        if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname) == false) {
             JOptionPane.showMessageDialog(null, "  User Name already exists ");
         } else {
 
-            system.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
+            ecoSystem.getHospitalDirectory().updateHospital(name,uname,address,status);
             populateNetworkTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -392,6 +411,8 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             txtName.setText("");
             txtUsername.setText("");
             txtPassword.setText("");
+            txtAddress.setText("");
+            rdYes.setSelected(false);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -427,9 +448,9 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        System.out.println(" useracc " + system.getUserAccountDirectory().getUserAccountList());
+        System.out.println(" useracc " + ecoSystem.getUserAccountDirectory().getUserAccountList());
 
-        for (UserAccount useracc : system.getUserAccountDirectory().getUserAccountList()) {
+        for (UserAccount useracc : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
             System.out.println("1");
 
             if ("Model.Role.HospitalDepartmentAdmin".equals(useracc.getRole().getClass().getName())) {
