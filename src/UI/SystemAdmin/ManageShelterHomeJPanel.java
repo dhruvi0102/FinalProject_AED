@@ -235,7 +235,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "User name already exists");
         }
         else{
-                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new HospitalDepartmentAdmin());
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new ShelterHomeAdmin());
                 ShelterDirectory shelterDirectory = ecoSystem.getShelterDirectory();
 
                 Shelter shelter = null;
@@ -439,8 +439,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             if ("Model.Role.ShelterHomeAdmin".equals(user.getRole().getClass().getName())) {
                 Object[] row = new Object[3];
 
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = user.getFullName();
+                row[1] = user.getUserName();
                 row[2] = user.getPassword();
 
                 model.addRow(row);

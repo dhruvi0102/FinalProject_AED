@@ -252,23 +252,23 @@ public class ManageUserJPanel extends javax.swing.JPanel {
         if (ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false) {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
             }else{
-        UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,null, null, new UserRole());
-       //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
-        UserDirectory useradmdir = ecoSystem.getUserAdminDirectory();
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,null, null, new UserRole());
+               //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(name, uname, password, null, new PoliceDeptAdmin());
+                UserDirectory useradmdir = ecoSystem.getUserAdminDirectory();
 
-        User userAdmin = null;
+                User userAdmin = null;
 
-        if (ecoSystem.getUserAdminDirectory()==null)
-        {
-            userAdmin = new User(name, uname);
-            useradmdir.getUserAdmin().add(userAdmin);
-        }
-        else {
-            userAdmin = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
-            System.out.println("name :::" + userAdmin.getUserName());
-        }
-        }
-        JOptionPane.showMessageDialog(null, "Police Department is added!");
+                if (ecoSystem.getUserAdminDirectory()==null)
+                {
+                    userAdmin = new User(name, uname);
+                    useradmdir.getUserAdmin().add(userAdmin);
+                }
+                else {
+                    userAdmin = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
+                    System.out.println("name :::" + userAdmin.getUserName());
+                }
+            }
+        JOptionPane.showMessageDialog(null, "User is added!");
         populateTable();
         txtName.setText("");                
         txtUsername.setText("");
