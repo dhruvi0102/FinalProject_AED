@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.SystemAdmin;
+package userinterface.SystemAdminWorkArea;
 
-import model.EcoSystem;
-import model.FireDepartment.FireDepartment;
-import model.FireDepartment.FireDepartmentDirectory;
-import model.Role.FireDepartmentAdmin;
-import model.UserAccount.UserAccount;
+import Business.EcoSystem;
+import Business.FireDept.FireDepartment;
+import Business.FireDept.FireDepartmentDirectory;
+import Business.Role.FDAdminRole;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Font;
@@ -40,8 +40,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-         populateTable();
-
+        populateTable();
     }
 
    
@@ -56,13 +55,13 @@ public class ManageFireDept extends javax.swing.JPanel {
     private void initComponents() {
 
         lblName = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtFullName = new javax.swing.JTextField();
         lbluname = new javax.swing.JLabel();
         txtUname = new javax.swing.JTextField();
         lblPass = new javax.swing.JLabel();
-        txtPass = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
+        txtLocation = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFireEnterprise = new javax.swing.JTable();
@@ -70,8 +69,8 @@ public class ManageFireDept extends javax.swing.JPanel {
         lbl_fireDept = new javax.swing.JLabel();
         lblAvailability = new javax.swing.JLabel();
         chbStatus = new javax.swing.JCheckBox();
-        updateInfobtn = new javax.swing.JButton();
-        confirmUpdateBtn = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,7 +79,7 @@ public class ManageFireDept extends javax.swing.JPanel {
 
         lblName.setText("Name");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 39, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 230, -1));
+        add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 230, -1));
 
         lbluname.setText("Username");
         add(lbluname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
@@ -89,22 +88,22 @@ public class ManageFireDept extends javax.swing.JPanel {
         lblPass.setText("Password");
         add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 230, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 230, -1));
 
         lblAddress.setText("Address");
         add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+        txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddressActionPerformed(evt);
+                txtLocationActionPerformed(evt);
             }
         });
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 230, 50));
+        add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 230, 50));
 
         btnSubmit.setText("Create");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -153,21 +152,21 @@ public class ManageFireDept extends javax.swing.JPanel {
         });
         add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
-        updateInfobtn.setText("Update");
-        updateInfobtn.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateInfobtnActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        add(updateInfobtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
 
-        confirmUpdateBtn.setText("Confirm Update");
-        confirmUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.setText("Confirm Update");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmUpdateBtnActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
-        add(confirmUpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, -1));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, -1));
 
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -184,16 +183,16 @@ public class ManageFireDept extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddressActionPerformed
+    }//GEN-LAST:event_txtLocationActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
-        String fullName = txtName.getText();
+        String fullName = txtFullName.getText();
         String userName = txtUname.getText();
-        String password = txtPass.getText();
-        String location = txtAddress.getText();
+        String password = txtPassword.getText();
+        String location = txtLocation.getText();
         Boolean availability = chbStatus.isSelected();
         System.out.print("chbStatus"+chbStatus.isSelected());
         
@@ -253,9 +252,38 @@ public class ManageFireDept extends javax.swing.JPanel {
             return;
         }
 
- 
+        System.out.println("weuhfuwef" + availability);
+        String FromEmail = "emergencysystemaed@gmail.com";
+        String FromEmailPassword = "jrxe svst jqjn nraj";
+        String Subjects = "welcome to the team";
+        
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.starttls.required", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            }
+        });
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(FromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(userName));
+            message.setSubject(Subjects);
+            message.setText("welcome");
+            Transport.send(message);
+        }catch(Exception ex){
+            System.out.println(""+ex);
+        }
+    
 
-       UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(fullName, userName, password, location,availability,new FireDepartmentAdmin());
+       UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new FDAdminRole());
        //UserAccount acc = ecoSystem.getUserAccountDirectory().createUserAccount(fullName, userName, password, null, new PDAdmin());
         FireDepartmentDirectory firedeptdir = ecoSystem.getFireDepartmentDirectory();
 
@@ -265,44 +293,148 @@ public class ManageFireDept extends javax.swing.JPanel {
         {
             fireDept = new FireDepartment(fullName, userName, location, availability);
             firedeptdir.getfireSquad().add(fireDept);
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
         else {
             fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName, userName, location, availability);
             System.out.println("name" + fireDept.getEmail());
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-            
         }
+
         populateTable();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
         // TODO add your handling code here:
-
+        int selectedRow = tblFireEnterprise.getSelectedRow();
+        if (selectedRow >= 0) {
+            String name = (String) tblFireEnterprise.getValueAt(selectedRow, 0);
+            String uname = (String) tblFireEnterprise.getValueAt(selectedRow, 1);
+            String password = (String) tblFireEnterprise.getValueAt(selectedRow, 2);
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            String warningMessage = "Are you sure you want to delete the user [FireDept] - " + name.toUpperCase() + " ?";
+            int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
+                ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
+                ecoSystem.getFireDepartmentDirectory().deleteDepartment(uname);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+        populateTable();
     }//GEN-LAST:event_btnDelActionPerformed
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void chbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chbStatusActionPerformed
 
-    private void updateInfobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateInfobtnActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        
+        int selectRow = tblFireEnterprise.getSelectedRow();
 
-      
-    }//GEN-LAST:event_updateInfobtnActionPerformed
+        if(selectRow>=0){
+            String username= (String) tblFireEnterprise.getValueAt(selectRow, 1);
+            String pwd= (String) tblFireEnterprise.getValueAt(selectRow, 2);
+            userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-    private void confirmUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmUpdateBtnActionPerformed
+            txtFullName.setText(userAccount.getName()+"");
+            txtUname.setText(userAccount.getUsername()+"");
+            txtPassword.setText(userAccount.getPassword()+"");
+            // system.getUserAccountDirectory().deleteUserAccount(user);
+
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Please select a row");
+        }
+        btnSubmit.setEnabled(false);
+        btnDel.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnConfirm.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
 
-        
+        String name = txtFullName.getText();
+        String uname=txtUname.getText();
+        String password=txtPassword.getText();
 
-    }//GEN-LAST:event_confirmUpdateBtnActionPerformed
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+
+        if (ecoSystem.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+
+            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            populateTable();
+            btnSubmit.setEnabled(true);
+            btnDel.setEnabled(true);
+            btnUpdate.setEnabled(true);
+            btnConfirm.setEnabled(false);
+            txtFullName.setText("");
+            txtUname.setText("");
+            txtPassword.setText("");
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
         // TODO add your handling code here:
@@ -311,16 +443,16 @@ public class ManageFireDept extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-
     }//GEN-LAST:event_BackbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Backbtn;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnDel;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JCheckBox chbStatus;
-    private javax.swing.JButton confirmUpdateBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -331,13 +463,13 @@ public class ManageFireDept extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_fireDept;
     private javax.swing.JLabel lbluname;
     private javax.swing.JTable tblFireEnterprise;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JTextField txtFullName;
+    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUname;
-    private javax.swing.JButton updateInfobtn;
     // End of variables declaration//GEN-END:variables
- private void populateTable() {
+
+    private void populateTable() {
       DefaultTableModel model = (DefaultTableModel) tblFireEnterprise.getModel();
         //JTableHeader th = tblFireEnterprise.getTableHeader();
         model.setRowCount(0);
@@ -347,8 +479,8 @@ public class ManageFireDept extends javax.swing.JPanel {
                 
                 Object[] row = new Object[3];
 
-                row[0] = user.getFullName();
-                row[1] = user.getEmail();
+                row[0] = user.getName();
+                row[1] = user.getUsername();
                 row[2] = user.getPassword();
 
                 model.addRow(row);
