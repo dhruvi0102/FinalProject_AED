@@ -26,7 +26,7 @@ import javax.swing.table.JTableHeader;
 public class ManageShelterHomeJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private UserAccount userAccount;
+    private UserAccount account;
     private EcoSystem ecoSystem;
 
     public ManageShelterHomeJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
@@ -169,25 +169,94 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         String name = txtName.getText();
-        String username = txtUserName.getText();
+        String uname = txtUserName.getText();
         String password = txtPassword.getText();
         String address = txtAddress.getText();
         Boolean status = rdYes.isSelected();
         System.out.print("chbStatus1"+rdYes.isSelected());
+        
+         try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
 
-        UserAccount useracc = ecoSystem.getUserAccountDirectory().addUserAccount(name, username, password,address, null, new ShelterHomeAdmin());
-        ShelterDirectory shelterDirectory = ecoSystem.getShelterDirectory();
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
 
-        Shelter shelter = null;
-        if (ecoSystem.getShelterDirectory() == null) {
-            shelter = new Shelter(username, name, address, status);
-            shelterDirectory.getShelterList().add(shelter);
-        } else {
-            shelter = ecoSystem.getShelterDirectory().createShelter(name, username, address, status);
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
         }
 
-        System.out.println(" shelterDirectory.getShelterList()" + shelterDirectory.getShelterList());
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+        
+        if(ecoSystem.getUserAccountDirectory().IsUsernameUnique(uname)==false){
+            JOptionPane.showMessageDialog(null, "User name already exists");
+        }
+        else{
+                UserAccount acc = ecoSystem.getUserAccountDirectory().addUserAccount(name, uname, password,address,status, new HospitalDepartmentAdmin());
+                ShelterDirectory shelterDirectory = ecoSystem.getShelterDirectory();
+
+                Shelter shelter = null;
+
+                if (ecoSystem.getShelterDirectory()==null)
+                    {
+                    shelter = new Shelter(name, uname, address, status);
+                    shelterDirectory.getShelterList().add(shelter);
+                    }
+                else {
+                    shelter = ecoSystem.getShelterDirectory().createShelter(name, uname, address, status);
+                }
+            }
+        JOptionPane.showMessageDialog(null,"Shelter Department is added");
+
         populateEntityTable();
+        txtName.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
+        txtAddress.setText("");
+        rdYes.setSelected(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
@@ -196,6 +265,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -218,11 +289,11 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
                 ecoSystem.getUserAccountDirectory().deleteUserAccount(user);
                 ecoSystem.getShelterDirectory().deleteShelter(uname);
+                populateEntityTable();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
-        populateEntityTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmUpdateActionPerformed
@@ -231,6 +302,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String uname= txtUserName.getText();
         String password= txtPassword.getText();
+        String address = txtAddress.getText();
+        Boolean status = rdYes.isSelected();
 
         try {
             if(name==null || name.isEmpty()){
@@ -292,7 +365,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password);
+            ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
+            ecoSystem.getShelterDirectory().updateShelter(name,uname,address,status);
             populateEntityTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
@@ -301,6 +375,8 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             txtName.setText("");
             txtUserName.setText("");
             txtPassword.setText("");
+            txtAddress.setText("");
+            rdYes.setSelected(false);
         }
     }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
@@ -311,13 +387,14 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         if(selectRow>=0){
             String username= (String) tblShelter.getValueAt(selectRow, 1);
             String pwd= (String) tblShelter.getValueAt(selectRow, 2);
-            userAccount=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
+            account=ecoSystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtName.setText(userAccount.getName()+"");
-            txtUserName.setText(userAccount.getUsername()+"");
-            txtPassword.setText(userAccount.getPassword()+"");
-            // system.getUserAccountDirectory().deleteUserAccount(user);
-
+            txtName.setText(account.getFullName()+"");
+            txtUserName.setText(account.getUserName()+"");
+            txtPassword.setText(account.getPassword()+"");
+            txtAddress.setText(account.getAddress() + "");
+            rdYes.setSelected(true);
+           
         }
         else {
             JOptionPane.showMessageDialog(null,"Please select a row");
