@@ -233,8 +233,9 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
             u = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
             System.out.println("name :::" + u.getUserName());
         }
+          JOptionPane.showMessageDialog(null, "You are successfully registered");
         }
-        JOptionPane.showMessageDialog(null, "You are successfully registered");
+      
         
         txtName.setText("");
         txtUsername.setText("");

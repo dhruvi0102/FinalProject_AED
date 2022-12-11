@@ -267,8 +267,9 @@ public class ManageUserJPanel extends javax.swing.JPanel {
                     userAdmin = ecoSystem.getUserAdminDirectory().createUserAdmin(name, uname);
                     System.out.println("name :::" + userAdmin.getUserName());
                 }
+                JOptionPane.showMessageDialog(null, "User is added!");
             }
-        JOptionPane.showMessageDialog(null, "User is added!");
+        
         populateTable();
         txtName.setText("");                
         txtUsername.setText("");

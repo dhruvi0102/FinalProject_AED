@@ -263,8 +263,9 @@ public class ManageFireDept extends javax.swing.JPanel {
                 else {
                     fireDept = ecoSystem.getFireDepartmentDirectory().createfireSquad(fullName,userName,location,availability);
                 }
+                JOptionPane.showMessageDialog(null, "Fire Department is added!");
             }
-        JOptionPane.showMessageDialog(null, "Fire Department is added!");
+        
         populateTable();
         txtFullName.setText("");
         txtUname.setText("");

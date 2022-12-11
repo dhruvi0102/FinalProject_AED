@@ -274,8 +274,9 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         else {
             aadmin = ecoSystem.getAreaAdminDirectory().createAdmin(name, uname);
         }
-        }
         JOptionPane.showMessageDialog(null, "Police Department is added!");
+        }
+        
         populateTable();
         txtName.setText("");                
         txtUsername.setText("");
