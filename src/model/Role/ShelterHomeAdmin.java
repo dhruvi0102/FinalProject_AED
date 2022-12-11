@@ -4,7 +4,7 @@
  */
 package model.Role;
 
-import UI.Requests.CreateRequest;
+import UI.ShelterHome.ShelterAdminJPanel;
 import javax.swing.JPanel;
 import model.EcoSystem;
 import model.UserAccount.UserAccount;
@@ -13,11 +13,9 @@ import model.UserAccount.UserAccount;
  *
  * @author dhruv
  */
-public class UserRole extends Role {
-    
+public class ShelterHomeAdmin extends Role {
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new CreateRequest(userProcessContainer,account, system);
-    }
-    
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+        return new ShelterAdminJPanel(userProcessContainer, account, business);
+    } 
 }

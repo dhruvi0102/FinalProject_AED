@@ -56,7 +56,7 @@ public class FireDepartmentDirectory {
      public void updatefireDepartment(String name, String uname,String address, Boolean status) {
         fired.setFullName(name);
         fired.setEmail(uname);   
-        fired.setAddress(address);
+        fired.setAdress(address);
         fired.setAvailability(status);
     }
 }
