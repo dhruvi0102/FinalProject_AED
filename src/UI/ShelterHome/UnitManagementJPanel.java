@@ -65,32 +65,38 @@ public class UnitManagementJPanel extends javax.swing.JPanel {
         lblWardAssign = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblPatientName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPatientName.setText("Patient Name :");
         add(lblPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 120, -1));
 
         lblDisplayPatientName.setText("jLabel6");
         add(lblDisplayPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
+        lblPatientArea.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPatientArea.setText("Patient Area :");
         add(lblPatientArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         lblDisplayPatientArea.setText("jLabel8");
         add(lblDisplayPatientArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
+        lblStatus.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblStatus.setText("Status :");
         add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 100, -1));
 
         lblDisplayStatus.setText("jLabel8");
         add(lblDisplayStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
 
+        lblRequestId.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblRequestId.setText("Request ID :");
         add(lblRequestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         lblDisplayRequestId.setText("jLabel8");
         add(lblDisplayRequestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
+        lblElderWard.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblElderWard.setText("Elderly Ward :");
         add(lblElderWard, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
@@ -102,6 +108,7 @@ public class UnitManagementJPanel extends javax.swing.JPanel {
         });
         add(rdElderYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
+        lblAddictionWard.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAddictionWard.setText("Addiction Ward :");
         add(lblAddictionWard, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
@@ -113,6 +120,7 @@ public class UnitManagementJPanel extends javax.swing.JPanel {
         });
         add(rdAddictionYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
 
+        lblChildrenWard.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblChildrenWard.setText("Children Ward :");
         add(lblChildrenWard, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
@@ -124,6 +132,7 @@ public class UnitManagementJPanel extends javax.swing.JPanel {
         });
         add(rdChildrenYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
 
+        lblBasicWard.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblBasicWard.setText("Basic Ward :");
         add(lblBasicWard, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
@@ -135,13 +144,16 @@ public class UnitManagementJPanel extends javax.swing.JPanel {
         });
         add(rdBasicYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
+        btnComplete.setBackground(new java.awt.Color(0, 153, 153));
+        btnComplete.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnComplete.setForeground(new java.awt.Color(255, 255, 255));
         btnComplete.setText("Complete");
         btnComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteActionPerformed(evt);
             }
         });
-        add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
+        add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, 30));
         add(lblWardAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 265, 28));
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N

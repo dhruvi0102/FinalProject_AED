@@ -83,103 +83,119 @@ public class UpdateRequestJPanel extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         lbltimestamp = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        backJButton.setBackground(new java.awt.Color(0, 153, 153));
+        backJButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 30));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-        add(entityNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 191, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        add(entityNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 191, -1));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setText("Location");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         entityLocationField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entityLocationFieldActionPerformed(evt);
             }
         });
-        add(entityLocationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 191, -1));
+        add(entityLocationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 191, -1));
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setText("Area");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
 
-        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 191, -1));
+        add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 191, -1));
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setText("Selected Item");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
         add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 277, 17));
 
-        jLabel7.setText("Comments for Dispatched Units");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel7.setText("Comments");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
         commentsField.setColumns(20);
         commentsField.setRows(5);
         jScrollPane2.setViewportView(commentsField);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 277, -1));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 200, -1));
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel5.setText("Status");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
 
         statusDD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusDDActionPerformed(evt);
             }
         });
-        add(statusDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 277, -1));
+        add(statusDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, -1));
 
         lblReqID.setText("jLabel9");
-        add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel9.setText("Selected Hospital");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
         lblSelectedHos.setText("jLabel10");
-        add(lblSelectedHos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 274, -1));
+        add(lblSelectedHos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 274, -1));
 
         lblSelectedPD.setText("jLabel10");
-        add(lblSelectedPD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 274, -1));
+        add(lblSelectedPD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 274, -1));
 
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel10.setText("Selected Police Department");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, -1, -1));
 
         lblSelectedFD.setText("jLabel10");
-        add(lblSelectedFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 274, -1));
+        add(lblSelectedFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 274, -1));
 
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel11.setText("Selected Fire Department");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         lblSelectedShel.setText("jLabel10");
-        add(lblSelectedShel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 274, -1));
+        add(lblSelectedShel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, 274, -1));
 
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel12.setText("Selected Shelter ");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
 
+        btnProceed.setBackground(new java.awt.Color(0, 153, 153));
+        btnProceed.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnProceed.setForeground(new java.awt.Color(255, 255, 255));
         btnProceed.setText("Proceed");
         btnProceed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProceedActionPerformed(evt);
             }
         });
-        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, -1));
+        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, -1, 30));
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 3, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(119, 10, 40));
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel4.setText("Update Request");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 170, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 330, 30));
 
         jLabel14.setText("RequestID:");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         lbltimestamp.setText("jLabel1");
-        add(lbltimestamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        add(lbltimestamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

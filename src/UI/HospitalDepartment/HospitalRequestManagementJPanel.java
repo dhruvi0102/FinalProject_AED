@@ -50,24 +50,29 @@ public class HospitalRequestManagementJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAssignedRequests = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
-        lblTitle.setText("Welcome to Hospital");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 236, -1));
+        lblTitle.setText("Welcome to Hospital Department");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, -1));
 
+        btnNext.setBackground(new java.awt.Color(0, 153, 153));
+        btnNext.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
-        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
+        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 80, 30));
 
-        lblTableTitle.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        lblTableTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTableTitle.setText("List of requests assigned to your Hospital :");
         add(lblTableTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
+        tblAssignedRequests.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblAssignedRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},

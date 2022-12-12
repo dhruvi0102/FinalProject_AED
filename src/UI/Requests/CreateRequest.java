@@ -120,18 +120,21 @@ public class CreateRequest extends javax.swing.JPanel {
         lblEmail1 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHead.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblHead.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblHead.setText("Create Request");
-        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, -1));
+        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 230, -1));
 
+        lblName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 277, -1));
 
+        lblEmail.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEmail.setText("Location");
-        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 60, -1));
+        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 80, -1));
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,18 +143,21 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 277, -1));
 
-        txtEmergency.setText("Type of Emergency");
-        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        txtEmergency.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        txtEmergency.setText("Type of Services");
+        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
         add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 277, 17));
 
-        btnGetUnits.setBackground(new java.awt.Color(102, 255, 102));
+        btnGetUnits.setBackground(new java.awt.Color(0, 153, 153));
+        btnGetUnits.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnGetUnits.setForeground(new java.awt.Color(255, 255, 255));
         btnGetUnits.setText("Get Units");
         btnGetUnits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGetUnitsActionPerformed(evt);
             }
         });
-        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 277, 38));
+        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 277, 38));
 
         listServices.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Request Healthcare Services", "Request Police Services", "Request Fire Services", "Request Shelter Services" };
@@ -167,8 +173,9 @@ public class CreateRequest extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 277, 80));
 
+        txtSelectedService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         txtSelectedService.setText("Selected Service");
-        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 370, 120, -1));
 
         txtComments.setColumns(20);
         txtComments.setRows(5);
@@ -176,24 +183,29 @@ public class CreateRequest extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 277, -1));
 
+        lblComments.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblComments.setText("comments");
-        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
+        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 410, 80, -1));
 
         lblTimeStamp.setText("jLabel8");
-        add(lblTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        add(lblTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 277, -1));
 
+        lblArea.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblArea.setText("Area");
-        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 230, 40, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText(" Back ");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 16, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 17, -1, 30));
 
         cmbStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,8 +214,9 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         add(cmbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 277, -1));
 
+        lblStatus.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblStatus.setText("Status");
-        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, -1, -1));
+        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 540, 50, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,9 +230,13 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 277, -1));
 
+        lblEmail1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEmail1.setText("Email");
-        add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 40, -1));
+        add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 40, -1));
 
+        btnCreate.setBackground(new java.awt.Color(0, 153, 153));
+        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

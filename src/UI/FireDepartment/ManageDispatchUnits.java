@@ -59,62 +59,72 @@ public class ManageDispatchUnits extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblRequestId = new javax.swing.JLabel();
         lblRequestN = new javax.swing.JLabel();
+        lblSelectUnit2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSelectUnit.setText("Select the Unit");
-        add(lblSelectUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 90, 20));
+        lblSelectUnit.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        lblSelectUnit.setText("Manage Dispatch Units");
+        add(lblSelectUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 300, 30));
 
         cmbHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbHDActionPerformed(evt);
             }
         });
-        add(cmbHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 240, -1));
+        add(cmbHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 240, -1));
 
+        btnFD.setBackground(new java.awt.Color(0, 153, 153));
         btnFD.setText("send");
         btnFD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFDActionPerformed(evt);
             }
         });
-        add(btnFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, -1));
+        add(btnFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 80, 30));
 
-        lblHead1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lblHead1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblHead1.setText("Factory Dispatch Unit");
-        add(lblHead1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 150, -1));
+        add(lblHead1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, -1));
 
+        lblSelectUnit1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblSelectUnit1.setText("Select the Unit ");
-        add(lblSelectUnit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 130, 20));
+        add(lblSelectUnit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 130, 20));
 
-        add(cmbFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 230, -1));
+        add(cmbFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 230, -1));
 
+        btnHD.setBackground(new java.awt.Color(0, 153, 153));
         btnHD.setText("Send");
         btnHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHDActionPerformed(evt);
             }
         });
-        add(btnHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, -1, -1));
+        add(btnHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 80, 30));
 
-        lblHead2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lblHead2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblHead2.setText("Housing Dispatch Unit");
-        add(lblHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 160, -1));
+        add(lblHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 230, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 110, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 100, 30));
 
         lblRequestId.setText("jLabel9");
-        add(lblRequestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+        add(lblRequestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         lblRequestN.setText("Request No.");
-        add(lblRequestN, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+        add(lblRequestN, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        lblSelectUnit2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblSelectUnit2.setText("Select the Unit");
+        add(lblSelectUnit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 120, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFDActionPerformed
@@ -170,6 +180,7 @@ public class ManageDispatchUnits extends javax.swing.JPanel {
     private javax.swing.JLabel lblRequestN;
     private javax.swing.JLabel lblSelectUnit;
     private javax.swing.JLabel lblSelectUnit1;
+    private javax.swing.JLabel lblSelectUnit2;
     // End of variables declaration//GEN-END:variables
 
     private void getFactoryFireUnits() {

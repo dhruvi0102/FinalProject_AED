@@ -50,7 +50,9 @@ public class PoliceDeptAdmin extends javax.swing.JPanel {
         lblToAdd = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         lblReqID = new javax.swing.JLabel();
+        lblToAdd1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setForeground(new java.awt.Color(119, 10, 40));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,30 +64,40 @@ public class PoliceDeptAdmin extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 110, 30));
 
-        lblCUManage.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblCUManage.setText("Click for the assigning control unit ->");
-        add(lblCUManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        lblCUManage.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblCUManage.setText("Click for the assigning control unit :");
+        add(lblCUManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
+        btnManage.setBackground(new java.awt.Color(0, 153, 153));
+        btnManage.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnManage.setForeground(new java.awt.Color(255, 255, 255));
         btnManage.setText("Manage");
         btnManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageActionPerformed(evt);
             }
         });
-        add(btnManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+        add(btnManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 90, 30));
 
-        lblToAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblToAdd.setText("Click to Add New Control Unit ->");
-        add(lblToAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        lblToAdd.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        lblToAdd.setText("Police Department Panel");
+        add(lblToAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 420, 40));
 
+        btnAdd.setBackground(new java.awt.Color(0, 153, 153));
+        btnAdd.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 90, 30));
         add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 41, 135, 27));
+
+        lblToAdd1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblToAdd1.setText("Click to Add New Control Unit :");
+        add(lblToAdd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -122,5 +134,6 @@ public class PoliceDeptAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel lblCUManage;
     private javax.swing.JLabel lblReqID;
     private javax.swing.JLabel lblToAdd;
+    private javax.swing.JLabel lblToAdd1;
     // End of variables declaration//GEN-END:variables
 }
