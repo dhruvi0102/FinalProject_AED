@@ -342,7 +342,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
             String uname = (String) tblHospitals.getValueAt(selectedRow, 1);
             String password = (String) tblHospitals.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            String warningMessage = "Are you sure you want to delete the user" + name.toUpperCase() + " ?";
+            String warningMessage = "Are you sure you want to delete the user -" + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
@@ -353,7 +353,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
-        
+        JOptionPane.showMessageDialog(null, "Department is deleted!!");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
@@ -425,6 +425,7 @@ public class ManageHospitalDeptJPanel extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
             ecoSystem.getHospitalDirectory().updateHospital(name,uname,address,status);
+            JOptionPane.showMessageDialog(null, "Changes are updated!");
             populateNetworkTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);

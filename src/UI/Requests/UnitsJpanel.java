@@ -294,7 +294,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
             fd.setRequests(fdReq);
         }
-        JOptionPane.showMessageDialog(null, "Police Department is assigned!");        
+        JOptionPane.showMessageDialog(null, "Shelter Department is assigned!");        
     }//GEN-LAST:event_btnAssignShelterActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

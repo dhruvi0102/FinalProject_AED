@@ -26,7 +26,7 @@ public class Request {
     private String entityDesc;
 
     public Request(String personName, String personLocation, String area, String typeOfEmergency, String comments, String date, String selectedHospital, String selectedFireDept, String selectedPoliceDept, String selectedShelter, String status) {
-        int randomInt = ThreadLocalRandom.current().nextInt();
+        int randomInt = ThreadLocalRandom.current().nextInt(1,128);
         this.requestId = String.valueOf(randomInt);
         this.personName = personName;
         this.personLocation = personLocation;
@@ -94,7 +94,7 @@ public class Request {
     }
 
     public void setRequestId(String requestId) {
-        int randomInt = ThreadLocalRandom.current().nextInt();
+        int randomInt = ThreadLocalRandom.current().nextInt(1,128);
         requestId = String.valueOf(randomInt);
         this.requestId = requestId;
     }
