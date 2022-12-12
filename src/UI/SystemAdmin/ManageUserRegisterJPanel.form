@@ -154,9 +154,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtPassword">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswordActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblContact">
           <Properties>
@@ -167,6 +164,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtContact">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContactActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContactKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGender">
           <Properties>

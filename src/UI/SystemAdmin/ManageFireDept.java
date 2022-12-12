@@ -307,7 +307,7 @@ public class ManageFireDept extends javax.swing.JPanel {
             String uname = (String) tblFireEnterprise.getValueAt(selectedRow, 1);
             String password = (String) tblFireEnterprise.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            String warningMessage = "Are you sure you want to delete the user [FireDept] - " + name.toUpperCase() + " ?";
+            String warningMessage = "Are you sure you want to delete the user -" + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
@@ -422,6 +422,7 @@ public class ManageFireDept extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
             ecoSystem.getFireDepartmentDirectory().updatefireDepartment(name, uname, uname, Boolean.TRUE);
+            JOptionPane.showMessageDialog(null, "Changes are updated!");
             populateTable();
             btnSubmit.setEnabled(true);
             btnDel.setEnabled(true);

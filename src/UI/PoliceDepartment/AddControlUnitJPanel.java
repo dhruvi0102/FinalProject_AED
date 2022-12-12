@@ -56,44 +56,56 @@ public class AddControlUnitJPanel extends javax.swing.JPanel {
         txtTCNum = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 110, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 110, 40));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 40, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblTitle.setText("Add New Control Unit");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 270, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 400, -1));
 
+        lblCUNum.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblCUNum.setText("Control Unit Number :");
         add(lblCUNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
-        add(txtCUNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
+        add(txtCUNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 160, -1));
 
+        btnAdd.setBackground(new java.awt.Color(0, 153, 153));
+        btnAdd.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 131, -1, 30));
 
+        lblTCNum.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTCNum.setText("Traffic Control Unit:");
         add(lblTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
-        add(txtTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 160, -1));
+        add(txtTCNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 160, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 153));
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -53,36 +53,42 @@ public class HouseFireMang extends javax.swing.JPanel {
         lblReqId = new javax.swing.JLabel();
         btnComplete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel1.setText("House Unit");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 180, -1));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        jLabel1.setText("House Fire Management Panel");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 450, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 140, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 90, 30));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Fire Unit Dispatched is :");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
-        add(txtRDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 140, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        add(txtRDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 160, -1));
 
         lblReqId.setText("jLabel9");
-        add(lblReqId, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+        add(lblReqId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        btnComplete.setBackground(new java.awt.Color(102, 255, 102));
+        btnComplete.setBackground(new java.awt.Color(0, 153, 153));
+        btnComplete.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnComplete.setForeground(new java.awt.Color(255, 255, 255));
         btnComplete.setText("Complete");
         btnComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteActionPerformed(evt);
             }
         });
-        add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, -1, -1));
+        add(btnComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

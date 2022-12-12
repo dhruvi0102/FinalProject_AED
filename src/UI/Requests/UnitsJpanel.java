@@ -94,9 +94,10 @@ public class UnitsJpanel extends javax.swing.JPanel {
 
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblShelterService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblShelterService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -110,8 +111,9 @@ public class UnitsJpanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblShelterService);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 970, 566, 135));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 990, 566, 135));
 
+        tblHospitalService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblHospitalService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -125,8 +127,9 @@ public class UnitsJpanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblHospitalService);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 421, 566, 135));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 566, 135));
 
+        tblPoliceService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblPoliceService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -140,8 +143,9 @@ public class UnitsJpanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblPoliceService);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 597, 566, 135));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 566, 135));
 
+        tblFireService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblFireService.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -155,75 +159,95 @@ public class UnitsJpanel extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(tblFireService);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 772, 566, 154));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 760, 566, 154));
 
+        btnAssignShelter.setBackground(new java.awt.Color(0, 153, 153));
+        btnAssignShelter.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAssignShelter.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignShelter.setText("Assign ");
         btnAssignShelter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignShelterActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAssignShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 1019, 170, -1));
+        jPanel1.add(btnAssignShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 1140, 100, -1));
 
-        backJButton.setText("<< Back ");
+        backJButton.setBackground(new java.awt.Color(0, 153, 153));
+        backJButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
+        backJButton.setText("Back ");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
 
+        btnAssignHospital.setBackground(new java.awt.Color(0, 153, 153));
+        btnAssignHospital.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAssignHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignHospital.setText("Assign ");
         btnAssignHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignHospitalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAssignHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 470, 150, -1));
+        jPanel1.add(btnAssignHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 90, -1));
 
+        btnAssignPolice.setBackground(new java.awt.Color(0, 153, 153));
+        btnAssignPolice.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAssignPolice.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignPolice.setText("Assign");
         btnAssignPolice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignPoliceActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAssignPolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 658, 160, -1));
+        jPanel1.add(btnAssignPolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 690, 100, -1));
 
+        btnAssignFire.setBackground(new java.awt.Color(0, 153, 153));
+        btnAssignFire.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAssignFire.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignFire.setText("Assign ");
         btnAssignFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignFireActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAssignFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 836, 160, -1));
+        jPanel1.add(btnAssignFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 930, 100, -1));
         jPanel1.add(lblHospAvaUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 382, 194, 20));
         jPanel1.add(lblPoliceAvaUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 568, 181, 20));
         jPanel1.add(lblFireAvaUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 744, 168, 20));
         jPanel1.add(lblShelterAvaUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 938, 145, 20));
 
+        lblHospital.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblHospital.setText("Hospital Service");
-        jPanel1.add(lblHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 382, -1, -1));
+        jPanel1.add(lblHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
+        lblPolice.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPolice.setText("Police Service");
-        jPanel1.add(lblPolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 575, -1, -1));
+        jPanel1.add(lblPolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, -1));
 
         lblFire.setText("Fire Service");
-        jPanel1.add(lblFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 750, -1, -1));
+        jPanel1.add(lblFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 740, -1, -1));
 
         lblShelter.setText("Shelter Service");
-        jPanel1.add(lblShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 950, -1, -1));
+        jPanel1.add(lblShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 960, -1, -1));
 
+        btnViewRequest.setBackground(new java.awt.Color(0, 153, 153));
+        btnViewRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnViewRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnViewRequest.setText("View Requests");
         btnViewRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewRequestActionPerformed(evt);
             }
         });
-        jPanel1.add(btnViewRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, 23));
+        jPanel1.add(btnViewRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, 23));
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel5.setText("UNITS");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 23, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        jLabel5.setText("Units Management");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 250, -1));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         lblName.setText("jLabel1");
@@ -245,7 +269,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
         jPanel1.add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, 34));
 
         lblDateTimeStamp.setText("jLabel1");
-        jPanel1.add(lblDateTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jPanel1.add(lblDateTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jScrollPane5.setViewportView(jPanel1);
 
@@ -294,7 +318,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
             }
             fd.setRequests(fdReq);
         }
-        JOptionPane.showMessageDialog(null, "Police Department is assigned!");        
+        JOptionPane.showMessageDialog(null, "Shelter Department is assigned!");        
     }//GEN-LAST:event_btnAssignShelterActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

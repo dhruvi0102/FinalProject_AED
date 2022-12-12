@@ -17,9 +17,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
@@ -113,18 +120,21 @@ public class CreateRequest extends javax.swing.JPanel {
         lblEmail1 = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHead.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblHead.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblHead.setText("Create Request");
-        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 140, -1));
+        add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 230, -1));
 
+        lblName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblName.setText("Name");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 277, -1));
 
+        lblEmail.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEmail.setText("Location");
-        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 60, -1));
+        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 80, -1));
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,18 +143,21 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 277, -1));
 
-        txtEmergency.setText("Type of Emergency");
-        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        txtEmergency.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        txtEmergency.setText("Type of Services");
+        add(txtEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
         add(entityTypeOfEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 277, 17));
 
-        btnGetUnits.setBackground(new java.awt.Color(102, 255, 102));
+        btnGetUnits.setBackground(new java.awt.Color(0, 153, 153));
+        btnGetUnits.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnGetUnits.setForeground(new java.awt.Color(255, 255, 255));
         btnGetUnits.setText("Get Units");
         btnGetUnits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGetUnitsActionPerformed(evt);
             }
         });
-        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 277, 38));
+        add(btnGetUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 277, 38));
 
         listServices.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Request Healthcare Services", "Request Police Services", "Request Fire Services", "Request Shelter Services" };
@@ -160,8 +173,9 @@ public class CreateRequest extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 277, 80));
 
+        txtSelectedService.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         txtSelectedService.setText("Selected Service");
-        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        add(txtSelectedService, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 370, 120, -1));
 
         txtComments.setColumns(20);
         txtComments.setRows(5);
@@ -169,24 +183,29 @@ public class CreateRequest extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 277, -1));
 
+        lblComments.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblComments.setText("comments");
-        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
+        add(lblComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 410, 80, -1));
 
         lblTimeStamp.setText("jLabel8");
-        add(lblTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        add(lblTimeStamp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         add(entityAreaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 277, -1));
 
+        lblArea.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblArea.setText("Area");
-        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+        add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 230, 40, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText(" Back ");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 16, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 17, -1, 30));
 
         cmbStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,19 +214,29 @@ public class CreateRequest extends javax.swing.JPanel {
         });
         add(cmbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 277, -1));
 
+        lblStatus.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblStatus.setText("Status");
-        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, -1, -1));
+        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 540, 50, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+        });
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 277, -1));
 
+        lblEmail1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEmail1.setText("Email");
-        add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 40, -1));
+        add(lblEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 40, -1));
 
+        btnCreate.setBackground(new java.awt.Color(0, 153, 153));
+        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +260,7 @@ public class CreateRequest extends javax.swing.JPanel {
                 throw new NullPointerException(" Name field is Empty");
 
             }else if(Pattern.matches("^[A-Za-z ]*$", entityName)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid  Name with only characters");
 
             }
         } catch(NullPointerException e){
@@ -280,7 +309,39 @@ public class CreateRequest extends javax.swing.JPanel {
 
             return;
         }
+        String FromEmail = "homeandbeyound@gmail.com";
+        String FromEmailPassword = "umba qlmn cfnq entb";
+        String Subjects = "Request Created";
         
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.starttls.required", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            }
+        });
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(FromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject(Subjects);
+            message.setText("An Request is created on behalf of you by Admin" 
+                            + "\n Details are as below: " 
+                            + "\nLocation:"+entityLocation
+                            + "\n Type of Emergency: " + typeOfEmergency 
+                            + "\n Comments to your case: " + comments 
+                            + "\n\n If this is not you then contact +1 (635)241-8765 or email to homeandbeyound@gmail.com");
+            Transport.send(message);
+        }catch(Exception ex){
+            System.out.println(""+ex);
+        }
         
        UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
         userProcessContainer.add("manageDelJPanel", unitsPanel);
@@ -323,16 +384,7 @@ public class CreateRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbStatusActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-        Pattern patt = Pattern.compile(pattern);
-        Matcher match = patt.matcher(txtEmail.getText());
-        if (!match.matches()) {
-            //lblPWeightErr.setText("Incorrect weight format");
-            txtEmail.setBackground(Color.red);
-        } else {
-            txtEmail.setBackground(Color.white);
-        }
+       
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -349,15 +401,15 @@ public class CreateRequest extends javax.swing.JPanel {
         String selectedFireDept = "Not Assigned";
         String selectedPoliceDept = "Not Assigned";
         String selectedShelter = "Not Assigned";
-        String status = lblStatus.getText();
+        String status = (String) cmbStatus.getSelectedItem();
         
         
         try {
             if(personName==null || personName.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", personName)==false){
-                throw new Exception("Please enter valid  Name");
+            }else if(Pattern.matches("^[A-Za-z ]*$", personName)==false){
+                throw new Exception("Please enter valid  Name with only characters");
 
             }
         } catch(NullPointerException e){
@@ -374,7 +426,7 @@ public class CreateRequest extends javax.swing.JPanel {
             if(personLocation==null || personLocation.isEmpty()){
                 throw new NullPointerException(" Location field is Empty");
 
-            }else if(Pattern.matches("^[A-Za-z ]*$", personLocation)==false){
+            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", personLocation)==false){
                 throw new Exception("Please enter valid  Location");
 
             }
@@ -406,6 +458,40 @@ public class CreateRequest extends javax.swing.JPanel {
 
             return;
         }
+        
+        String FromEmail = "homeandbeyound@gmail.com";
+        String FromEmailPassword = "umba qlmn cfnq entb";
+        String Subjects = "Request Created";
+        
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.starttls.required", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            }
+        });
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(FromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject(Subjects);
+            message.setText("An Request is created on behalf of you by "+ userAccount  
+                            + "\n Details are as below: " + "\nLocation:"+personLocation
+                            + "\n Type of Emergency: " + typeOfEmergency 
+                            + "\n Comments to your case: " + comments 
+                            + "\n\n If this is not you then contact +1 (635)241-8765 or email to homeandbeyound@gmail.com");
+            Transport.send(message);
+        }catch(Exception ex){
+            System.out.println(""+ex);
+        }
+        
         RequestDirectory reqDir = ecoSystem.getRequestDirectory();
         Request req = null;
         if (ecoSystem.getRequestDirectory() == null) {
@@ -414,7 +500,21 @@ public class CreateRequest extends javax.swing.JPanel {
         } else {
             req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
         }
+        JOptionPane.showMessageDialog(null, "  Request is created");
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtEmail.getText());
+        if (!match.matches()) {
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtEmail.setBackground(Color.red);
+        } else {
+            txtEmail.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtEmailKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

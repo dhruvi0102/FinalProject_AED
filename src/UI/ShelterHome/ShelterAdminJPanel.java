@@ -47,16 +47,18 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         tblRequests = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblTitle.setText("Welcome to Shelter Services");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 236, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 390, -1));
 
         lblAssignedRequests.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblAssignedRequests.setText("List of requests assigned to your Shelter :");
-        add(lblAssignedRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        add(lblAssignedRequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
+        tblRequests.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -70,15 +72,18 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 1340, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 1340, 140));
 
+        btnNext.setBackground(new java.awt.Color(0, 153, 153));
+        btnNext.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
-        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
+        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -121,12 +126,12 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateRqs() {
-        System.out.println(system.getHospitalDirectory().getHospitalDirectoryList() + "pppppp");
+       
         DefaultTableModel model = (DefaultTableModel) tblRequests.getModel();
         model.setRowCount(0);
         for (Shelter shelter : system.getShelterDirectory().getShelterList()) {
             System.out.println("cuttt " + shelter.getUserName() + "sjsjsj " + account.getUserName());
-            if (shelter.getShelterName().equals(account.getUserName())) {
+            if (shelter.getUserName().equals(account.getUserName())) {
                 for (Request req : shelter.getRequests()) {
                     Object[] row = new Object[12];
 
