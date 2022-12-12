@@ -9,6 +9,7 @@ import model.Areas.Area;
 import model.EcoSystem;
 import model.Requests.Request;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -17,9 +18,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import model.Requests.RequestDirectory;
 import model.UserAccount.UserAccount;
 
@@ -52,7 +56,6 @@ public class CreateRequest extends javax.swing.JPanel {
         cmbStatus.setSelectedIndex(0);
         btnGetUnits.setVisible(true);
         btnCreate.setVisible(false);
-//        statusDD.setEnabled(false);
 
         getAreas();
 
@@ -216,12 +219,69 @@ public class CreateRequest extends javax.swing.JPanel {
 
     private void btnGetUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetUnitsActionPerformed
         String entityName = txtName.getText();
-        String entityLocation = txtEmail.getText();
+        String email = txtEmail.getText();
+        String entityLocation = txtLocation.getText();
         String entityArea = entityAreaField.getSelectedItem().toString();
-        String typeOfEmergency = entityTypeOfEmergency.getText();
+        String typeOfEmergency = listServices.getSelectedValue();
         String comments = txtComments.getText();
         String dateTimeStamp = lblTimeStamp.getText();
         String status = cmbStatus.getSelectedItem().toString();
+        try {
+            if(entityName==null || entityName.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(Pattern.matches("^[A-Za-z ]*$", entityName)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+        try {
+            if(email==null || email.isEmpty()){
+                throw new NullPointerException(" Email field is Empty");
+
+            }else if(Pattern.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{3,4}$", email)==false){
+                throw new Exception("Please enter valid  Email");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Email is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " Email is invalid");
+
+            return;
+        }
+        try {
+            if(entityLocation==null || entityLocation.isEmpty()){
+                throw new NullPointerException(" Location field is Empty");
+
+            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", entityLocation)==false){
+                throw new Exception("Please enter valid  Location");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Person Location is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Person Location is invalid");
+
+            return;
+        }
+        
+        
        UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
         userProcessContainer.add("manageDelJPanel", unitsPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -264,11 +324,21 @@ public class CreateRequest extends javax.swing.JPanel {
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
+        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtEmail.getText());
+        if (!match.matches()) {
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtEmail.setBackground(Color.red);
+        } else {
+            txtEmail.setBackground(Color.white);
+        }
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         String userName = "";
+        String email = txtEmail.getText();
         String personName = txtName.getText();
         String personLocation = txtLocation.getText();
         String area = lblArea.getText();
@@ -280,8 +350,63 @@ public class CreateRequest extends javax.swing.JPanel {
         String selectedPoliceDept = "Not Assigned";
         String selectedShelter = "Not Assigned";
         String status = lblStatus.getText();
-        RequestDirectory reqDir = ecoSystem.getRequestDirectory();
+        
+        
+        try {
+            if(personName==null || personName.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
 
+            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", personName)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+        try {
+            if(personLocation==null || personLocation.isEmpty()){
+                throw new NullPointerException(" Location field is Empty");
+
+            }else if(Pattern.matches("^[A-Za-z ]*$", personLocation)==false){
+                throw new Exception("Please enter valid  Location");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Person Location is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Person Location is invalid");
+
+            return;
+        }
+        try {
+            if(email==null || email.isEmpty()){
+                throw new NullPointerException(" Email field is Empty");
+
+            }else if(Pattern.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{3,4}$", email)==false){
+                throw new Exception("Please enter valid  Email");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Email is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " Email is invalid");
+
+            return;
+        }
+        RequestDirectory reqDir = ecoSystem.getRequestDirectory();
         Request req = null;
         if (ecoSystem.getRequestDirectory() == null) {
             req = new Request(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
