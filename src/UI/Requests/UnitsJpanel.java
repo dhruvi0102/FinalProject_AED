@@ -294,9 +294,9 @@ public class UnitsJpanel extends javax.swing.JPanel {
         String comments = lblComments.getText();
         String date = lblDateTimeStamp.getText();
         String selectedHospital = "Not Assigned";
-        String selectedFireDept = userName;
+        String selectedFireDept = "Not Assigned";
         String selectedPoliceDept = "Not Assigned";
-        String selectedShelter = "Not Assigned";
+        String selectedShelter = userName;
         String status = "Assigned";
         RequestDirectory reqDir = ecoSystem.getRequestDirectory();
 
@@ -344,8 +344,8 @@ public class UnitsJpanel extends javax.swing.JPanel {
         String typeOfEmergency = lblTypeOfEmergency.getText();
         String comments = lblComments.getText();
         String date = lblDateTimeStamp.getText();
-        String selectedHospital = "Not Assigned";
-        String selectedFireDept = userName;
+        String selectedHospital = userName;
+        String selectedFireDept = "Not Assigned";
         String selectedPoliceDept = "Not Assigned";
         String selectedShelter = "Not Assigned";
         String status = "Assigned";
