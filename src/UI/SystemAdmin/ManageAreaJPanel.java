@@ -274,7 +274,7 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
         else {
             aadmin = ecoSystem.getAreaAdminDirectory().createAdmin(name, uname);
         }
-        JOptionPane.showMessageDialog(null, "Police Department is added!");
+        JOptionPane.showMessageDialog(null, "Area admin is added!");
         }
         
         populateTable();
@@ -366,6 +366,7 @@ public class ManageAreaJPanel extends javax.swing.JPanel {
 
             return;
         }
+        JOptionPane.showMessageDialog(null,"Changes are updated!");
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,null,null);
             ecoSystem.getAreaAdminDirectory().updateAdmin(name,uname);
             populateTable();

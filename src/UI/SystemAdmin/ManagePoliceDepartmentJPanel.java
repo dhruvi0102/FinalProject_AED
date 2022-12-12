@@ -269,7 +269,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
             String uname = (String) tblPoliceDepartment.getValueAt(selectedRow, 1);
             String password = (String) tblPoliceDepartment.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            String warningMessage = "Are you sure you want to delete the user" + name.toUpperCase() + " ?";
+            String warningMessage = "Are you sure you want to delete the user - " + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
@@ -375,7 +375,7 @@ public class ManagePoliceDepartmentJPanel extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(userAccount,name,uname,password,address,status);
             ecoSystem.getPoliceDeptDirectory().updatePoliceDepartment(name,uname,address,status);
-            JOptionPane.showMessageDialog(null, "User Changes are updated!");
+            JOptionPane.showMessageDialog(null, "Changes are updated!");
             populateEntityTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);

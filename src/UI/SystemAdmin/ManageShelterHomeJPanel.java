@@ -290,7 +290,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
             String uname = (String) tblShelter.getValueAt(selectedRow, 1);
             String password = (String) tblShelter.getValueAt(selectedRow, 2);
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            String warningMessage = "Are you sure you want to delete the user [FireDept] - " + name.toUpperCase() + " ?";
+            String warningMessage = "Are you sure you want to delete the user - " + name.toUpperCase() + " ?";
             int selectionResult = JOptionPane.showConfirmDialog(null, warningMessage, "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 UserAccount user = ecoSystem.getUserAccountDirectory().authenticateUser(uname, password);
@@ -370,6 +370,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
 
             ecoSystem.getUserAccountDirectory().updateUserAccount(account, name, uname, password,address, status);
             ecoSystem.getShelterDirectory().updateShelter(name,uname,address,status);
+            JOptionPane.showMessageDialog(null, " Changes are updated");
             populateEntityTable();
             btnSave.setEnabled(true);
             btnDelete.setEnabled(true);
