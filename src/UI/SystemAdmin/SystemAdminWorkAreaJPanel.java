@@ -82,20 +82,26 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblWelcome.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblWelcome.setText("Welcome to the System");
-        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 16, -1, -1));
+        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 350, -1));
 
+        lblRequestTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblRequestTitle.setText("Click below button to Create and manage Requests:");
         add(lblRequestTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 58, -1, -1));
 
+        btnCreateRequest.setBackground(new java.awt.Color(0, 153, 153));
+        btnCreateRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnCreateRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateRequest.setText("Create Requests");
         btnCreateRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateRequestActionPerformed(evt);
             }
         });
-        add(btnCreateRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 86, 166, 48));
+        add(btnCreateRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 166, 48));
 
+        lblEnterpriseTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEnterpriseTitle.setText("Create Enterprises with use of below Buttons:");
         add(lblEnterpriseTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 165, -1, -1));
 
@@ -131,56 +137,73 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(btnManageFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 100, 100));
 
+        lblUserAdminTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAdminTitle.setText("Create user and admins with use of below buttons:");
         add(lblUserAdminTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 373, -1, -1));
 
+        btnUsers.setBackground(new java.awt.Color(0, 153, 153));
+        btnUsers.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnUsers.setForeground(new java.awt.Color(255, 255, 255));
         btnUsers.setText("Users");
         btnUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsersActionPerformed(evt);
             }
         });
-        add(btnUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 407, 164, 51));
+        add(btnUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 164, 51));
 
+        btnAdmins.setBackground(new java.awt.Color(0, 153, 153));
+        btnAdmins.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAdmins.setForeground(new java.awt.Color(255, 255, 255));
         btnAdmins.setText("Admin");
         btnAdmins.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminsActionPerformed(evt);
             }
         });
-        add(btnAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 407, 114, 51));
+        add(btnAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 114, 51));
 
+        btnAreaAdmins.setBackground(new java.awt.Color(0, 153, 153));
+        btnAreaAdmins.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAreaAdmins.setForeground(new java.awt.Color(255, 255, 255));
         btnAreaAdmins.setText("Area Admin");
         btnAreaAdmins.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAreaAdminsActionPerformed(evt);
             }
         });
-        add(btnAreaAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 407, 151, 51));
+        add(btnAreaAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 151, 51));
 
+        btnManageRequest.setBackground(new java.awt.Color(0, 153, 153));
+        btnManageRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnManageRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnManageRequest.setText("Manage Requests");
         btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRequestActionPerformed(evt);
             }
         });
-        add(btnManageRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 86, 166, 48));
+        add(btnManageRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 166, 48));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Hospital");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 311, 62, -1));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Police");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 62, -1));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Shelter");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 62, -1));
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Fire");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

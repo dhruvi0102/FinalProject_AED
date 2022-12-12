@@ -171,7 +171,7 @@ public class UnitsJpanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1023, 21, -1, -1));
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnAssignHospital.setText("Assign ");
         btnAssignHospital.addActionListener(new java.awt.event.ActionListener() {
