@@ -51,21 +51,24 @@ public class FireLandingJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1270, 698));
         jPanel1.setMinimumSize(new java.awt.Dimension(1270, 698));
         jPanel1.setPreferredSize(new java.awt.Dimension(1270, 698));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnProceed.setBackground(new java.awt.Color(102, 255, 102));
+        btnProceed.setBackground(new java.awt.Color(0, 153, 153));
+        btnProceed.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnProceed.setForeground(new java.awt.Color(255, 255, 255));
         btnProceed.setText("Proceed");
         btnProceed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProceedActionPerformed(evt);
             }
         });
-        jPanel1.add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        jPanel1.add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, 40));
 
+        tblFiredeptRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblFiredeptRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -79,11 +82,11 @@ public class FireLandingJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblFiredeptRequest);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 1030, 160));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1030, 160));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblTitle.setText("Welcome to the Fire Department");
-        jPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 760, -1));
+        jPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 760, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1270, 700));
     }// </editor-fold>//GEN-END:initComponents

@@ -59,65 +59,76 @@ public class AssignControlUnitJPanel extends javax.swing.JPanel {
         lblFinalTU = new javax.swing.JLabel();
         txtFinalTU = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblControlUnit.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblControlUnit.setText("Select Critical Control unit to Dispatch");
-        add(lblControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        add(lblControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         cmbControlUnit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbControlUnitMouseClicked(evt);
             }
         });
-        add(cmbControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 210, 20));
+        add(cmbControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 210, 20));
 
+        btnContinue.setBackground(new java.awt.Color(0, 153, 153));
+        btnContinue.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnContinue.setForeground(new java.awt.Color(255, 255, 255));
         btnContinue.setText("Complete");
         btnContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinueActionPerformed(evt);
             }
         });
-        add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, 40));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblTitle.setText("Assign Control Unit");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 250, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 250, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, 40));
         add(lblReqID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 130, 20));
 
         lblRequestID.setText("Request ID:");
-        add(lblRequestID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        add(lblRequestID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
+        lblFinalCU.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblFinalCU.setText("Selected Control Unit");
-        add(lblFinalCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        add(lblFinalCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         txtFinalCU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFinalCUActionPerformed(evt);
             }
         });
-        add(txtFinalCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 160, -1));
+        add(txtFinalCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 160, -1));
 
+        lblTControlUnit.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTControlUnit.setText("Select Traffic Control unit to Dispatch");
-        add(lblTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        add(lblTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
         cmbTControlUnit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbTControlUnitMouseClicked(evt);
             }
         });
-        add(cmbTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 210, -1));
+        add(cmbTControlUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 210, -1));
 
+        lblFinalTU.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblFinalTU.setText("Selected Traffic Unit");
         add(lblFinalTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
-        add(txtFinalTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 170, -1));
+        add(txtFinalTU, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed

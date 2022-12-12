@@ -62,71 +62,82 @@ public class FireDepartmentAdmin extends javax.swing.JPanel {
         lblRequestDisplay = new javax.swing.JLabel();
         lblRequestN = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Fire Services");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 600, 70));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 250, 40));
 
-        lblFactoryFire.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblFactoryFire.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblFactoryFire.setText("Factory Fire Emergency");
-        add(lblFactoryFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
+        add(lblFactoryFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
-        lblHouseEmergency.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblHouseEmergency.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblHouseEmergency.setText("House Fire Emergency");
-        add(lblHouseEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
+        add(lblHouseEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        btnProceed.setBackground(new java.awt.Color(102, 255, 102));
+        btnProceed.setBackground(new java.awt.Color(0, 153, 153));
+        btnProceed.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnProceed.setForeground(new java.awt.Color(255, 255, 255));
         btnProceed.setText("Proceed");
         btnProceed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProceedActionPerformed(evt);
             }
         });
-        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 560, -1, -1));
+        add(btnProceed, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 90, 30));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 30, 110, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 110, 30));
 
+        lblHouseUn.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblHouseUn.setText("Unit Number:");
-        add(lblHouseUn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, -1, -1));
+        add(lblHouseUn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
+        lblFactoryUn.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblFactoryUn.setText("Unit Number:");
-        add(lblFactoryUn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
-        add(txtHouseUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 210, -1));
-        add(txtFactoryUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 210, -1));
+        add(lblFactoryUn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        add(txtHouseUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 210, -1));
+        add(txtFactoryUN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 210, -1));
 
-        btnAddFf.setBackground(new java.awt.Color(255, 51, 51));
+        btnAddFf.setBackground(new java.awt.Color(0, 153, 153));
+        btnAddFf.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAddFf.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFf.setText("Add Unit");
         btnAddFf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFfActionPerformed(evt);
             }
         });
-        add(btnAddFf, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, -1, -1));
+        add(btnAddFf, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, 30));
 
-        btnHf.setBackground(new java.awt.Color(255, 51, 51));
+        btnHf.setBackground(new java.awt.Color(0, 153, 153));
+        btnHf.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnHf.setForeground(new java.awt.Color(255, 255, 255));
         btnHf.setText("Add Unit");
         btnHf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHfActionPerformed(evt);
             }
         });
-        add(btnHf, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, -1, -1));
+        add(btnHf, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, 30));
 
         lblRequestDisplay.setText("jLabel9");
-        add(lblRequestDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
+        add(lblRequestDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         lblRequestN.setText("Request No.");
-        add(lblRequestN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+        add(lblRequestN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProceedActionPerformed
