@@ -17,9 +17,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultComboBoxModel;
@@ -203,6 +210,11 @@ public class CreateRequest extends javax.swing.JPanel {
                 txtEmailActionPerformed(evt);
             }
         });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+        });
         add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 277, -1));
 
         lblEmail1.setText("Email");
@@ -231,7 +243,7 @@ public class CreateRequest extends javax.swing.JPanel {
                 throw new NullPointerException(" Name field is Empty");
 
             }else if(Pattern.matches("^[A-Za-z ]*$", entityName)==false){
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid  Name with only characters");
 
             }
         } catch(NullPointerException e){
@@ -280,7 +292,39 @@ public class CreateRequest extends javax.swing.JPanel {
 
             return;
         }
+        String FromEmail = "homeandbeyound@gmail.com";
+        String FromEmailPassword = "umba qlmn cfnq entb";
+        String Subjects = "Request Created";
         
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.starttls.required", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            }
+        });
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(FromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject(Subjects);
+            message.setText("An Request is created on behalf of you by Admin" 
+                            + "\n Details are as below: " 
+                            + "\nLocation:"+entityLocation
+                            + "\n Type of Emergency: " + typeOfEmergency 
+                            + "\n Comments to your case: " + comments 
+                            + "\n\n If this is not you then contact +1 (635)241-8765 or email to homeandbeyound@gmail.com");
+            Transport.send(message);
+        }catch(Exception ex){
+            System.out.println(""+ex);
+        }
         
        UnitsJpanel unitsPanel = new UnitsJpanel(userProcessContainer, ecoSystem, entityName, entityLocation, entityArea, typeOfEmergency, comments, dateTimeStamp, status);
         userProcessContainer.add("manageDelJPanel", unitsPanel);
@@ -323,16 +367,7 @@ public class CreateRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbStatusActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-        Pattern patt = Pattern.compile(pattern);
-        Matcher match = patt.matcher(txtEmail.getText());
-        if (!match.matches()) {
-            //lblPWeightErr.setText("Incorrect weight format");
-            txtEmail.setBackground(Color.red);
-        } else {
-            txtEmail.setBackground(Color.white);
-        }
+       
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -349,15 +384,15 @@ public class CreateRequest extends javax.swing.JPanel {
         String selectedFireDept = "Not Assigned";
         String selectedPoliceDept = "Not Assigned";
         String selectedShelter = "Not Assigned";
-        String status = lblStatus.getText();
+        String status = (String) cmbStatus.getSelectedItem();
         
         
         try {
             if(personName==null || personName.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
-            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", personName)==false){
-                throw new Exception("Please enter valid  Name");
+            }else if(Pattern.matches("^[A-Za-z ]*$", personName)==false){
+                throw new Exception("Please enter valid  Name with only characters");
 
             }
         } catch(NullPointerException e){
@@ -374,7 +409,7 @@ public class CreateRequest extends javax.swing.JPanel {
             if(personLocation==null || personLocation.isEmpty()){
                 throw new NullPointerException(" Location field is Empty");
 
-            }else if(Pattern.matches("^[A-Za-z ]*$", personLocation)==false){
+            }else if(Pattern.matches("^[A-Za-z0-9 ]*$", personLocation)==false){
                 throw new Exception("Please enter valid  Location");
 
             }
@@ -406,6 +441,40 @@ public class CreateRequest extends javax.swing.JPanel {
 
             return;
         }
+        
+        String FromEmail = "homeandbeyound@gmail.com";
+        String FromEmailPassword = "umba qlmn cfnq entb";
+        String Subjects = "Request Created";
+        
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+        properties.put("mail.smtp.starttls.required", "true");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        
+        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(FromEmail, FromEmailPassword);
+            }
+        });
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(FromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject(Subjects);
+            message.setText("An Request is created on behalf of you by "+ userAccount  
+                            + "\n Details are as below: " + "\nLocation:"+personLocation
+                            + "\n Type of Emergency: " + typeOfEmergency 
+                            + "\n Comments to your case: " + comments 
+                            + "\n\n If this is not you then contact +1 (635)241-8765 or email to homeandbeyound@gmail.com");
+            Transport.send(message);
+        }catch(Exception ex){
+            System.out.println(""+ex);
+        }
+        
         RequestDirectory reqDir = ecoSystem.getRequestDirectory();
         Request req = null;
         if (ecoSystem.getRequestDirectory() == null) {
@@ -414,7 +483,21 @@ public class CreateRequest extends javax.swing.JPanel {
         } else {
             req = ecoSystem.getRequestDirectory().createRequest(personName, personLocation, area, typeOfEmergency, comments, date, selectedHospital, selectedFireDept, selectedPoliceDept, selectedShelter, status);
         }
+        JOptionPane.showMessageDialog(null, "  Request is created");
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtEmail.getText());
+        if (!match.matches()) {
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtEmail.setBackground(Color.red);
+        } else {
+            txtEmail.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtEmailKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

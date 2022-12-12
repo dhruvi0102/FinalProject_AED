@@ -9,8 +9,11 @@ import model.EcoSystem;
 import model.UserAdmin.User;
 import model.UserAdmin.UserDirectory;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -89,14 +92,19 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         lblContact.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblContact.setText("Contact");
+
+        txtContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactActionPerformed(evt);
+            }
+        });
+        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtContactKeyReleased(evt);
+            }
+        });
 
         lblGender.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblGender.setText("Gender");
@@ -266,9 +274,29 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
        btnSave.setVisible(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+
+    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+    }//GEN-LAST:event_txtContactActionPerformed
+
+    private void txtContactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyReleased
+        // TODO add your handling code here:
+         String phonePattern = "^[0-9]*$";
+        Pattern patt = Pattern.compile(phonePattern);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || ((evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) || (evt.getKeyCode() == KeyEvent.VK_DELETE))) {
+            txtContact.setEditable(true);
+        } else {
+            txtContact.setEditable(false);
+        }
+        Matcher match = patt.matcher(txtContact.getText());
+        String Contact = txtContact.getText();
+        if (!(match.matches() && Contact.length() == 10)) {
+            txtContact.setBackground(Color.red);
+        } else {
+            txtContact.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtContactKeyReleased
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
