@@ -50,6 +50,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAreaAdmins.setVisible(false);
         lblRequestTitle.setVisible(true);
         btnCreateRequest.setVisible(true);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        
         }
     }
     /**
