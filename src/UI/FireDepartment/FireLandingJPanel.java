@@ -49,6 +49,7 @@ public class FireLandingJPanel extends javax.swing.JPanel {
         tblFiredeptRequest = new javax.swing.JTable();
         lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
