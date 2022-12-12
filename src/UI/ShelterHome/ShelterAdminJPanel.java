@@ -121,12 +121,12 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateRqs() {
-        System.out.println(system.getHospitalDirectory().getHospitalDirectoryList() + "pppppp");
+       
         DefaultTableModel model = (DefaultTableModel) tblRequests.getModel();
         model.setRowCount(0);
         for (Shelter shelter : system.getShelterDirectory().getShelterList()) {
             System.out.println("cuttt " + shelter.getUserName() + "sjsjsj " + account.getUserName());
-            if (shelter.getShelterName().equals(account.getUserName())) {
+            if (shelter.getUserName().equals(account.getUserName())) {
                 for (Request req : shelter.getRequests()) {
                     Object[] row = new Object[12];
 
