@@ -81,7 +81,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 30));
 
         lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblName.setText("Name :");
@@ -107,7 +107,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, 30));
 
         tblAdmin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblAdmin.setModel(new javax.swing.table.DefaultTableModel(
@@ -134,7 +134,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, 30));
 
         btnConfirmUpdate.setBackground(new java.awt.Color(0, 153, 153));
         btnConfirmUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -145,7 +145,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, -1, 30));
 
         btnDelete.setBackground(new java.awt.Color(0, 153, 153));
         btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,7 +156,7 @@ public class ManageAdminJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, -1, 30));
 
         lblAddress.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAddress.setText("Address :");

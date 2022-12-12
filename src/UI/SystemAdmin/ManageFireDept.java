@@ -70,6 +70,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -105,6 +106,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 230, 50));
 
         btnSubmit.setBackground(new java.awt.Color(0, 153, 153));
+        btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setText("Save");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +114,9 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 333, -1, 30));
 
-        tblFireEnterprise.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tblFireEnterprise.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblFireEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -132,6 +134,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 690, 112));
 
         btnDel.setBackground(new java.awt.Color(0, 153, 153));
+        btnDel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnDel.setForeground(new java.awt.Color(255, 255, 255));
         btnDel.setText("Delete");
         btnDel.addActionListener(new java.awt.event.ActionListener() {
@@ -139,11 +142,11 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnDelActionPerformed(evt);
             }
         });
-        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
+        add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 530, -1, 30));
 
-        lbl_fireDept.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lbl_fireDept.setText("Fire Department");
-        add(lbl_fireDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 220, 30));
+        lbl_fireDept.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lbl_fireDept.setText("Manage Fire Department Admin");
+        add(lbl_fireDept, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 410, 30));
 
         lblAvailability.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAvailability.setText("Availability :");
@@ -159,6 +162,7 @@ public class ManageFireDept extends javax.swing.JPanel {
         add(chbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
 
         btnUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +170,10 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, 30));
 
         btnConfirm.setBackground(new java.awt.Color(0, 153, 153));
+        btnConfirm.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Confirm Update");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -176,9 +181,10 @@ public class ManageFireDept extends javax.swing.JPanel {
                 btnConfirmActionPerformed(evt);
             }
         });
-        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, -1));
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, -1, 30));
 
         Backbtn.setBackground(new java.awt.Color(0, 153, 153));
+        Backbtn.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("Back");
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
