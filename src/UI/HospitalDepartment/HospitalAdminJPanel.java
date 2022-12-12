@@ -68,63 +68,79 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         lblDisplayRequestId = new javax.swing.JLabel();
         lblRequestID = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblTitle.setText("Check EMT & Ambulance Availabilility");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 410, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 530, -1));
 
+        btnManage.setBackground(new java.awt.Color(0, 153, 153));
+        btnManage.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnManage.setForeground(new java.awt.Color(255, 255, 255));
         btnManage.setText("Manage");
         btnManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageActionPerformed(evt);
             }
         });
-        add(btnManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, -1, 30));
+        add(btnManage, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 90, 40));
 
         lblAdditionalDetails.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblAdditionalDetails.setText("Click here to get additional details :");
         add(lblAdditionalDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 110, 30));
-        add(txtNPINum, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 160, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 30));
+        add(txtNPINum, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 160, -1));
 
+        btnAddDoctor.setBackground(new java.awt.Color(0, 153, 153));
+        btnAddDoctor.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAddDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnAddDoctor.setText("Add Doctor");
         btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddDoctorActionPerformed(evt);
             }
         });
-        add(btnAddDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
-        add(txtEMTName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 160, -1));
+        add(btnAddDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, 30));
+        add(txtEMTName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 160, -1));
 
+        lblEMTName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEMTName.setText("EMT Name:");
-        add(lblEMTName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 20));
+        add(lblEMTName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, 20));
 
+        lblNPINum.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblNPINum.setText("NPI Number:");
-        add(lblNPINum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
+        add(lblNPINum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
         lblAddEMT.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblAddEMT.setText("Add EMT Availability :");
         add(lblAddEMT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
+        btnAddAmbulance.setBackground(new java.awt.Color(0, 153, 153));
+        btnAddAmbulance.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAddAmbulance.setForeground(new java.awt.Color(255, 255, 255));
         btnAddAmbulance.setText("Add Ambulance");
         btnAddAmbulance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddAmbulanceActionPerformed(evt);
             }
         });
-        add(btnAddAmbulance, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
-        add(txtAmbNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 160, -1));
+        add(btnAddAmbulance, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, 30));
+        add(txtAmbNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 160, -1));
 
+        lblAmbNum.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAmbNum.setText("Ambulance Number:");
-        add(lblAmbNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, 20));
+        add(lblAmbNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, 20));
 
         lblAddAmb.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblAddAmb.setText("Add Ambulance Availability :");
@@ -133,8 +149,9 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         lblDisplayPatientName.setText("jLabel6");
         add(lblDisplayPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
 
+        lblPatientName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPatientName.setText("Patient Name :");
-        add(lblPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, -1));
+        add(lblPatientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 120, -1));
 
         lblDisplayPatientArea.setText("jLabel8");
         add(lblDisplayPatientArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
@@ -142,17 +159,20 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         lblDisplayStatus.setText("jLabel8");
         add(lblDisplayStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
 
+        lblPatientArea.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPatientArea.setText("Patient Area :");
-        add(lblPatientArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+        add(lblPatientArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
+        lblStatus.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblStatus.setText("Status :");
-        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 100, -1));
+        add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 100, -1));
 
         lblDisplayRequestId.setText("jLabel8");
         add(lblDisplayRequestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
 
+        lblRequestID.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblRequestID.setText("Request ID :");
-        add(lblRequestID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        add(lblRequestID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageActionPerformed
