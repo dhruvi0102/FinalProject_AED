@@ -74,145 +74,140 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAdmins = new javax.swing.JButton();
         btnAreaAdmins = new javax.swing.JButton();
         btnManageRequest = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblWelcome.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         lblWelcome.setText("Welcome to the System");
+        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 350, -1));
 
+        lblRequestTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblRequestTitle.setText("Click below button to Create and manage Requests:");
+        add(lblRequestTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 58, -1, -1));
 
+        btnCreateRequest.setBackground(new java.awt.Color(0, 153, 153));
+        btnCreateRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnCreateRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateRequest.setText("Create Requests");
         btnCreateRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateRequestActionPerformed(evt);
             }
         });
+        add(btnCreateRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 166, 48));
 
+        lblEnterpriseTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblEnterpriseTitle.setText("Create Enterprises with use of below Buttons:");
+        add(lblEnterpriseTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 165, -1, -1));
 
-        btnManageShelter.setText("Shelter Department");
+        btnManageShelter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/House.png"))); // NOI18N
         btnManageShelter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageShelterActionPerformed(evt);
             }
         });
+        add(btnManageShelter, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 100, 100));
 
-        btnManagePolice.setText("Police Department");
+        btnManagePolice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police.png"))); // NOI18N
         btnManagePolice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagePoliceActionPerformed(evt);
             }
         });
+        add(btnManagePolice, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 100, 100));
 
-        btnManageHospital.setText("Hospital Department");
+        btnManageHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hospital.png"))); // NOI18N
         btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageHospitalActionPerformed(evt);
             }
         });
+        add(btnManageHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 199, 100, 100));
 
-        btnManageFire.setText("Fire Department");
+        btnManageFire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fire.png"))); // NOI18N
         btnManageFire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageFireActionPerformed(evt);
             }
         });
+        add(btnManageFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 100, 100));
 
+        lblUserAdminTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAdminTitle.setText("Create user and admins with use of below buttons:");
+        add(lblUserAdminTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 373, -1, -1));
 
+        btnUsers.setBackground(new java.awt.Color(0, 153, 153));
+        btnUsers.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnUsers.setForeground(new java.awt.Color(255, 255, 255));
         btnUsers.setText("Users");
         btnUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsersActionPerformed(evt);
             }
         });
+        add(btnUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 164, 51));
 
+        btnAdmins.setBackground(new java.awt.Color(0, 153, 153));
+        btnAdmins.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAdmins.setForeground(new java.awt.Color(255, 255, 255));
         btnAdmins.setText("Admin");
         btnAdmins.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminsActionPerformed(evt);
             }
         });
+        add(btnAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 114, 51));
 
+        btnAreaAdmins.setBackground(new java.awt.Color(0, 153, 153));
+        btnAreaAdmins.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnAreaAdmins.setForeground(new java.awt.Color(255, 255, 255));
         btnAreaAdmins.setText("Area Admin");
         btnAreaAdmins.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAreaAdminsActionPerformed(evt);
             }
         });
+        add(btnAreaAdmins, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 151, 51));
 
+        btnManageRequest.setBackground(new java.awt.Color(0, 153, 153));
+        btnManageRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnManageRequest.setForeground(new java.awt.Color(255, 255, 255));
         btnManageRequest.setText("Manage Requests");
         btnManageRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRequestActionPerformed(evt);
             }
         });
+        add(btnManageRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 166, 48));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEnterpriseTitle)
-                            .addComponent(lblRequestTitle)
-                            .addComponent(lblWelcome)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCreateRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUserAdminTitle)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(btnUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnManageHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnManagePolice, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnManageShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnManageFire, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnAreaAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lblWelcome)
-                .addGap(26, 26, 26)
-                .addComponent(lblRequestTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(lblEnterpriseTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManageHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManagePolice, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageShelter, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageFire, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(lblUserAdminTitle)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAreaAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addComponent(btnAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addComponent(btnUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hospital");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 311, 62, -1));
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Police");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 62, -1));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Shelter");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 62, -1));
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Fire");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 62, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRequestActionPerformed
@@ -298,6 +293,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageRequest;
     private javax.swing.JButton btnManageShelter;
     private javax.swing.JButton btnUsers;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEnterpriseTitle;
     private javax.swing.JLabel lblRequestTitle;
     private javax.swing.JLabel lblUserAdminTitle;

@@ -66,27 +66,35 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         lblSubTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblName.setText("Name :");
         add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
-        lblAddress.setText("Address");
-        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, 20));
+        lblAddress.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblAddress.setText("Address :");
+        add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 220, 70, 20));
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 203, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 200, 50));
 
+        btnSave.setBackground(new java.awt.Color(0, 153, 153));
+        btnSave.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, 30));
 
+        lblUserName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserName.setText("UserName :");
         add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
+        lblPassword.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblPassword.setText("Password :");
         add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
@@ -98,6 +106,7 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 203, -1));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 203, -1));
 
+        tblShelter.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         tblShelter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -121,22 +130,27 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 631, 140));
 
+        btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back ");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 80, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 80, 30));
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 21, 84, -1));
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
-        lblTitle.setText("Shelter Home ");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 200, 30));
+        lblTitle.setText("Manage Shelter Home Admin");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 390, 30));
 
+        lblAvailability.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAvailability.setText("Availability :");
-        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, 20));
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 20));
 
+        rdYes.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         rdYes.setText("Yes");
         rdYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,29 +159,38 @@ public class ManageShelterHomeJPanel extends javax.swing.JPanel {
         });
         add(rdYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
+        btnDelete.setBackground(new java.awt.Color(0, 153, 153));
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, -1, 30));
 
+        btnConfirmUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnConfirmUpdate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnConfirmUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmUpdate.setText("Confirm Update");
         btnConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmUpdateActionPerformed(evt);
             }
         });
-        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, -1, -1));
+        add(btnConfirmUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, -1, 30));
 
+        btnUpdate.setBackground(new java.awt.Color(0, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, 30));
 
         lblSubTitle.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblSubTitle.setText("Add Shelter Service details :");
