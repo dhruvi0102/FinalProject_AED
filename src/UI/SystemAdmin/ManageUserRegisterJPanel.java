@@ -92,15 +92,8 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         lblContact.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblContact.setText("Contact");
-
 
         txtContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,9 +106,7 @@ public class ManageUserRegisterJPanel extends javax.swing.JPanel {
             }
         });
 
-
         lblGender.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-
         lblGender.setText("Gender");
 
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
