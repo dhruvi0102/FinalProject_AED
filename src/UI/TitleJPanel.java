@@ -44,7 +44,7 @@ public class TitleJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Home and Beyond Service Provider");
 
         jLabel2.setBackground(new java.awt.Color(204, 255, 255));
