@@ -76,6 +76,7 @@ public class ManageDispatchUnits extends javax.swing.JPanel {
         add(cmbHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 240, -1));
 
         btnFD.setBackground(new java.awt.Color(0, 153, 153));
+        btnFD.setForeground(new java.awt.Color(255, 255, 255));
         btnFD.setText("send");
         btnFD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +96,7 @@ public class ManageDispatchUnits extends javax.swing.JPanel {
         add(cmbFD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 230, -1));
 
         btnHD.setBackground(new java.awt.Color(0, 153, 153));
+        btnHD.setForeground(new java.awt.Color(255, 255, 255));
         btnHD.setText("Send");
         btnHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +110,7 @@ public class ManageDispatchUnits extends javax.swing.JPanel {
         add(lblHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 230, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 153, 153));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
